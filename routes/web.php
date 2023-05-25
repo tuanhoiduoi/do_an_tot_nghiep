@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\thanhtoanController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,9 @@ use App\Http\Controllers\thanhtoanController;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('thanhtoan');
+    return view('dangnhap');
 });
+
 Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 
+Route::post('/trangchu',[UserController::class, 'login']);
