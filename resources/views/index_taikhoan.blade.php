@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Administrator</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -58,8 +58,8 @@
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li class="">
-                    <a href="{{route('quanlytaikhoan.index')}}">
+                <li class="active">
+                    <a href="table.html">
                         <i class="pe-7s-note2"></i>
                         <p>Quản lý tài khoản</p>
                     </a>
@@ -179,7 +179,54 @@
             </div>
         </nav>
 
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Họ tên</th>
+                                    	<th>Số điện thoại</th>
+                                    	<th>Mật khẩu</th>
+                                    	<th>Admin</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($lst_user as $users)
+                                            <tr>
+                                                <td>{{$users->id}}</td>
+                                                <td>{{$users->hoten}}</td>
+                                                <td>{{$users->sdt}}</td>
+                                                <td>{{$users->password}}</td>
+                                                <td>
+                                                    @if($users->is_admin == 1)
+                                                        Yes
+                                                    @else
+                                                        No
+                                                    @endif
+                                                </td>
+                                                <td><a href="{{route('quanlytaikhoan.edit',['quanlytaikhoan' => $users])}}" class="btn btn-primary">Sửa</a></td>
+                                                <td>
+                                                    <form action="{{route('quanlytaikhoan.destroy',['quanlytaikhoan'=>$users])}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
+                                                    </form>
+                                                </td>
+                                                <td><a href="{{route('quanlytaikhoan.create')}}" class="btn btn-success">Thêm</a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>

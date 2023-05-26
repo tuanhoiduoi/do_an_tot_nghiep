@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function index(){
         $lst_user = User::all();
-        return view('trangchu_admin',['lst_user' => $lst_user]);
+        return view('index_taikhoan',['lst_user' => $lst_user]);
     }
     public function create(){
         return view('create_account_admin');
@@ -37,6 +37,27 @@ class UserController extends Controller
             'password' => $req->password,
             'is_admin' => $req->is_admin
         ]);
-        return redirect()->route('trangchu.index');
+        return redirect()->route('quanlytaikhoan.index');
+    }
+    public function destroy(User $quanlytaikhoan){
+        $quanlytaikhoan->delete();
+        return redirect()->route('quanlytaikhoan.index');
+    }
+    public function edit(User $quanlytaikhoan){
+        // dd($quanlytaikhoan);
+        return view('edit_account_admin',['user' => $quanlytaikhoan]);
+    }
+    public function update(Request $req,User $quanlytaikhoan){
+
+        $quanlytaikhoan->fill([
+            'hoten' => $req->hoten,
+            'sdt' => $req->sdt,
+            'password' => \Hash::make($req->password),
+            'is_admin' => $req->is_admin
+        ]);
+
+        $quanlytaikhoan->save();
+
+        return redirect()->route('quanlytaikhoan.index');
     }
 }

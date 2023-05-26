@@ -179,7 +179,7 @@
             </div>
         </nav>
 
-        <form action="{{route('trangchu.store')}}" method="POST">
+        <form action="{{route('quanlytaikhoan.store')}}" method="POST">
             @csrf
             <label for="name">Tên:</label>
             <input type="text" name="hoten">

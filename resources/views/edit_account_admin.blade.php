@@ -12,23 +12,23 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="/assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="/assets/css/demo.css" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
-    <link href="assets/link/font_awesome.css" rel="stylesheet">
-    <link href='assets/link/font.css' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="/assets/link/font_awesome.css" rel="stylesheet">
+    <link href='/assets/link/font.css' rel='stylesheet' type='text/css'>
+    <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -179,6 +179,23 @@
             </div>
         </nav>
 
+        <form action="{{route('quanlytaikhoan.update',['quanlytaikhoan'=>$user])}}" method="POST">
+            @csrf
+            @method('PUT')
+            <label for="name">Tên:</label>
+            <input type="text" name="hoten" value="{{$user->hoten}}">
+
+            <label for="phone_number">Số điện thoại:</label>
+            <input type="text" name="sdt" value="{{$user->sdt}}">
+
+            <label for="password">Mật khẩu:</label>
+            <input type="text" name="password" value="{{$user->password}}">
+
+            <label for="status">Admin</label>
+            <input type="text" name="is_admin" value="{{$user->is_admin}}">
+
+            <button type="submit">Lưu</button>
+        </form>
 
 
 
