@@ -16,12 +16,12 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
-    return view('create_account_admin');
+    return view('dangnhap');
 });
 
 Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 
 Route::post('/trangchu',[UserController::class, 'login']);
 
-Route::resource('/trangchu', UserController::class);
+Route::resource('/quanlytaikhoan', UserController::class);
 
