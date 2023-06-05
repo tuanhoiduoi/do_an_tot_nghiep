@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\thanhtoanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,17 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/', function () {
+Route::get('/dangnhap', function () {
     return view('dangnhap');
+});
+
+Route::get('/trangchu', function () {
+    return view('trangchu_admin');
 });
 
 Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 
 Route::post('/trangchu',[UserController::class, 'login']);
 
-Route::resource('/quanlytaikhoan', UserController::class);
+Route::resource('/accounts', AccountController::class);
 
