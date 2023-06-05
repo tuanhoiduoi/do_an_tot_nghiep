@@ -46,22 +46,22 @@
             </div>
 
             <ul class="nav">
+                <li class="">
+                    <a href="{{route('accounts.index')}}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Quản lý tài khoản</p>
+                    </a>
+                </li>
                 <li>
-                    <a href="dashboard.html">
+                    <a href="{{route('films.index')}}">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Quản lý phim</p>
                     </a>
                 </li>
                 <li>
                     <a href="user.html">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{route('accounts.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý tài khoản</p>
                     </a>
                 </li>
                 <li>

@@ -13,7 +13,7 @@ class PhimSeeder extends Seeder
     public function run(): void
     {
         //
-        \DB::table('phim')->insert([
+        \DB::table('films')->insert([
             [
                 'tenphim' => 'FAST AND FURIOUS X',
                 'hinh' => '1',

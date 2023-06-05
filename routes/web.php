@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\thanhtoanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\FilmController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +30,4 @@ Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 Route::post('/trangchu',[UserController::class, 'login']);
 
 Route::resource('/accounts', AccountController::class);
-
+Route::resource('/films', FilmController::class);
