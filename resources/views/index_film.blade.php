@@ -20,7 +20,7 @@
                                 @foreach ($lst_film as $film)
                                     <tr>
                                         <td>{{$film->id}}</td>
-                                        <td>{{$film->hinh}}</td>
+                                        <td><img style="height: 75px;width: 75px;" src="/images/{{$film->hinh}}"></td>
                                         <td>{{$film->tenphim}}</td>
                                         <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:300px">{{$film->noidung}}</td>
                                         <td>{{$film->thoiluong}}</td>
@@ -40,7 +40,7 @@
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
                                             </form>
                                         </td>
-                                        <td><a href="{{route('accounts.create')}}" class="btn btn-success">Thêm</a></td>
+                                        <td><a href="{{route('films.create')}}" class="btn btn-success">Thêm</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
