@@ -116,7 +116,7 @@
                                 if($user != Null){
                         ?>
                         <li>
-                            <a href="{{url('/dangnhap')}}">
+                            <a href="#">
                                 <p>Log out</p>
                             </a>
                         </li>
