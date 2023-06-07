@@ -34,7 +34,7 @@
                                         </td>
                                         <td><a href="{{route('films.edit',['film' => $film])}}" class="btn btn-primary">Sửa</a></td>
                                         <td>
-                                            <form action="{{route('films.destroy',['film'=>$film])}}" method="POST">
+                                            <form action="{{route('films.destroy',['film'=>$film])}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>

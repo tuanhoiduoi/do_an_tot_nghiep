@@ -20,7 +20,7 @@
 <form action="{{route('accounts.store')}}" method="POST">
     @csrf
     <div>
-        <label for="name">Tên:</label><br>
+        <label for="name">Tên</label><br>
         <input type="text" name="hoten">
     </div>
 

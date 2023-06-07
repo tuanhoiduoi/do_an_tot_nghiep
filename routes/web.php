@@ -17,6 +17,10 @@ use App\Http\Controllers\FilmController;
 */
 
 
+Route::get('/', function () {
+    return view('index_film');
+});
+
 Route::get('/dangnhap', function () {
     return view('dangnhap');
 });
