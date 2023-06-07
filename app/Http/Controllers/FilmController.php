@@ -48,4 +48,25 @@ class FilmController extends Controller
         $film->save();
         return redirect()->route('films.index');
     }
+    public function create(){
+        return view('create_film');
+    }
+    public function store(Request $req){
+        $fileName = $req->hinh->getClientOriginalName();
+        $path = $fileName;
+        $req=Film::create([
+            'hinh' => $path,
+            'tenphim' => $req->tenphim,
+            'noidung' => $req->noidung,
+            'thoiluong' => $req->thoiluong,
+            'daodien' => $req->daodien,
+            'trangthai' => $req->trangthai
+        ]);
+        return redirect()->route('films.index');
+    }
+    public function destroy(Request $req,Film $film){
+        $film->fill(['trangthai'=> 0]);
+        $film->save();
+        return redirect()->route('films.index');
+    }
 }
