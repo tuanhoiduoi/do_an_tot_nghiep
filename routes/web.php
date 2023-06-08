@@ -5,6 +5,7 @@ use App\Http\Controllers\thanhtoanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\CinemaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\FilmController;
 
 
 Route::get('/', function () {
-    return view('index_film');
+    return view('index_cinema');
 });
 
 Route::get('/dangnhap', function () {
@@ -35,3 +36,4 @@ Route::post('/trangchu',[UserController::class, 'login']);
 
 Route::resource('/accounts', AccountController::class);
 Route::resource('/films', FilmController::class);
+Route::resource('/cinemas', CinemaController::class);

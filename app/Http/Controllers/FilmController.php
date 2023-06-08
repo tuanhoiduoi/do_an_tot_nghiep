@@ -64,7 +64,7 @@ class FilmController extends Controller
         ]);
         return redirect()->route('films.index');
     }
-    public function destroy(Request $req,Film $film){
+    public function destroy(Film $film){
         $film->fill(['trangthai'=> 0]);
         $film->save();
         return redirect()->route('films.index');
