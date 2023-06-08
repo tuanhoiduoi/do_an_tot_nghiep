@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\RoomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,4 @@ Route::post('/trangchu',[UserController::class, 'login']);
 Route::resource('/accounts', AccountController::class);
 Route::resource('/films', FilmController::class);
 Route::resource('/cinemas', CinemaController::class);
+Route::resource('/rooms', RoomController::class);

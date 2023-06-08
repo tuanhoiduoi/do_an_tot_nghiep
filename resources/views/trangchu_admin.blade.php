@@ -59,15 +59,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="{{route('cinemas.index')}}">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>Quản lý rạp</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="{{route('rooms.index')}}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>Quản lý phòng</p>
                     </a>
                 </li>
                 <li>
