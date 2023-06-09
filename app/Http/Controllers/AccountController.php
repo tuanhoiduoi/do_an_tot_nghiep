@@ -7,6 +7,15 @@ use App\Models\User;
 
 class AccountController extends Controller
 {
+    // public function Authlogin(){
+    //     $admin_id = Session::get('admin_id');
+    //     if($admin_id){
+    //         return Redirect::to('dashboard');
+    //     }else{
+    //         return Redirect::to('admin')->send();
+    //     }
+    // }
+
     public function index(){
         $lst_user = User::all();
         return view('index_taikhoan',['lst_user' => $lst_user]);

@@ -14,39 +14,39 @@ class PhongSeeder extends Seeder
     {
         \DB::table('rooms')->insert([
             [
-                'sophong' => 1,
+                'sophong' => 101,
                 'rap_id' => 1,
             ],
             [
-                'sophong' => 2,
+                'sophong' => 102,
                 'rap_id' => 1,
             ],
             [
-                'sophong' => 3,
+                'sophong' => 103,
                 'rap_id' => 1,
             ],
             [
-                'sophong' => 1,
+                'sophong' => 201,
                 'rap_id' => 2,
             ],
             [
-                'sophong' => 2,
+                'sophong' => 202,
                 'rap_id' => 2,
             ],
             [
-                'sophong' => 3,
+                'sophong' => 203,
                 'rap_id' => 2,
             ],
             [
-                'sophong' => 1,
+                'sophong' => 301,
                 'rap_id' => 3,
             ],
             [
-                'sophong' => 2,
+                'sophong' => 302,
                 'rap_id' => 3,
             ],
             [
-                'sophong' => 3,
+                'sophong' => 303,
                 'rap_id' => 3,
             ],
         ]);

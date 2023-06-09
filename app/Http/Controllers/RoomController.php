@@ -9,8 +9,8 @@ use App\Models\Cinema;
 class RoomController extends Controller
 {
     public function index(Room $room){
-        $lst_room = Room::all();
-        return view('index_room',['lst_room'=> $lst_room]);
+        $room = Room::all();
+        return view('index_room',['lst_room'=> $room]);
     }
     public function create(){
         $lst = Cinema::all();
