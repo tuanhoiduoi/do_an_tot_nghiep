@@ -9,24 +9,32 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <th>ID</th>
-                                <th>Tên rạp</th>
-                                <th>Địa chỉ</th>
+                                <th>Số phòng</th>
+                                <th>Rạp</th>
+                                <th>Trạng thái</th>
                             </thead>
                             <tbody>
-                                @foreach ($lst_cinema as $cinema)
+                                @foreach ($lst_room as $room)
                                     <tr>
-                                        <td>{{$cinema->id}}</td>
-                                        <td>{{$cinema->tenrap}}</td>
-                                        <td>{{$cinema->diachi}}</td>
-                                        <td><a href="{{route('cinemas.edit',['cinema' => $cinema])}}" class="btn btn-primary">Sửa</a></td>
+                                        <td>{{$room->id}}</td>
+                                        <td>{{$room->sophong}}</td>
+                                        <td>{{$room->rap_id}}</td>
                                         <td>
-                                            <form action="{{route('cinemas.destroy',['cinema'=>$cinema])}}" method="POST">
+                                            @if($room->trangthai == 1)
+                                                Hoạt động
+                                            @else
+                                                Không hoạt động
+                                            @endif
+                                        </td>
+                                        <td><a href="{{route('rooms.edit',['room' => $room])}}" class="btn btn-primary">Sửa</a></td>
+                                        <td>
+                                            <form action="{{route('rooms.destroy',['room'=>$room])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
                                             </form>
                                         </td>
-                                        <td><a href="{{route('cinemas.create')}}" class="btn btn-success">Thêm</a></td>
+                                        <td><a href="{{route('rooms.create')}}" class="btn btn-success">Thêm</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

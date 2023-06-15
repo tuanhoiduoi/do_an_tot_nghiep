@@ -11,6 +11,7 @@ class Showtime extends Model
     protected $fillable = [
         'phim_id',
         'phong_id',
-        'thoigian'
+        'thoigian',
+        'trangthai',
     ];
 }

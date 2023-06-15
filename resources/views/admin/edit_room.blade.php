@@ -36,6 +36,13 @@
         </select>
     </div>
 
+    <div>
+        <label for="">Trạng Thái</label>
+        <select name="trangthai">
+            <option value="1">Hoạt động</option>
+            <option value="0">Không hoạt động</option>
+        </select>
+    </div>
 
     <button type="submit">Lưu</button>
 </form>

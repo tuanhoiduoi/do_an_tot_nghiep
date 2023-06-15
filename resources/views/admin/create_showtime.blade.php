@@ -17,9 +17,8 @@
         font-size: 15px
     }
 </style>
-<form action="{{route('showtimes.update',['showtime'=>$showtime])}}" method="POST">
+<form action="{{route('showtimes.store')}}" method="POST">
     @csrf
-    @method('PUT')
 
     <div>
         <label for="name">Phim</label>
@@ -39,12 +38,18 @@
         </select>
     </div>
 
-
     <div>
         <label for="name">Thời gian</label><br>
-        <input type="datetime-local" name="thoigian" value="{{$showtime->thoigian}}">
+        <input type="datetime-local" name="thoigian">
     </div>
 
+    <div>
+        <label for="">Trạng Thái</label>
+        <select name="trangthai">
+            <option value="1">Hoạt động</option>
+            <option value="0">Không hoạt động</option>
+        </select>
+    </div>
 
 
     <button type="submit">Lưu</button>

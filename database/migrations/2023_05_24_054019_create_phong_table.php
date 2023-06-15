@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->integer('sophong');
+            $table->integer('trangthai');
             $table->foreignId('rap_id')->constrained('cinemas');
             $table->timestamps();
         });
