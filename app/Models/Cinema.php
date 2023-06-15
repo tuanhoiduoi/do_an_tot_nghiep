@@ -12,5 +12,6 @@ class Cinema extends Model
     protected $fillable = [
         'tenrap',
         'diachi',
+        'trangthai',
     ];
 }

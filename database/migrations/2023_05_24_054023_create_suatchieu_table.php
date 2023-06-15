@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('phim_id')->constrained('films');
             $table->foreignId('phong_id')->constrained('rooms');
             $table->dateTime('thoigian');
+            $table->integer('trangthai');
             $table->timestamps();
         });
     }

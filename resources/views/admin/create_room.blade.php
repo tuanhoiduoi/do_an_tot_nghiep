@@ -25,7 +25,7 @@
     </div>
 
     <div>
-        <label for="name">Rạp</label><br>
+        <label for="name">Rạp</label>
         <select name="rap_id">
             @foreach ($lst_cinema as $cinema)
                 <option value="{{$cinema->id}}">{{$cinema->tenrap}}</option>
@@ -33,6 +33,13 @@
         </select>
     </div>
 
+    <div>
+        <label for="">Trạng Thái</label>
+        <select name="trangthai">
+            <option value="1">Hoạt động</option>
+            <option value="0">Không hoạt động</option>
+        </select>
+    </div>
 
     <button type="submit">Lưu</button>
 </form>

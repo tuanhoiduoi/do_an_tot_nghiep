@@ -18,10 +18,10 @@ class AccountController extends Controller
 
     public function index(){
         $lst_user = User::all();
-        return view('index_taikhoan',['lst_user' => $lst_user]);
+        return view('admin.index_taikhoan',['lst_user' => $lst_user]);
     }
     public function create(){
-        return view('create_account_admin');
+        return view('admin.create_account_admin');
     }
     public function store(Request $req){
         $req=User::create([
@@ -38,7 +38,7 @@ class AccountController extends Controller
     }
     public function edit(User $account){
         // dd($quanlytaikhoan);
-        return view('edit_account_admin',['user' => $account]);
+        return view('admin.edit_account_admin',['user' => $account]);
     }
     public function update(Request $req,User $account){
         if($account->password != $req->password)

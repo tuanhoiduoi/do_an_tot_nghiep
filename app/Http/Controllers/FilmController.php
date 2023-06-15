@@ -23,11 +23,11 @@ class FilmController extends Controller
     public function index(Film $fil){
         $lst_film = Film::all();
         $this->fixImg($fil);
-        return view('index_film',['lst_film' => $lst_film]);
+        return view('admin.index_film',['lst_film' => $lst_film]);
     }
     public function edit(Film $film){
         $this->fixImg($film);
-        return view('edit_film',['film'=>$film]);
+        return view('admin.edit_film',['film'=>$film]);
     }
     public function update(Request $req,Film $film){
         //kiem tra co cap nhat hinh khong
@@ -49,7 +49,7 @@ class FilmController extends Controller
         return redirect()->route('films.index');
     }
     public function create(){
-        return view('create_film');
+        return view('admin.create_film');
     }
     public function store(Request $req){
         $fileName = $req->hinh->getClientOriginalName();
