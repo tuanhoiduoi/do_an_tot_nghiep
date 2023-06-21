@@ -14,10 +14,10 @@
                                     	<th>Mã Veri</th>
                                     </thead>
                                     <tbody>
-                                        @foreach ($lst_bill as $bills)
+                                        @foreach ($bill as $key => $bills)
                                             <tr>
                                                 <td>{{$bills->id}}</td>
-                                                <td>{{$bills->kh_id}}</td>
+                                                <td>{{$bills->hoten}}</td>
                                                 <td>{{$bills->ngaylap}}</td>
                                                 <td>{{$bills->veri}}</td>
                                                 <td><a href="{{route('bills.edit',['bill' => $bills])}}" class="btn btn-primary">Sửa</a></td>
