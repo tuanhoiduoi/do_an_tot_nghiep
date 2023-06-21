@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('sophong');
             $table->integer('trangthai');
-            $table->foreignId('rap_id')->constrained('cinemas');
+            $table->foreignId('cine_id')->constrained('cinemas');
             $table->timestamps();
         });
     }

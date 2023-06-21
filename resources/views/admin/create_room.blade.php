@@ -26,7 +26,7 @@
 
     <div>
         <label for="name">Rạp</label>
-        <select name="rap_id">
+        <select name="cine_id">
             @foreach ($lst_cinema as $cinema)
                 <option value="{{$cinema->id}}">{{$cinema->tenrap}}</option>
             @endforeach

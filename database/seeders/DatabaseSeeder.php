@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
             RapSeeder::class,
             PhongSeeder::class,
             SuatChieuSeeder::class,
+            GheSeeder::class,
+            HoaDonSeeder::class,
+            VeSeeder::class,
         ]);
     }
 }

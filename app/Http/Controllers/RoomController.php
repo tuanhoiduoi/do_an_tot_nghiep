@@ -19,7 +19,7 @@ class RoomController extends Controller
     public function store(Request $req){
         $req = Room::create([
             'sophong'=>$req->sophong,
-            'rap_id'=>$req->rap_id,
+            'cine_id'=>$req->cine_id,
             'trangthai' => $req->trangthai,
         ]);
         return redirect()->route('rooms.index');
@@ -31,7 +31,7 @@ class RoomController extends Controller
     public function update(Request $req,Room $room){
         $room->fill([
             'sophong'=>$req->sophong,
-            'rap_id'=>$req->rap_id,
+            'cine_id'=>$req->cine_id,
             'trangthai' => $req->trangthai,
         ]);
         $room->save();
