@@ -23,8 +23,8 @@ class ShowtimeController extends Controller
     public function update(Request $req,Showtime $showtime){
         $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
         $showtime->fill([
-            'phim_id'=>$req->phim_id,
-            'phong_id'=>$req->phong_id,
+            'film_id'=>$req->film_id,
+            'room_id'=>$req->room_id,
             'trangthai' => $req->trangthai,
             'thoigian'=>$fomat,
         ]);
@@ -44,8 +44,8 @@ class ShowtimeController extends Controller
     public function store(Request $req){
         $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
         $req = Showtime::create([
-            'phim_id'=>$req->phim_id,
-            'phong_id'=>$req->phong_id,
+            'film_id'=>$req->film_id,
+            'room_id'=>$req->room_id,
             'thoigian'=>$fomat,
             'trangthai' => $req->trangthai,
         ]);

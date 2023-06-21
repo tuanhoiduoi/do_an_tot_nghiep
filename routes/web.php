@@ -8,6 +8,9 @@ use App\Http\Controllers\FilmController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ShowtimeController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\ChairController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +44,6 @@ Route::resource('/films', FilmController::class);
 Route::resource('/cinemas', CinemaController::class);
 Route::resource('/rooms', RoomController::class);
 Route::resource('/showtimes', ShowtimeController::class);
+Route::resource('/tickets', TicketController::class);
+Route::resource('/bills', BillController::class);
+Route::resource('/chairs', ChairController::class);
