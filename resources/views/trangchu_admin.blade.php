@@ -54,46 +54,47 @@
                 </li>
                 <li>
                     <a href="{{route('films.index')}}">
-                        <i class="pe-7s-graph"></i>
+                        <i class="pe-7s-note2"></i>
                         <p>Quản lý phim</p>
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('showtimes.index')}}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Quản lý suất chiếu</p>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('cinemas.index')}}">
-                        <i class="pe-7s-user"></i>
+                        <i class="pe-7s-note2"></i>
                         <p>Quản lý rạp</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('rooms.index')}}">
-                        <i class="pe-7s-news-paper"></i>
+                        <i class="pe-7s-note2"></i>
                         <p>Quản lý phòng</p>
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('tickets.index')}}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Quản lý vé</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('bills.index')}}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Quản lý hóa đơn</p>
+                    </a>
+                </li>
+                <li>
                     <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                        <i class="pe-7s-note2"></i>
+                        <p>Quản lý ghế</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
+
             </ul>
     	</div>
     </div>

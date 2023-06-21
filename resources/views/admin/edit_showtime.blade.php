@@ -23,7 +23,7 @@
 
     <div>
         <label for="name">Phim</label>
-        <select name="phim_id">
+        <select name="film_id">
             @foreach ($lst_film as $film)
                 <option value="{{$film->id}}">{{$film->tenphim}}</option>
             @endforeach
@@ -32,7 +32,7 @@
 
     <div>
         <label for="name">Phòng</label>
-        <select name="phong_id">
+        <select name="room_id">
             @foreach ($lst_room as $room)
                 <option value="{{$room->id}}">{{$room->sophong}}</option>
             @endforeach

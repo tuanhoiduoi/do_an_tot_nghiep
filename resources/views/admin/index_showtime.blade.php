@@ -18,8 +18,8 @@
                                         @foreach ($lst_showtime as $showtime)
                                             <tr>
                                                 <td>{{$showtime->id}}</td>
-                                                <td>{{$showtime->phim_id}}</td>
-                                                <td>{{$showtime->phong_id}}</td>
+                                                <td>{{$showtime->film_id}}</td>
+                                                <td>{{$showtime->room_id}}</td>
                                                 <td>{{$showtime->thoigian}}</td>
                                                 <td>
                                                     @if($showtime->trangthai == 1)
