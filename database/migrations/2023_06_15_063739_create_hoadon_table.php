@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hoadon', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kh_id')->constrained('users');
+            $table->date('ngaylap');
+            $table->string('veri')->min(10)->max(10);
             $table->timestamps();
         });
     }

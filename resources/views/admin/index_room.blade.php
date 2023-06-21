@@ -18,7 +18,7 @@
                                     <tr>
                                         <td>{{$room->id}}</td>
                                         <td>{{$room->sophong}}</td>
-                                        <td>{{$room->rap_id}}</td>
+                                        <td>{{$room->cine_id}}</td>
                                         <td>
                                             @if($room->trangthai == 1)
                                                 Hoạt động

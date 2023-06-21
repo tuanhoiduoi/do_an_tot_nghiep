@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('showtimes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('phim_id')->constrained('films');
-            $table->foreignId('phong_id')->constrained('rooms');
+            $table->foreignId('film_id')->constrained('films');
+            $table->foreignId('room_id')->constrained('rooms');
             $table->dateTime('thoigian');
             $table->integer('trangthai');
             $table->timestamps();

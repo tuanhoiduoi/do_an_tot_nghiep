@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ve', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('show_id')->constrained('showtimes');
+            $table->foreignId('chair_id')->constrained('chairs');
+            $table->foreignId('bill_id')->nullable()->constrained('bills');
+            $table->integer('tien')->default(50000);
             $table->timestamps();
         });
     }
@@ -23,5 +27,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('ve');
+
     }
 };
