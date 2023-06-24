@@ -1,0 +1,207 @@
+.menu{background: #fff;
+font-size:35px;
+padding: 1%;
+margin: 1% 0%;
+box-shadow: 0px 2px 2px 6px #dcdcdc;}
+.menu a{
+color: #1b1800;
+padding: 15px 20px 15px 20px;
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+font-family: arial;display: inline-block;}
+.menu a:hover{color:red;
+z-index: 1;}
+.menu .logo img{max-width:100%}
+.menu .dropdown { position: relative;
+  display: inline-block;}
+ .menu .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e9d8f4;
+  min-width: 160px;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.top{background:#63cef6;}
+.top div{}
+.top div a{
+padding: 10px;
+display: inline-block;
+color: #fff;}
+.top div a i{color: white;}
+.top div a i.social{color: white;}
+.info-review {}
+.info-review .phu-kien{font-size:32px;color:blue;}
+
+.info-review .nhan div:hover{color:blue;
+}
+
+.trang{}
+.trang .pagination {
+  display: inline-block;
+}
+.trang .pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.trang .pagination a.active {
+  background-color: red;
+  color: white;
+}
+.item
+{box-shadow: 0px 2px 2px 6px #dcdcdc;
+width:17%;
+border: 1px solid #fff;
+display:inline-block;padding:1%;
+margin:1%
+}
+.item .image{}
+.item .image a{display: block;}
+.item .image a img{max-width:100%}
+.item .name{text-align:center}
+.item .name a:hover
+{
+color: blue;}
+.item .name a
+{
+color: black;
+text-decoration: none;
+font-size: 18px;
+font-family: arial;
+line-height: 20px;
+}
+.item .boxprice{text-align: center;}
+.item .boxprice span
+{
+display: inline-block;
+width: 49%;
+}
+.boxprice span.price{background:#de2828;padding:1px;}
+.boxprice span.price strong:hover{color:yellow;}
+.boxprice span.price strong{
+color:black;
+font-size: 18px;
+padding: 5px 0px 5px 0px;
+display: inline-block;
+}
+.boxprice span.price em{
+text-decoration: line-through;
+padding: 5px;
+}
+.boxprice span.price b
+{
+background: red;
+color: white;
+font-size: 13px;
+padding: 3px;
+border-radius: 3px;
+}
+.boxprice span.voucher{}
+.boxprice span.voucher strong{}
+.boxprice span.voucher b{}
+.title{border-bottom: 1px solid #1b1800;}
+.title a{
+background: #1b1800;
+color: #fff;
+padding: 10px 20px 10px 20px;
+text-decoration: none;
+font: bold 40px/2em arial;
+}
+.menu-foo{}
+.menu-foo a{
+display: block;
+color: white;
+padding: 5px;
+}
+.menu-foo a h3{font-size: 18px;}
+.breadcrumb{background: #fff;}
+.breadcrumb li{font-size:15px}
+.breadcrumb li a{color: #222;}
+.box-image{}
+.box-image .carousel-inner .carousel-item img{max-width: 100%;}
+.box-image .carousel-indicators li{
+	width: 50px;
+    height: 40px;
+    text-indent: 1px;}
+.box-image .carousel-indicators li img{max-width: 100%;}
+.box-info{}
+.box-info .name{font-size: 18px;}
+.box-info .brand{}
+.box-info .brand a{}
+.box-info .price{font-size: 25px;
+    font-weight: bold;
+    color: #0f59ff;}
+.box-info .btnorder{}
+.box-info .btnorder button{
+text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 49%;
+    padding: 2% 1%;
+}
+.box-policy{
+	border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+.box-policy .delivery{
+	font-size: 13px;
+    color: #b0b94b;
+	border-bottom: 1px dashed #eee;
+    padding-bottom: 15px;}
+.box-policy .promotion{}
+.box-policy .promotion strong{
+	}
+.box-policy .info-policy{
+	padding: 0;
+    list-style: none;}
+.box-policy .info-policy li{
+	line-height: 30px;
+    font-size: 15px;
+}
+.contact{
+padding: 2%;
+margin: 2% 0%;
+box-shadow: 0px 0px 10px 1px #dcdcdc;
+}
+.contact i{
+float: left;
+border: 1px solid red;
+color: red;
+width: 50px;
+height: 50px;
+text-align: center;
+padding: 13px 0px 0px 0px;
+font-size: 25px;
+border-radius: 50%;
+margin: 5px 10px 5px 0px;
+}
+.contact i:hover{color:#ffffff;background:red}
+.contact strong{display: block;font-size: 18px;}
+.contact span,.contact a
+{display: block;
+color: #444;
+text-decoration: none;
+font-size: 15px;
+}
+.container .head-title {
+    line-height: 29px;
+    padding: 14px 28px 28px;
+    border-bottom-style: double;
+    border-bottom-color: #f0f8ff;
+    text-align: center;
+    color: #4f5359;
+    font-size:35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.beton {padding: 2%;
+margin: 2% 0%;
+box-shadow: 0px 0px 10px 1px #dcdcdc;}
+.container-fluid {}
+.container-fluid .box{}

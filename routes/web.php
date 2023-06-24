@@ -23,6 +23,10 @@ use App\Http\Controllers\ChairController;
 */
 
 
+Route::get('/1', function () {
+    return view('layout_user');
+});
+
 Route::get('/', function () {
     return view('index_cinema');
 });
