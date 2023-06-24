@@ -47,3 +47,8 @@ Route::resource('/showtimes', ShowtimeController::class);
 Route::resource('/tickets', TicketController::class);
 Route::resource('/bills', BillController::class);
 Route::resource('/chairs', ChairController::class);
+Route::get('/s', function () {
+    return view('admin.create_chair');
+});
+Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
+Route::get('/ss', [ChairController::class,'index']);
