@@ -22,6 +22,7 @@ class FilmController extends Controller
     }
     public function index(Film $fil){
         $lst_film = Film::all();
+
         $this->fixImg($fil);
         return view('admin.index_film',['lst_film' => $lst_film]);
     }
@@ -68,5 +69,16 @@ class FilmController extends Controller
         $film->fill(['trangthai'=> 0]);
         $film->save();
         return redirect()->route('films.index');
+    }
+    public function allfilm(){
+        // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+        $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+
+        return view('user.phimdangchieu')->with('phim',$film);
+    }
+    public function ct_film($id ){
+        // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+        $film = Film :: where ('id',$id)->get();
+        return view('user.ctphim')->with('phim',$film);
     }
 }

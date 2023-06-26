@@ -1,5 +1,7 @@
 @extends('trangchu_admin')
 @section('content')
+<div><a href="{{route('rooms.create')}}" class="btn btn-success">Thêm</a></div>
+
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -34,7 +36,6 @@
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
                                             </form>
                                         </td>
-                                        <td><a href="{{route('rooms.create')}}" class="btn btn-success">Thêm</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

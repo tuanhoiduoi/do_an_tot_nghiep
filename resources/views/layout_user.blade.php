@@ -28,7 +28,7 @@
 			</div>
 			<nav class="menu row">
 				<div class="logo col-3">
-					<a href=""><img src="images/logo1.jpg" width="150" height="50" alt=""/></a>
+					<a href=""><img src="/images/logo1.jpg" width="150" height="50" alt=""/></a>
 				</div>
 				<div class="col-6 float-right   mt-4">
 					<a href="Home.html"><i class="fa fa-home"></i> Trang chủ</a>
@@ -77,7 +77,7 @@
 	</main>
 	<footer class="container-fluid text-white"style="background:#021c3a;">
 		<div class="text-center  pt-5 pb-5">
-			 <a href=""><img src="images/logo01.png" height="100px"/></a><br>
+			 <a href=""><img src="/images/logo01.png" height="100px"/></a><br>
 			 <strong>UY TÍN LÀ SỐ 1	</strong>
 			<hr color="white" width="80%" align="center" />
 		</div>
