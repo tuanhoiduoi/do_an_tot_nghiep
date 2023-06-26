@@ -13,6 +13,7 @@ class ChairController extends Controller
 
     public function save(Request $req){
         $checkboxValue = $req->input('checkboxes');
+
         session(['selectedCheckbox' => $checkboxValue]);
         return view('admin.sodo_chair');
     }

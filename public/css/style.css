@@ -25,6 +25,15 @@ z-index: 1;}
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.top2{width: 450px;
+    background:#e47105;}
+.top2 div{}
+.top2 div a{
+padding: 20px;
+display: inline-block;
+color: #fff;}
+.top2 div a i{color: white;}
+.top2 div a i.social{color: white;}
 .top{background:#63cef6;}
 .top div{}
 .top div a{
@@ -205,3 +214,6 @@ margin: 2% 0%;
 box-shadow: 0px 0px 10px 1px #dcdcdc;}
 .container-fluid {}
 .container-fluid .box{}
+.item{
+    width: 250px;
+}
