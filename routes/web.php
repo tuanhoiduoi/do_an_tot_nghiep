@@ -28,7 +28,7 @@ Route::get('/1', function () {
 });
 
 Route::get('/', function () {
-    return view('index_cinema');
+    return view('admin.index_cinema');
 });
 
 Route::get('/dangnhap', function () {
