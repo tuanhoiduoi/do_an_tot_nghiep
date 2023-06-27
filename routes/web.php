@@ -26,9 +26,7 @@ use App\Http\Controllers\ChairController;
 Route::get('/1', function () {
     return view('user.suatchieu');
 });
-Route::get('/2', function () {
-    return view('user.phimdangchieu');
-});
+
 
 Route::get('/dangnhap', function () {
     return view('dangnhap');
