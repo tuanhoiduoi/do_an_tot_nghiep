@@ -17,4 +17,6 @@ class Film extends Model
         'daodien',
         'trangthai',
     ];
+    protected $primarykey = 'id';
+    protected $table = 'films';
 }

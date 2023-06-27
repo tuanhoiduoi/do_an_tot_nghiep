@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('noidung');
             $table->integer('thoiluong');
             $table->string('daodien');
+            $table->string('trailer');
             $table->integer('trangthai');
             $table->timestamps();
         });

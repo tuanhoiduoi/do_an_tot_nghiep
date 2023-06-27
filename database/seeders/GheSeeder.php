@@ -16,6 +16,7 @@ class GheSeeder extends Seeder
             [
                 'cot' => 1,
                 'dong' => 1,
+                'tenghe' => 'A01',
                 'room_id' => 1,
             ],
         ]);

@@ -24,12 +24,9 @@ use App\Http\Controllers\ChairController;
 
 
 Route::get('/1', function () {
-    return view('layout_user');
+    return view('user.suatchieu');
 });
 
-Route::get('/', function () {
-    return view('admin.index_cinema');
-});
 
 Route::get('/dangnhap', function () {
     return view('dangnhap');
@@ -56,3 +53,5 @@ Route::get('/s', function () {
 });
 Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
+Route::get('/phim', [FilmController::class,'allfilm']);
+Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);

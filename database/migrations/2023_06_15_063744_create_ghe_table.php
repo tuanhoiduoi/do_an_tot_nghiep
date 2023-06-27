@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('dong');
             $table->integer('cot');
+            $table->string('tenghe');
             $table->foreignId('room_id')->constrained('rooms');
             $table->timestamps();
         });
