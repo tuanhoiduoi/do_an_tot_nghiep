@@ -6,6 +6,7 @@
     <div class="col-6" style="">
 
         <a> <b>{{$film->tenrap}}</b></a>
+
     </div>
 </div>
 <nav class="menu row" >
@@ -17,7 +18,7 @@
 
 
          <div class="dropdown" style="display:inline-block">
-            <a href=""><button type="button"> {{$film->thoigian}}</button></a>
+            <a href="/ghe/{{$film->id}}"><button type="button"> {{$film->thoigian}}</button></a>
             </div>
 
         </div>

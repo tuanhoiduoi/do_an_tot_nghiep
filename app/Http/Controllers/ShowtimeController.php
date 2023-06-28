@@ -51,14 +51,14 @@ class ShowtimeController extends Controller
         ]);
         return redirect()->route('showtimes.index');
     }
-    public function schieu(Request $req ){
+    public function schieu(Request $req){
 
 
         $id = $req->id;
 
         $suatchieu = DB::table('showtimes')
         ->where ('film_id',$id)
-        ->join('cinemas','cinemas.id','=','showtimes.film_id')->select('cinemas.tenrap','showtimes.thoigian')
+        ->join('cinemas','cinemas.id','=','showtimes.film_id')->select('showtimes.id','cinemas.tenrap','showtimes.thoigian')
         ->get();
 
         return view('user.suatchieu')->with('schieu',$suatchieu);
@@ -82,4 +82,5 @@ class ShowtimeController extends Controller
 
         return view('user.phimsapchieu')->with('phim2',$film);
     }
+
 }

@@ -5,9 +5,12 @@
 	<link href="/vendor/fontawesome/css/all.min.css" rel="stylesheet"/>
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="/css/style.css" rel="stylesheet"/>
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
+    @yield('css')
 	<script src="/js/jquery-3.5.1.min.js"></script>
 	<script src="/js/popper.min.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    @yield('js')
 </head>
 <body>
 
