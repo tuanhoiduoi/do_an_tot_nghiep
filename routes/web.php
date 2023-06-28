@@ -51,10 +51,11 @@ Route::resource('/chairs', ChairController::class);
 Route::get('/s', function () {
     return view('admin.create_chair');
 });
-Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
+// Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
 Route::get('/phim', [FilmController::class,'allfilm']);
 Route::get('/phim2', [FilmController::class,'allfilm2']);
 Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
 Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
+Route::get('/ghe/{id}', [ChairController::class,'show']);
