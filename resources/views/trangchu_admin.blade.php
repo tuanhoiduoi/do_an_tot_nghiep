@@ -146,9 +146,11 @@
 
 </body>
 
+    @yield('js')
+
     <!--   Core JS Files   -->
     <script src="{{asset('js/jquery-3.7.0.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('js/bootstrap.bundle.min')}}" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
 	<script src="assets/js/chartist.min.js"></script>
@@ -165,8 +167,6 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
-
-    @yield('js')
 
 </html>
 

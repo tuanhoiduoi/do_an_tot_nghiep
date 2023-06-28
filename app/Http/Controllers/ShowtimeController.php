@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Showtime;
 use App\Models\Room;
@@ -50,5 +50,36 @@ class ShowtimeController extends Controller
             'trangthai' => $req->trangthai,
         ]);
         return redirect()->route('showtimes.index');
+    }
+    public function schieu(Request $req ){
+
+
+        $id = $req->id;
+
+        $suatchieu = DB::table('showtimes')
+        ->where ('film_id',$id)
+        ->join('cinemas','cinemas.id','=','showtimes.film_id')->select('cinemas.tenrap','showtimes.thoigian')
+        ->get();
+
+        return view('user.suatchieu')->with('schieu',$suatchieu);
+    }
+    // public function allfilm(){
+    //     $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+
+    //     return view('user.phimdangchieu')->with('phim',$film);
+    // }
+    public function timkiem(Request $req ){
+        $dl = $req->input('timkiem');
+
+        $film = Film::where("tenphim","like","%$dl%")->get();
+
+        return view('user.phimdangchieu')->with('phim',$film);
+    }
+    public function timkiem2(Request $req ){
+        $dl = $req->input('timkiem');
+
+        $film = Film::where("tenphim","like","%$dl%")->get();
+
+        return view('user.phimsapchieu')->with('phim2',$film);
     }
 }

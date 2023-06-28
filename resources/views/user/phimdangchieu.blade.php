@@ -4,7 +4,7 @@
 			<h2 class="title text-center">
 				<a href="">Phim Đang Chiếu</a>
 			</h2>
-            <div class="col-sm-12"  >
+            <div class="col-sm-15"  >
                 @foreach ($phim as $fil)
 
                     <div class="item " class="col-sm-3" >

@@ -36,8 +36,8 @@
 					<div class="dropdown" style="display:inline-block">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Phim</a>
 						<div class="dropdown-content text-center">
-							<a class="dropdown-item" href="/phimdangchieu">Phim Đang Chiếu</a>
-							<a class="dropdown-item" href="/phimsapchieu">Phim Sắp Chiếu</a>
+							<a class="dropdown-item" href="/phim">Phim Đang Chiếu</a>
+							<a class="dropdown-item" href="/phim2">Phim Sắp Chiếu</a>
 						</div>
 					</div>
 					<!-- <div class="dropdown" style="display:inline-block">
@@ -60,11 +60,11 @@
 				</div>
 
 				 <div class="box col-3 text-right" style="padding:20px 0px 0px 20px">
-					<form>
+					<form  action="{{URL('/timkiem')}}" method="Get">
 						<div class="input-group mb-3" style="padding: 15px 0px 0px 0px">
-							<input style="background: #f9f9f9;border-color: #007bff;"type="text" class="form-control" placeholder="Phim Cần Tìm...">
+							<input name="timkiem" style="background: #f9f9f9;border-color: #007bff;"type="text" class="form-control" placeholder="Phim Cần Tìm...">
 							<div class="input-group-append">
-								<button style="background: #007bff;color: #000;border-color: #007bff;"class="input-group-text">Tìm kiếm</button>
+								<button type="submit" style="background: #007bff;color: #000;border-color: #007bff;"class="input-group-text">Tìm kiếm</button>
 							</div>
 						</div>
 					 </form>
@@ -131,7 +131,7 @@
 			<p>Tên Doanh Nghiệp: Cinema <br>
 			MST/ĐKKD/QĐTL: 41X8027709 - Cấp ngày 28/09/2016 <br>
 			Công Ty Cổ Phần Phim Thiên Ngân, Tầng 3, Toà Nhà Bitexco Nam Long, 63A Võ Văn Tần, P. Võ Thị Sáu, Quận 3, Tp. Hồ Chí Minh</p>
-			<a rel="nofollow" href=""><img height="60px" src="images/dtb.png"></a>
+			<a rel="nofollow" href=""><img height="60px" src="/images/dtb.png"></a>
 		</div>
 	</footer>
 </body>
