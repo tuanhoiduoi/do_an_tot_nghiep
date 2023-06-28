@@ -27,7 +27,7 @@ Route::get('/1', function () {
     return view('user.suatchieu');
 });
 Route::get('/2', function () {
-    return view('user.phimdangchieu');
+    return view('user.trangchu_user');
 });
 
 Route::get('/dangnhap', function () {
@@ -56,4 +56,7 @@ Route::get('/s', function () {
 Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
 Route::get('/phim', [FilmController::class,'allfilm']);
+Route::get('/phim2', [FilmController::class,'allfilm2']);
 Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
+Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
+Route::get('/timkiem', [ShowtimeController::class,'timkiem']);

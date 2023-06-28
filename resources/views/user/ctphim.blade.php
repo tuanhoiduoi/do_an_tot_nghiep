@@ -12,9 +12,10 @@
     </div>
     <div class="row productbox">
         <div class="col-sm-9">
+            @foreach ($phim as $film)
             <div class="row">
                 <div class="col-sm-6">
-                    @foreach ($phim as $film)
+
                     <section class="box-image">
                         <a href="">
                             <img src="/images/{{$film->hinh}}" width="245px" height="350px"/>
@@ -27,21 +28,22 @@
 
                          <ul style="font-size:16px">
                             <li><b>Đạo diễn: </b>{{$film->daodien}}</li>
-                            <P><b>Nội dung: </b>{{$film->noidung}}</P>
+
                             <li><b>Thời lượng: </b>{{$film->thoiluong}} phút</li>
 
                         </ul>
 
                         <p class="btnorder">
-                            <a href="{{URL::to('/suatchieu/'.$film->id)}}">  <button type="button" class="btn btn-primary">Mua vé</button></a>
+                            <a href="/suatchieu/{{$film->id}}"> <button type="button" class="btn btn-primary">Mua vé</button></a>
                             <a href="/images/trailer.mp4"><button type="button" class="btn btn-warning">Trailer</button></a>
                         </p>
 
                     </section>
                 </div>
             </div>
-            @endforeach
+
+
         </div>
-
-
+        <p><b>Nội dung: </b>{{$film->noidung}}</p>
+        @endforeach
 @endsection
