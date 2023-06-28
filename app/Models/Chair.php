@@ -11,7 +11,7 @@ class Chair extends Model
     protected $fillable = [
         'dong',
         'cot',
+        'tenghe',
         'room_id',
-        'is_admin',
     ];
 }

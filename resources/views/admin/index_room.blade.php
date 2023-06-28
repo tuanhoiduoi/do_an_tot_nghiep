@@ -12,6 +12,8 @@
                             <thead>
                                 <th>ID</th>
                                 <th>Số phòng</th>
+                                <th>Số dong</th>
+                                <th>Số cột</th>
                                 <th>Rạp</th>
                                 <th>Trạng thái</th>
                             </thead>
@@ -20,6 +22,8 @@
                                     <tr>
                                         <td>{{$room->id}}</td>
                                         <td>{{$room->sophong}}</td>
+                                        <td>{{$room->dong}}</td>
+                                        <td>{{$room->cot}}</td>
                                         <td>{{$room->cine_id}}</td>
                                         <td>
                                             @if($room->trangthai == 1)
