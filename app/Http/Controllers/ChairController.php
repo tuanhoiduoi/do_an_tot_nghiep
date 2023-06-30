@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ticket;
 
 class ChairController extends Controller
 {
@@ -27,6 +28,8 @@ class ChairController extends Controller
         $ghe = \DB::table('chairs')->where('room_id',2)->select('*')->get();
 //todo: ket bang ve, suat chieu, lay them cot id hoa don de biet ghe nao co nguoi khac dat roi
 
+
         return view('user.chonghe',['dong'=>$dong,'cot'=>$cot,'ghe'=>$ghe, 'gia'=>$gia]);
+
     }
 }
