@@ -1,9 +1,10 @@
 @extends('trangchu_admin')
 @section('css')
  <link rel="stylesheet" href="/css/ghe.css">
+ <link href="/css/bootstrap.min.css" rel="stylesheet" />
 @endsection
 @section('js')
-<script src="{{asset('js/taoghe.js')}}"></script>
+<script src="/js/taoghe.js"></script>
 @endsection
 @section('content')
     <form action="{{route('rooms.store')}}" method="POST" id="form-them">
