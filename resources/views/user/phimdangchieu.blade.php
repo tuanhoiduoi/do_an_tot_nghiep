@@ -2,7 +2,7 @@
 @section('content')
 		<section>
 			<h2 class="title text-center">
-				<a href="">Phim Đang Chiếu</a>
+				<a href="">PHIM ĐANG CHIẾU</a>
 			</h2>
             <div class="col-sm-15"  >
                 @foreach ($phim as $fil)

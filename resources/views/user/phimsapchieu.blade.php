@@ -9,7 +9,7 @@
 
                     <div class="item " class="col-sm-3" >
                             <div class="image">
-                                <a href="sanpham1.html">
+                                <a href="{{URL::to('/ctphim/'.$fil->id)}}">
                                     <img src="/images/{{$fil->hinh}}"/>
                                 </a>
                             </div>
@@ -17,9 +17,9 @@
                                 <p>{{$fil->tenphim}}</p>
                             </div>
                             <div class="boxprice">
-                                <span class="price">
-                                    <a href="{{URL::to('/ctphim/'.$fil->id)}}"><strong>Mua Vé</strong></a>
-                                </span>
+                                {{-- <span class="price">
+                                    <a href="{{URL::to('/ctphim/'.$fil->id)}}"></a>
+                                </span> --}}
                             </div>
                         </div>
 
