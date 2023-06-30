@@ -7,9 +7,8 @@
 	<link href="/css/style.css" rel="stylesheet"/>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
     @yield('css')
-	<script src="/js/jquery-3.5.1.min.js"></script>
-	<script src="/js/popper.min.js"></script>
-	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/jquery-3.7.0.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
     @yield('js')
 </head>
 <body>
@@ -50,13 +49,13 @@
 							<a class="dropdown-item" href="diachi.html">Giá vé</a>
 							<a class="dropdown-item" href="chinhanh3.html">Sự kiện</a>
 						</div> -->
-						<div class="dropdown" style="display:inline-block">
+						{{-- <div class="dropdown" style="display:inline-block">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown">Rạp</a>
                             <div class="dropdown-content text-center">
                                 <a class="dropdown-item" href="">Chi Nhánh 1</a>
                                 <a class="dropdown-item" href="">Chi Nhánh 2</a>
                             </div>
-                        </div>
+                        </div> --}}
 
 					</div>
 
@@ -130,6 +129,7 @@
 					</p>
 			   </div>
 		</div>
+        {{-- để lại --}}
 		 <div class="main-footer-copyright text-center"style="border-top:1px solid #ddd">
 			<p>Tên Doanh Nghiệp: Cinema <br>
 			MST/ĐKKD/QĐTL: 41X8027709 - Cấp ngày 28/09/2016 <br>
