@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
 
 class AccountController extends Controller
 {
-    // public function Authlogin(){
-    //     $admin_id = Session::get('admin_id');
-    //     if($admin_id){
-    //         return Redirect::to('dashboard');
-    //     }else{
-    //         return Redirect::to('admin')->send();
-    //     }
-    // }
+
 
     public function index(){
-        $lst_user = User::all();
-        return view('admin.index_taikhoan',['lst_user' => $lst_user]);
+        if(Auth::check()){
+            $lst_user = User::all();
+            return view('admin.index_taikhoan',['lst_user' => $lst_user]);
+        }else{
+            return view('dangnhap');
+        }
+
     }
     public function create(){
         return view('admin.create_account_admin');

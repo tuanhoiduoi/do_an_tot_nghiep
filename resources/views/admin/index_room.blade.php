@@ -1,24 +1,36 @@
 @extends('trangchu_admin')
 @section('content')
-<div><a href="{{route('rooms.create')}}" class="btn btn-success">Thêm</a></div>
-
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <th>ID</th>
-                                <th>Số phòng</th>
-                                <th>Số dong</th>
-                                <th>Số cột</th>
-                                <th>Rạp</th>
-                                <th>Trạng thái</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($lst_room as $room)
+<a href="{{route('rooms.create')}}" class="btn btn-success">Thêm</a>
+<div class="row">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Id</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Phòng</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Số dòng</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Số cột</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Rạp</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Trạng thái</h6>
+                          </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($lst_room as $room)
                                     <tr>
                                         <td>{{$room->id}}</td>
                                         <td>{{$room->sophong}}</td>
@@ -42,13 +54,15 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
-
-                    </div>
+                    </tbody>
+                  </table>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
     </div>
 </div>
+
 @endsection
+

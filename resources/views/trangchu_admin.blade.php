@@ -1,140 +1,144 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="/assets/img/favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>Admin</title>
-
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-
-
-    <!-- Bootstrap core CSS     -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
-    <link href="/assets/css/animate.min.css" rel="stylesheet"/>
-
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="/assets/css/demo.css" rel="stylesheet" />
-
-
-    <!--     Fonts and icons     -->
-    <link href="/assets/link/font_awesome.css" rel="stylesheet">
-    <link href='/assets/link/font.css' rel='stylesheet' type='text/css'>
-    <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    @yield('css')
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="/admin/assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
+  @yield('css')
 </head>
+
 <body>
-
-<div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="/assets/img/sidebar-5.jpg">
-
-    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="{{url('/trangchu')}}" class="simple-text">
-                    Home
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="#" class="text-nowrap logo-img" >
+            <span style="font-size:25px;padding-left:50px">Home</span>
+          </a>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{route('accounts.index')}}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Quản lý tài khoản</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('tickets.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý vé</span>
                 </a>
-            </div>
-
-            <ul class="nav">
-                <li class="">
-                    <a href="{{route('accounts.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý tài khoản</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('films.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý phim</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('showtimes.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý suất chiếu</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('cinemas.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý rạp</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('rooms.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý phòng</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('tickets.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý vé</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('bills.index')}}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Quản lý hóa đơn</p>
-                    </a>
-                </li>
-
-
-            </ul>
-    	</div>
-    </div>
-    <div class="main-panel">
-		<nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Administrator</a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Login</a>
-                </div>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('showtimes.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý suất chiếu</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('rooms.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý phòng</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('films.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý phim</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('cinemas.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý rạp</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('bills.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý hóa đơn</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('chairs.index')}}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Quản lý ghế</span>
+                </a>
+            </li>
+          </ul>
         </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                    {{$user->hoten}}
+                  <img src="/admin/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="{{url('logout')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <!--  Row 1 -->
+
+
+
         @yield('content')
+      </div>
     </div>
-</div>
-
-
+  </div>
+  <script src="/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/admin/assets/js/sidebarmenu.js"></script>
+  <script src="/admin/assets/js/app.min.js"></script>
+  <script src="/admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="/admin/assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="/admin/assets/js/dashboard.js"></script>
+  @yield('js')
 </body>
-
-
-
-    <!--   Core JS Files   -->
-    {{-- <script src="{{asset('js/jquery-3.7.0.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('js/bootstrap.bundle.min')}}" type="text/javascript"></script> --}}
-
-    <script src="/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="/assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
-
-	<!--  Charts Plugin -->
-	<script src="/assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="/assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="/assets/js/demo.js"></script>
-
-    @yield('js')
 </html>
 

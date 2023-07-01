@@ -1,7 +1,7 @@
 @extends('trangchu_admin')
 @section('css')
  <link rel="stylesheet" href="/css/ghe.css">
- <link href="/css/bootstrap.min.css" rel="stylesheet" />
+ {{-- <link href="/css/bootstrap.min.css" rel="stylesheet" /> --}}
 @endsection
 @section('js')
 <script src="/js/taoghe.js"></script>
@@ -33,10 +33,12 @@
 
     Dong :<input type="text" name="dong" value="10">
     Cot :<input type="text" name="cot" value="20">
-    <button type="button" name="nut" style="width: 50px;height: 50px;" onclick="taocheckbox()">Xac nhan</button>
+    <button type="button" name="nut" style="height: 50px;" onclick="taocheckbox()">Xác nhận</button>
 
 
-        <div id="chair"></div>
+            <div id="chair"></div>
+
+
 
 
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ChairController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,24 +24,40 @@ use App\Http\Controllers\ChairController;
 */
 
 
-Route::get('/1', function () {
-    return view('user.suatchieu');
-});
-Route::get('/3', function () {
-    return view('user.thongtinve');
-});
-
-Route::get('/dangnhap', function () {
+// Xử lý log in, log out
+Route::get('/', function () {
     return view('dangnhap');
 });
 
-Route::get('/trangchu', function () {
-    return view('trangchu_admin');
-});
+Route::post('/',[AuthController::class, 'login'])->name('/');
 
-Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
+Route::get('logout',[AuthController::class, 'logout']);
 
-Route::post('/trangchu',[UserController::class, 'login']);
+//------------------------------------------------------------------------------------
+
+Route::get('/log-out',[UserController::class, 'login']);
+
+
+
+
+// Route::get('/1', function () {
+//     return view('user.suatchieu');
+// });
+// Route::get('/3', function () {
+//     return view('user.thongtinve');
+// });
+
+// Route::get('/dangnhap', function () {
+//     return view('dangnhap');
+// });
+
+// Route::get('/trangchu', function () {
+//     return view('trangchu_admin');
+// });
+
+// Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
+
+
 
 Route::resource('/accounts', AccountController::class);
 Route::resource('/films', FilmController::class);

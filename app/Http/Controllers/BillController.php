@@ -11,13 +11,14 @@ class BillController extends Controller
 {
     public function index(){
 
-        $bill = Bill::join('users','bills.kh_id','=','users.id')->get();
-        $mana = view('admin.index_bill')->with('bill',$bill);
-        return view('trangchu_admin')->with('admin.index_bill',$mana);
+        // $bill = Bill::join('users','bills.kh_id','=','users.id')->get();
 
-        // $bill = Bill::all();
+        // $mana = view('admin.index_bill')->with('bill',$bill);
+        // return view('trangchu_admin')->with('admin.index_bill',$mana);
 
-        // return view('admin.index_bill',['lst_bill'=> $bill]);
+         $bill = Bill::all();
+
+        return view('admin.index_bill',['lst_bill'=> $bill]);
     }
     public function edit(Bill $bill){
         $kh = User::all();
