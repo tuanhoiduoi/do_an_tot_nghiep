@@ -1,43 +1,53 @@
 @extends('trangchu_admin')
 @section('content')
-    <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>ID</th>
-                                        <th>Khách</th>
-                                    	<th>Ngày lập</th>
-                                    	<th>Mã Veri</th>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($bill as $key => $bills)
-                                            <tr>
-                                                <td>{{$bills->id}}</td>
-                                                <td>{{$bills->hoten}}</td>
-                                                <td>{{$bills->ngaylap}}</td>
-                                                <td>{{$bills->veri}}</td>
-                                                <td><a href="{{route('bills.edit',['bill' => $bills])}}" class="btn btn-primary">Sửa</a></td>
-                                                <td>
-                                                    <form action="{{route('bills.destroy',['bill'=>$bills])}}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
-                                                    </form>
-                                                </td>
-                                                <td><a href="{{route('bills.create')}}" class="btn btn-success">Thêm</a></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+    <a href="{{route('bills.create')}}" class="btn btn-success">Thêm</a>
+    <div class="row">
+              <div class="col-lg-12 d-flex align-items-stretch">
+                <div class="card w-100">
+                  <div class="card-body p-4">
+                    <div class="table-responsive">
+                      <table class="table text-nowrap mb-0 align-middle">
+                        <thead class="text-dark fs-4">
+                          <tr>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Id</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Họ tên</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Ngày lập</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Mã veri</h6>
+                              </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($lst_bill as $bills)
+                                                <tr>
+                                                    <td>{{$bills->id}}</td>
+                                                    <td>{{$bills->kh_id}}</td>
+                                                    <td>{{$bills->ngaylap}}</td>
+                                                    <td>{{$bills->veri}}</td>
+                                                    <td><a href="{{route('bills.edit',['bill' => $bills])}}" class="btn btn-primary">Sửa</a></td>
+                                                    <td>
+                                                        <form action="{{route('bills.destroy',['bill'=>$bills])}}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
+                                                        </form>
+                                                    </td>
 
-                            </div>
-                        </div>
+                                                </tr>
+                                            @endforeach
+                        </tbody>
+                      </table>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
 @endsection
+
+
