@@ -9,6 +9,10 @@ use App\Models\User;
 class AuthController extends Controller
 {
     //
+    public function register(){
+
+    }
+
     public function login(Request $req){
 
         if($req->sdt == null or $req->password == null){
@@ -23,11 +27,11 @@ class AuthController extends Controller
             if($user->is_admin == 1){
                 Auth::login($user);
                 //Auth::user() là lấy thông tin người đang đăng nhập
-                return view('trangchu_admin',['user'=>Auth::user()]);
+                return view('trangchu_admin');
             }
             else{
                 Auth::login($user);
-                return view('user.trangchu_user',['user'=>Auth::user()]);
+                return view('user.trangchu_user');
             }
         }else{
             return view('dangnhap');
@@ -40,7 +44,6 @@ class AuthController extends Controller
         Auth::logout();
         return view('dangnhap');
     }
-    public function auth(){
-        Auth::check();
-    }
+
+
 }
