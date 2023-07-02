@@ -1,6 +1,6 @@
 @extends('trangchu_admin')
 @section('content')
-<a href="{{route('tickets.create')}}" class="btn btn-success">Thêm</a>
+{{-- <a href="{{route('tickets.create')}}" class="btn btn-success">Thêm</a> --}}
 <div class="row">
           <div class="col-lg-12 d-flex align-items-stretch">
             <div class="card w-100">
@@ -30,14 +30,14 @@
                             <td>{{$tickets->show_id}}</td>
                             <td>{{$tickets->chair_id}}</td>
                             <td>{{$tickets->bill_id}}</td>
-                            <td><a href="{{route('tickets.edit',['ticket' => $tickets])}}" class="btn btn-primary">Sửa</a></td>
-                            <td>
+                            {{-- <td><a href="{{route('tickets.edit',['ticket' => $tickets])}}" class="btn btn-primary">Sửa</a></td> --}}
+                            {{-- <td>
                                 <form action="{{route('tickets.destroy',['ticket'=>$tickets])}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
                                 </form>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                     </tbody>

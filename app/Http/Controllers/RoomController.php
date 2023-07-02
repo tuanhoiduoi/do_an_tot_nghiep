@@ -35,6 +35,9 @@ class RoomController extends Controller
         // $value = $checkboxes[0];
         // $part = explode('-',$value);
         // dd($part[0]);
+
+        // dd($checkboxes);
+
         $sl=0;
         for($i = 1;$i <= $dong;$i++){
             for($j=1;$j<=$cot;$j++){
