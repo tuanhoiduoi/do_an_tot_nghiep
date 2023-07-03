@@ -9,7 +9,7 @@
 
                     <div class="item " class="col-sm-3" >
                             <div class="image">
-                                <a href="sanpham1.html">
+                                <a href="">
                                     <img src="/images/{{$fil->hinh}}" height="350px"/>
                                 </a>
                             </div>

@@ -82,13 +82,21 @@ class ShowtimeController extends Controller
 
 
         $id = $req->id;
-        $suatchieu = DB::table('showtimes')
+
+        $tmp = DB::table('showtimes')
+        ->join('rooms','rooms.id','=','showtimes.room_id')
+        ->join('cinemas','cinemas.id','=','rooms.cine_id')
         ->where ('film_id',$id)
-        ->join('cinemas','cinemas.id','=','showtimes.film_id')
-        ->select('showtimes.id','cinemas.tenrap','showtimes.thoigian')
+        // dieu kien thoi gian lon hon thoi gian hien tai
+        ->select('showtimes.id','showtimes.thoigian as thoigian','cinemas.tenrap as tenrap')
+        ->orderBy('cinemas.tenrap','asc','thoigian','asc')
         ->get();
+        $suatchieu=[];
+        foreach ($tmp as $suat) {
+            $suatchieu[$suat->tenrap][]=$suat;
+        }
 
-
+         //dd($suatchieu);
             return view('user.suatchieu')->with('schieu',$suatchieu);
 
     }
