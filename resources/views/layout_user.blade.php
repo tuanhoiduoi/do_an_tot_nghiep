@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8"/>
+    <meta charset="utf-8"/>
+
+
 	<link href="/vendor/fontawesome/css/all.min.css" rel="stylesheet"/>
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="/css/style.css" rel="stylesheet"/>
@@ -33,8 +35,8 @@
 					<a href=""><img src="/images/logo1.jpg" width="150" height="50" alt=""/></a>
 				</div>
 				<div class="col-6 float-right   mt-4">
-					<a href="Home.html"><i class="fa fa-home"></i> Trang chủ</a>
-					<a href="gioithieu.html">Giới thiệu</a>
+					<a href="/3"><i class="fa fa-home"></i> Trang chủ</a>
+					<a href="#">Giới thiệu</a>
 					<div class="dropdown" style="display:inline-block">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Phim</a>
 						<div class="dropdown-content text-center">
@@ -42,20 +44,7 @@
 							<a class="dropdown-item" href="/phim2">Phim Sắp Chiếu</a>
 						</div>
 					</div>
-					<!-- <div class="dropdown" style="display:inline-block">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown">Thông tin</a>
-						<div class="dropdown-content text-center">
-							<a class="dropdown-item" href="chinhanh1.html">Rạp</a>
-							<a class="dropdown-item" href="diachi.html">Giá vé</a>
-							<a class="dropdown-item" href="chinhanh3.html">Sự kiện</a>
-						</div> -->
-						{{-- <div class="dropdown" style="display:inline-block">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Rạp</a>
-                            <div class="dropdown-content text-center">
-                                <a class="dropdown-item" href="">Chi Nhánh 1</a>
-                                <a class="dropdown-item" href="">Chi Nhánh 2</a>
-                            </div>
-                        </div> --}}
+
 
 					</div>
 
@@ -75,7 +64,6 @@
 	</header>
 	<main>
         @yield('content')
-
 	</main>
 	<footer class="container-fluid text-white"style="background:#021c3a;">
 		<div class="text-center  pt-5 pb-5">

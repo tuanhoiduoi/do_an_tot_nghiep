@@ -24,10 +24,10 @@ use App\Http\Controllers\ChairController;
 
 
 Route::get('/1', function () {
-    return view('user.suatchieu');
+    return view('user.thongtinve');
 });
 Route::get('/3', function () {
-    return view('user.thongtinve');
+    return view('user.trangchu_user');
 });
 
 Route::get('/dangnhap', function () {
@@ -61,4 +61,4 @@ Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
 Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
-// Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
+Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);

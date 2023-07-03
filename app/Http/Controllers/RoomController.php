@@ -35,10 +35,10 @@ class RoomController extends Controller
         // $value = $checkboxes[0];
         // $part = explode('-',$value);
         // dd($part[0]);
-        $sl=0;
-        for($i = 1;$i <= $dong;$i++){
-            for($j=1;$j<=$cot;$j++){
-                $value = $checkboxes[$sl];
+
+        for($i = 0;$i < count($checkboxes) ;$i++){
+
+                $value = $checkboxes[$i];
                 $part = explode('-',$value);
                 $chair = Chair::create([
                     'dong' => $part[1],
@@ -46,9 +46,9 @@ class RoomController extends Controller
                     'tenghe' => $part[0],
                     'room_id' => $latestId,
                 ]);
-                $sl++;
+
             }
-        }
+
 
         return redirect()->route('rooms.index');
     }

@@ -35,6 +35,6 @@
     <div>
         <p >Thành Tiền: <span id="thanh-tien"></span></p>
     </div>
-    </div><button class="btn btn-success" type="submit">xac nhan</button>
+    </div><a href="/1" class="btn btn-success" type="submit">xac nhan</a>
 </form>
 @endsection
