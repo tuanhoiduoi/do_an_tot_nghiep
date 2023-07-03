@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Showtime;
 use App\Models\Room;
 use App\Models\Film;
+use App\Models\Ticket;
 use Carbon\Carbon;
+
 
 class ShowtimeController extends Controller
 {
@@ -42,13 +44,38 @@ class ShowtimeController extends Controller
         return view('admin.create_showtime',['lst_film'=>$film,'lst_room'=>$room]);
     }
     public function store(Request $req){
+        // so ve 25 chair bat dau tu 2
+
+
+
+        //luu suat chieu
         $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
-        $req = Showtime::create([
+        $showTime = Showtime::create([
             'film_id'=>$req->film_id,
             'room_id'=>$req->room_id,
             'thoigian'=>$fomat,
             'trangthai' => $req->trangthai,
         ]);
+
+
+        //tao ve theo so luong ghe sau khi them suat chieu
+        $numberChair = \DB::table('chairs')->where('room_id',$req->room_id)->count();
+
+        $latestId = Showtime::latest()->first()->id;
+
+        $layGhe = \DB::table('chairs')->where('room_id',$req->room_id)->select('*')->get();
+
+        // dd($layGhe[$i]->id);
+
+        for($i = 0; $i < $numberChair;$i++){
+            $tick = Ticket::create([
+                'show_id'=> $latestId,
+                'chair_id'=> $layGhe[$i]->id,
+                'bill_id'=> null,
+            ]);
+        }
+
+
         return redirect()->route('showtimes.index');
     }
     public function schieu(Request $req){

@@ -36,9 +36,6 @@ class RoomController extends Controller
         // $part = explode('-',$value);
         // dd($part[0]);
 
-        for($i = 0;$i < count($checkboxes) ;$i++){
-
-                $value = $checkboxes[$i];
                 $part = explode('-',$value);
                 $chair = Chair::create([
                     'dong' => $part[1],

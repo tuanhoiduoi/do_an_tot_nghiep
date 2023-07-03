@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Chair;
 
 class ChairController extends Controller
 {
+    public function index(){
+        $ghe = Chair::all();
+        return view('admin.index_chair',['lst_ghe'=>$ghe]);
+    }
+
     public function show(Request $req){
 
         $idSchieu = $req->id;

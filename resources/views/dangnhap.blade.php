@@ -25,7 +25,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="/trangchu" method="POST">
+            <form action="{{route('/')}}" method="POST">
                 @csrf
                 <h1>Đăng nhập</h1>
                 <input type="text" name="sdt" placeholder="Số điện thoại" />
