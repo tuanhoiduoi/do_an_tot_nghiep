@@ -25,8 +25,7 @@ use App\Http\Controllers\AuthController;
 
 
 
-    return view('dangnhap');
-});
+
 
 Route::post('/',[AuthController::class, 'login'])->name('/');
 
@@ -39,20 +38,20 @@ Route::get('/log-out',[UserController::class, 'login']);
 
 
 
-// Route::get('/1', function () {
-//     return view('user.suatchieu');
-// });
-// Route::get('/3', function () {
-//     return view('user.thongtinve');
-// });
+Route::get('/1', function () {
+    return view('user.suatchieu');
+});
+Route::get('/3', function () {
+    return view('user.thongtinve');
+});
 
-// Route::get('/dangnhap', function () {
-//     return view('dangnhap');
-// });
+Route::get('/dangnhap', function () {
+    return view('dangnhap');
+});
 
-// Route::get('/trangchu', function () {
-//     return view('trangchu_admin');
-// });
+Route::get('/trangchu', function () {
+    return view('trangchu_admin');
+});
 
 // Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 
