@@ -82,23 +82,31 @@ class ShowtimeController extends Controller
 
 
         $id = $req->id;
-
         $suatchieu = DB::table('showtimes')
         ->where ('film_id',$id)
-        ->join('cinemas','cinemas.id','=','showtimes.film_id')->select('showtimes.id','cinemas.tenrap','showtimes.thoigian')
+        ->join('cinemas','cinemas.id','=','showtimes.film_id')
+        ->select('showtimes.id','cinemas.tenrap','showtimes.thoigian')
         ->get();
-        // dd($suatchieu);
+
+
             return view('user.suatchieu')->with('schieu',$suatchieu);
 
     }
     public function timkiem(Request $req ){
         $dl = $req->input('timkiem');
-        $id = $trangthai->
+
         // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
         $film = Film::where("tenphim","like","%$dl%")->get();
 
         return view('user.phimdangchieu')->with('phim',$film);
     }
+    // public function timkiem2(Request $req ){
+    //     $dl2 = $req->input('timkiem2');
+    //     dd($dl2);
+    //     // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+    //     $film2 = Film::where("tenphim","like","%$dl%")->get();
 
+    //     return view('user.phimsapchieu')->with('phim',$film2);
+    // }
 
 }

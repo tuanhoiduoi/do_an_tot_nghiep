@@ -24,8 +24,7 @@ use App\Http\Controllers\AuthController;
 */
 
 
-// Xử lý log in, log out
-Route::get('/', function () {
+
     return view('dangnhap');
 });
 
@@ -78,4 +77,4 @@ Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
 Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
-// Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
+Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
