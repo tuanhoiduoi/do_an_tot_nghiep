@@ -34,6 +34,11 @@
         <input type="date" name="ngaylap" id="ngaylap">
     </div>
 
+    <div>
+        <label for="name">Trạng thái</label><br>
+        <input type="text" name="trangthai">
+    </div>
+
     <button type="submit">Lưu</button>
 </form>
 <script>

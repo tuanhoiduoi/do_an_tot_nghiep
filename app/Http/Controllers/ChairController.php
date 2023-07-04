@@ -22,12 +22,13 @@ class ChairController extends Controller
         // dd($idPhong);
 
         // lay dong va cot theo id phong
-        //them lay gia ve theo phong
+
         $room = \DB::table('rooms')->where('id',$idPhong)->select('dong','cot')->get()[0];
 
         $dong = $room->dong;
         $cot = $room->cot;
         //$gia = $room->gia;
+        //lay gia theo schieu
         $gia=50000;
         // dd($dong);
         //lay ghe tu id phong

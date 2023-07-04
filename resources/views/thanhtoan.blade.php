@@ -1,5 +1,4 @@
-<form action="{{url('/momo_payment')}}" method="POST">
+<form action="{{url('/vnpay_payment')}}" method="POST">
     @csrf
-    <input type="hidden" name="momo" value="">
-    <button type="submit" class="btn btn-default check_out" value="">Thanh toán</button>
+    <button type="submit" name="redirect" class="btn btn-default check_out" value="">Thanh toán</button>
 </form>

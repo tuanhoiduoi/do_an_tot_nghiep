@@ -44,6 +44,11 @@
     </div>
 
     <div>
+        <label for="name">Giá</label><br>
+        <input type="text" name="tien">
+    </div>
+
+    <div>
         <label for="">Trạng Thái</label>
         <select name="trangthai">
             <option value="1">Hoạt động</option>

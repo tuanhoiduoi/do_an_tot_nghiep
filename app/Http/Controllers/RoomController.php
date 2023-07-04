@@ -10,6 +10,10 @@ use App\Models\Chair;
 class RoomController extends Controller
 {
     public function index(Room $room){
+        // $cinema = Cinema::find(2); // lay rap theo id 2
+
+        // $room = $cinema->rooms;
+        // dd($room);
         $room = Room::all();
         return view('admin.index_room',['lst_room'=> $room]);
     }

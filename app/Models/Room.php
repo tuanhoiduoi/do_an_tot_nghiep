@@ -15,4 +15,7 @@ class Room extends Model
         'cine_id',
         'trangthai',
     ];
+    public function cinemas(){
+        return $this->beLongsTo(Cinema::class, 'cine_id', 'cinemas');
+    }
 }

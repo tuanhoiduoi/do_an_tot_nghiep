@@ -14,7 +14,13 @@ class ShowtimeController extends Controller
 {
     //
     public function index(){
-        $lst = Showtime::all();
+        // $lst = Showtime::all();
+        $lst = Showtime::join('films','films.id','=','showtimes.film_id')
+        ->join('rooms','rooms.id','=','showtimes.room_id')
+        ->join('cinemas','cinemas.id','=','rooms.cine_id')
+        ->select('showtimes.id','showtimes.thoigian','films.tenphim','cinemas.tenrap','rooms.sophong','showtimes.trangthai','showtimes.tien')
+        ->get();
+        // dd($lst);
         return view('admin.index_showtime',['lst_showtime'=>$lst]);
     }
     public function edit(Showtime $showtime){
@@ -47,7 +53,6 @@ class ShowtimeController extends Controller
         // so ve 25 chair bat dau tu 2
 
 
-
         //luu suat chieu
         $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
         $showTime = Showtime::create([
@@ -55,6 +60,7 @@ class ShowtimeController extends Controller
             'room_id'=>$req->room_id,
             'thoigian'=>$fomat,
             'trangthai' => $req->trangthai,
+            'tien' =>$req->tien,
         ]);
 
 
@@ -64,7 +70,6 @@ class ShowtimeController extends Controller
         $latestId = Showtime::latest()->first()->id;
 
         $layGhe = \DB::table('chairs')->where('room_id',$req->room_id)->select('*')->get();
-
         // dd($layGhe[$i]->id);
 
         for($i = 0; $i < $numberChair;$i++){
