@@ -33,7 +33,10 @@ class ChairController extends Controller
         //lay ghe tu id phong
         $ghe = \DB::table('chairs')->where('room_id',$idPhong)->select('*')->get();
 //todo: ket bang ve, suat chieu, lay them cot id hoa don de biet ghe nao co nguoi khac dat roi
+        $tick = Ticket::join('showtimes','showtimes.id','=','tickets.show_id')
+        ->join('bills','bills.id','=','tickets.bill_id')->get();
 
+        dd($tick);
 
         return view('user.chonghe',['dong'=>$dong,'cot'=>$cot,'ghe'=>$ghe, 'gia'=>$gia]);
 
