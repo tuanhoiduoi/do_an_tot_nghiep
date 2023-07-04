@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('kh_id')->constrained('users');
             $table->date('ngaylap');
             $table->string('veri')->min(10)->max(10);
+            $table->string('trangthai');
             $table->timestamps();
         });
     }

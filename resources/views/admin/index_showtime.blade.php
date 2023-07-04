@@ -19,7 +19,13 @@
                           <h6 class="fw-semibold mb-0">Phòng</h6>
                         </th>
                         <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Rạp</h6>
+                          </th>
+                        <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Thời gian</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Giá</h6>
                         </th>
                         <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Trạng thái</h6>
@@ -27,22 +33,24 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($lst_showtime as $showtime)
+                        @foreach ($lst_showtime as $showtime =>$key)
                             <tr>
-                                <td>{{$showtime->id}}</td>
-                                <td>{{$showtime->film_id}}</td>
-                                <td>{{$showtime->room_id}}</td>
-                                <td>{{$showtime->thoigian}}</td>
-                                <td>
-                                     @if($showtime->trangthai == 1)
+                                <td>{{$key->id}}</td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:150px">{{$key->tenphim}}</td>
+                                <td>{{$key->sophong}}</td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100px">{{$key->tenrap}}</td>
+                                <td >{{\Carbon\Carbon::createFromTimestamp(strtotime($key->thoigian))->format('d-m-Y H:i:s')}}</td>
+                                <td>{{$key->tien}}</td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100px">
+                                     @if($key->trangthai == 1)
                                         Hoạt động
                                     @else
                                         Không hoạt động
                                     @endif
                                 </td>
-                                <td><a href="{{route('showtimes.edit',['showtime' => $showtime])}}" class="btn btn-primary">Sửa</a></td>
+                                <td><a href="{{route('showtimes.edit',['showtime' => $key])}}" class="btn btn-primary">Sửa</a></td>
                                 <td>
-                                    <form action="{{route('showtimes.destroy',['showtime'=>$showtime])}}" method="POST">
+                                    <form action="{{route('showtimes.destroy',['showtime'=>$key])}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
@@ -57,6 +65,10 @@
             </div>
           </div>
         </div>
+    </div>
+
+
 @endsection
+
 
 

@@ -12,5 +12,6 @@ class Bill extends Model
         'kh_id',
         'ngaylap',
         'veri',
+        'trangthai',
     ];
 }

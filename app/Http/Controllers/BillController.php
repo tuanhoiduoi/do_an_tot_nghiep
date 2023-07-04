@@ -29,6 +29,7 @@ class BillController extends Controller
             'kh_id'=>$req->kh_id,
             'ngaylap'=>$req->ngaylap,
             'veri' => $req->veri,
+            'trangthai' => $req->trangthai,
         ]);
         $bill->save();
         return redirect()->route('bills.index');
@@ -45,6 +46,7 @@ class BillController extends Controller
             'kh_id'=>$req->kh_id,
             'ngaylap'=>$req->ngaylap,
             'veri'=> $randomString,
+            'trangthai' => $req->trangthai,
         ]);
         return redirect()->route('bills.index');
     }

@@ -13,5 +13,6 @@ class Showtime extends Model
         'room_id',
         'thoigian',
         'trangthai',
+        'tien',
     ];
 }
