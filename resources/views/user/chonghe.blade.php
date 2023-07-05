@@ -22,25 +22,26 @@
     {{-- @foreach ($ghe as $ghees)
         <a href="">{{$ghees->tenghe}}</a>
     @endforeach --}}
-    <form action="">
-    <div class="ghe">
-    <div id="chair" style="--rows: {{$dong}}; --cols: {{$cot}};" >
-        @foreach ($ghe as $ghees )
-            @if ($ghees ->bill_id == null)
-            <input name="ghe[]" type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
-            @else
-            <input disabled type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
-            <label class="btn btn-warning" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
-            @endif
+    <form action="{{url('/vnpay_payment')}}" method="POST">
+        @csrf
+        <div class="ghe">
+        <div id="chair" style="--rows: {{$dong}}; --cols: {{$cot}};" >
+            @foreach ($ghe as $ghees)
+                @if ($ghees ->bill_id == null)
+                <input name="ghe[]" type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
+                @else
+                <input disabled type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
+                <label class="btn btn-warning" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
+                @endif
            @endforeach
     </div>
     <div >
         <p  >Ghế: <span id="lst-ghe"></span></p>
     </div>
     <div>
-        <p >Thành Tiền: <span id="thanh-tien"></span></p>
+        <p >Thành Tiền: <span name="total" id="thanh-tien"></span></p>
     </div>
-    </div><a href="#" class="btn btn-success" type="submit">xac nhan</a>
+    <button type="submit" name="redirect" class="btn btn-success check_out" value="">Thanh toán</button>
 </form>
 @endsection
