@@ -3,12 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Bill;
+use App\Models\Ticket;
+use Illuminate\Support\Carbon;
 
 class thanhtoanController extends Controller
 {
     //
 
-    public function vnpay_payment(){
+        public function vnpay_payment(Request $req){
+
+            $ngay = Carbon::now('Asia/Ho_Chi_Minh');
+            $fomat = Carbon::parse($ngay)->format('Y-m-d H:i:s');
+            dd($fomat);
+
+            $total_tien =0;
+            dd($req->ghe); //id chair
+            $slGhe(count($req->ghe)); // so luong ghe
+            //luu hoa don
+            //kiem tra ma~ veri khong trung
+            do {
+                $randomString = Str::random(8);
+            } while (Bill::where('veri', $randomString)->exists());
+
+            //luu ve
+            for($i = 0; $i <= $slGhe;$i++){
+
+                $tick = Bill::create([
+                    'kh_id'=> 1, // mot' truyen vao id khi dang nhap
+                    'ngaylap'=>$ngay,
+                    'veri'=> $randomString,
+                    'trangthai' => 'chua thanh toan',
+                ]);
+            }
+
+
+
 
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "http://localhost:8000/thanhtoan"; // thanh toan thanh` cong tra ve trang nay
@@ -120,6 +150,8 @@ class thanhtoanController extends Controller
             , 'message' => 'success'
             , 'data' => $vnp_Url);
             if (isset($_POST['redirect'])) {
+
+
                 header('Location: ' . $vnp_Url);
                 die();
             } else {

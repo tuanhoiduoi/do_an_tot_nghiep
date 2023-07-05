@@ -35,10 +35,9 @@ Route::get('logout',[AuthController::class, 'logout']);
 
 //------------------------------------------------------------------------------------
 
+
 // xu ly thanh toan
-Route::get('/thanhtoan', function () {
-    return view('thanhtoan');
-});
+
 Route::post('/vnpay_payment', [thanhtoanController::class, 'vnpay_payment']);
 
 
