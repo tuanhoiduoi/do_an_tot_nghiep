@@ -17,6 +17,13 @@ class HoaDonSeeder extends Seeder
                 'kh_id' => 2,
                 'ngaylap' => '2023-07-19',
                 'veri' => 'KHJUITGH',
+                'trangthai' => 'đã thanh toán'
+            ],
+            [
+                'kh_id' => 2,
+                'ngaylap' => '2023-07-18',
+                'veri' => 'KHJUITGH',
+                'trangthai' => 'chưa thanh toán'
             ]
         ]);
     }

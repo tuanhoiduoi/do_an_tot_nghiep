@@ -41,6 +41,11 @@
         <input type="text" name="veri" value="{{$bill->veri}}">
     </div>
 
+    <div>
+        <label for="name">Trạng thái</label><br>
+        <input type="text" name="trangthai" value="{{$bill->trangthai}}">
+    </div>
+
     <button type="submit">Lưu</button>
 </form>
 @endsection

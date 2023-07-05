@@ -18,24 +18,28 @@ class SuatChieuSeeder extends Seeder
                 'room_id' => '1',
                 'thoigian' => '2023-07-19 10:00:00',
                 'trangthai' => 1,
+                'tien' => 50000,
             ],
             [
                 'film_id' => '1',
                 'room_id' => '1',
                 'thoigian' => '2023-07-19 13:00:00',
                 'trangthai' => 1,
+                'tien' => 75000,
             ],
             [
                 'film_id' => '2',
                 'room_id' => '1',
                 'thoigian' => '2023-07-19 11:00:00',
                 'trangthai' => 1,
+                'tien' => 50000,
             ],
             [
                 'film_id' => '2',
                 'room_id' => '1',
                 'thoigian' => '2023-07-19 14:00:00',
                 'trangthai' => 1,
+                'tien' => 75000,
             ],
         ]);
     }

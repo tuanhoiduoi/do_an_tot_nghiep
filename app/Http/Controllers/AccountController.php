@@ -33,7 +33,7 @@ class AccountController extends Controller
         return redirect()->route('accounts.index');
     }
     public function destroy(User $account){
-        $account->delete();
+        $account->sofl;
         return redirect()->route('accounts.index');
     }
     public function edit(User $account){

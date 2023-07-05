@@ -24,7 +24,9 @@ use App\Http\Controllers\AuthController;
 */
 
 
-
+Route::get('/', function () {
+    return view('dangnhap');
+});
 
 
 Route::post('/',[AuthController::class, 'login'])->name('/');
@@ -33,7 +35,16 @@ Route::get('logout',[AuthController::class, 'logout']);
 
 //------------------------------------------------------------------------------------
 
-Route::get('/log-out',[UserController::class, 'login']);
+// xu ly thanh toan
+Route::get('/thanhtoan', function () {
+    return view('thanhtoan');
+});
+Route::post('/vnpay_payment', [thanhtoanController::class, 'vnpay_payment']);
+
+
+// ------------------------------------------------------------------------------------
+
+Route::get('/log-out',[UserController::class, 'login']); // k xai
 
 
 

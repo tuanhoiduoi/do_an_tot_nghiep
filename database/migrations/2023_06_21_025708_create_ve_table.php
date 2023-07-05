@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('show_id')->constrained('showtimes');
             $table->foreignId('chair_id')->constrained('chairs');
             $table->foreignId('bill_id')->nullable()->constrained('bills');
-            $table->integer('tien')->default(50000);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
