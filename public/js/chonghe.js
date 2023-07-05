@@ -10,7 +10,9 @@ function chonghe(e){
     });
     $('#lst-ghe').text(arr.join(', '));
     $('#thanh-tien').text(sum.toLocaleString('vi',{style:'currency',currency:'VND'}));
+
 }
 $(function(){
     $('#chair').on('input','input',chonghe);
 });
+

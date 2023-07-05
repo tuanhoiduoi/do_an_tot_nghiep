@@ -13,4 +13,8 @@ class Ticket extends Model
         'bill_id',
         'chair_id',
     ];
+    public function ghe()
+    {
+        return $this-> belongsTo(Chair::class);
+    }
 }

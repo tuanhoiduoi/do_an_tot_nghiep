@@ -87,9 +87,12 @@ class ShowtimeController extends Controller
         ->join('rooms','rooms.id','=','showtimes.room_id')
         ->join('cinemas','cinemas.id','=','rooms.cine_id')
         ->where ('film_id',$id)
-        // dieu kien thoi gian lon hon thoi gian hien tai
+
+
         ->select('showtimes.id','showtimes.thoigian as thoigian','cinemas.tenrap as tenrap')
         ->orderBy('cinemas.tenrap','asc','thoigian','asc')
+        // dieu kien thoi gian lon hon thoi gian hien tai
+        ->where ('thoigian','>',now())
         ->get();
         $suatchieu=[];
         foreach ($tmp as $suat) {
