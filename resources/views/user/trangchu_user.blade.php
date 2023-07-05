@@ -16,49 +16,49 @@
   </head>
   <body>
 		<div class="home-slider owl-carousel js-fullheight">
-      <div class="slider-item js-fullheight" style="background-image:url(images/slider-1.jpg);">
+      <div class="slider-item js-fullheight" style="background-image:url(images/slider1.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Norway</h1>
+	          		<h2>The best place to go entertainment</h2>
+		            <h1 class="mb-3">CINEMA</h1>
 	            </div>
 	          </div>
 	        </div>
         </div>
       </div>
 
-      <div class="slider-item js-fullheight" style="background-image:url(images/slider-2.jpg);">
+      <div class="slider-item js-fullheight" style="background-image:url(images/slider2.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Japan</h1>
+	          		<h2>The best place to go entertainment</h2>
+		            <h1 class="mb-3">CINEMA</h1>
 	            </div>
 	          </div>
 	        </div>
         </div>
       </div>
 
-      <div class="slider-item js-fullheight" style="background-image:url(images/slider-2.jpg);">
+      <div class="slider-item js-fullheight" style="background-image:url(images/slider3.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Singapore</h1>
+	          		<h2>The best place to go entertainment</h2>
+		            <h1 class="mb-3">CINEMA</h1>
 	            </div>
 	          </div>
 	        </div>
         </div>
       </div>
     </div>
-    <section class="info-review">
+    {{-- <section class="info-review">
         <div class="phu-kien text-center pt-3">
             <strong>GÓC ĐIỆN ẢNH</strong>
         </div>
@@ -80,7 +80,7 @@
                 <strong>Bình Luận Phim</strong>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="mota text-white" style="background:linear-gradient(to right,#0a0809,#040102)">
         <div class="tieu-de text-center pt-3 pb-3">
             <strong> CINEMA</strong></h3>

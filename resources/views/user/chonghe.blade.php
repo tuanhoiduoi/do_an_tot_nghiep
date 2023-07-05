@@ -3,6 +3,7 @@
  <link rel="stylesheet" href="/css/ghe.css">
 @endsection
 @section('js')
+<script src="{{asset('js/disabled.js')}}"></script>
 <script src="{{asset('js/taoghe.js')}}"></script>
 <script src="{{asset('js/chonghe.js')}}"></script>
 @endsection
@@ -25,9 +26,14 @@
     <div class="ghe">
     <div id="chair" style="--rows: {{$dong}}; --cols: {{$cot}};" >
         @foreach ($ghe as $ghees )
+            @if ($ghees ->bill_id == null)
             <input name="ghe[]" type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
             <label class="btn btn-outline-primary" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
-            @endforeach
+            @else
+            <input disabled type="checkbox" class="btn-check" id="btn-{{$ghees->dong}}-{{$ghees->cot}}" value="{{$ghees->id}}" data-gia="{{$gia}}" data-ten="{{$ghees->tenghe}}" autocomplete="off">
+            <label class="btn btn-warning" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
+            @endif
+           @endforeach
     </div>
     <div >
         <p  >Ghế: <span id="lst-ghe"></span></p>
@@ -35,6 +41,6 @@
     <div>
         <p >Thành Tiền: <span id="thanh-tien"></span></p>
     </div>
-    </div><a href="/1" class="btn btn-success" type="submit">xac nhan</a>
+    </div><a href="#" class="btn btn-success" type="submit">xac nhan</a>
 </form>
 @endsection

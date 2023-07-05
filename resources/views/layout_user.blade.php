@@ -95,9 +95,9 @@
 			   <div class="col-sm-3  mt-3">
 					<a href="" class="text-white" ><h3 class="h5">Chính Sách Tuyển Dụng</h3></a>
 							<ul>
-								<li><a href="" >Chính Sách Đổi Trả</a></li>
-								 <li><a href="">Chính Sách Hoàn Tiền</a></li>
-								<li><a href="" >Chính Sách Thanh Toán</a></li>
+								<li><a href="" >Về chúng tôi</a></li>
+								 <li><a href="">Quy chế hoạt động</a></li>
+								<li><a href="" >Thỏa thuận sử dụng</a></li>
 							</ul>
 			   </div>
 			   <div class="col-sm-3  mt-3">

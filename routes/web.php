@@ -53,7 +53,7 @@ Route::get('/1', function () {
     return view('user.suatchieu');
 });
 Route::get('/3', function () {
-    return view('user.thongtinve');
+    return view('user.trangchu_user');
 });
 
 Route::get('/dangnhap', function () {
