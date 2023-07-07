@@ -14,7 +14,14 @@ class ShowtimeController extends Controller
 {
     //
     public function index(){
-        $lst = Showtime::all();
+        // $lst = Showtime::all();
+
+        $lst = Showtime::join('films','films.id','=','showtimes.film_id')
+        ->join('rooms','rooms.id','=','showtimes.room_id')
+        ->join('cinemas','rooms.cine_id','=','cinemas.id')
+        ->select('showtimes.*','rooms.sophong','films.tenphim','cinemas.tenrap')
+        ->get();
+        // dd($lst);
         return view('admin.index_showtime',['lst_showtime'=>$lst]);
     }
     public function edit(Showtime $showtime){
@@ -55,6 +62,7 @@ class ShowtimeController extends Controller
             'room_id'=>$req->room_id,
             'thoigian'=>$fomat,
             'trangthai' => $req->trangthai,
+            'tien' => $req->tien,
         ]);
 
 

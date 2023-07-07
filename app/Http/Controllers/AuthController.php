@@ -22,6 +22,7 @@ class AuthController extends Controller
 
     public function login(Request $req){
 
+
         if($req->sdt == null or $req->password == null){
             return view('dangnhap');
         }

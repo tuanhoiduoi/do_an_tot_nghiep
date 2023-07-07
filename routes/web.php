@@ -30,8 +30,13 @@ Route::get('/', function () {
 
 
 Route::post('/',[AuthController::class, 'login'])->name('/');
+
+
+Route::post('logout',[AuthController::class, 'logout']);
+
 Route::post('/register', [AuthController::class, 'register'])->name('/register');
 Route::get('logout',[AuthController::class, 'logout']);
+
 
 //------------------------------------------------------------------------------------
 
@@ -39,9 +44,11 @@ Route::get('logout',[AuthController::class, 'logout']);
 // xu ly thanh toan
 
 Route::post('/vnpay_payment', [thanhtoanController::class, 'vnpay_payment']);
+Route::get('/thanhtoan/{id}', [thanhtoanController::class, 'returnUrl']);
 
 
 // ------------------------------------------------------------------------------------
+
 
 Route::get('/log-out',[UserController::class, 'login']); // k xai
 

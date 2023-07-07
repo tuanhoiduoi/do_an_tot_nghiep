@@ -11,6 +11,10 @@ function chonghe(e){
     $('#lst-ghe').text(arr.join(', '));
     $('#thanh-tien').text(sum.toLocaleString('vi',{style:'currency',currency:'VND'}));
 
+    //  lay gia so tien truyen
+    var inputElement = document.getElementsByName("total")[0];
+    inputElement.value = sum;
+
 }
 $(function(){
     $('#chair').on('input','input',chonghe);
