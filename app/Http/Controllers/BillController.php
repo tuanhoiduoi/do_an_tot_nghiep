@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Bill;
@@ -51,18 +51,26 @@ class BillController extends Controller
         return redirect()->route('bills.index');
     }
 
-    // public function gdich(Request $req){
-    //    $data = \DB::table('showtimes')
-    //    ->join('tickets','showtimes.id','=','tickets.show_id')
-    //    ->join('bills','bills.id','=','tickets.bill_id')
+    public function gdich(Request $req){
+
+        // dd(Auth::user()->id);
+
+       $data = \DB::table('tickets')
+       ->join('showtimes','showtimes.id','=','tickets.show_id')
+       ->join('bills','bills.id','=','tickets.bill_id')
+      ->join('users','bills.kh_id','=','users.id')
+      ->join('films','showtimes.film_id','=','films.id')
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
-    //    ->select('*')->get();
+     ->where('users.id',Auth::user()->id)
+    // ->where('')
 
-    //    dd($data);
+       ->select('users.*','showtimes.tien','bills.ngaylap','films.tenphim')->get();
 
-    //    return view();
-    // }
+       dd($data);
+
+       return view('user.gdich')->with('data',$data);
+    }
 
 
 

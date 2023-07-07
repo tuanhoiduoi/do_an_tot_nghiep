@@ -19,9 +19,9 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" name="name" placeholder="Name" />
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" name="name" placeholder="Họ tên" />
+                <input type="text" name="sdt" placeholder="Số điện thoại" />
+                <input type="password" name="password" placeholder="Mật khẩu" />
                 <button type="submit">Sign Up</button>
             </form>
         </div>

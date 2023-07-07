@@ -13,9 +13,9 @@ class AuthController extends Controller
     public function register(Request $request){
 
             $name=$request->input('name');
-            $email=$request->input('email');
+            $sdt=$request->input('sdt');
             $password=$request->input('password');
-            $result = (new AccountController)->store($name,$email,$password);
+            $result = (new AccountController)->store($name,$sdt,$password);
              return view('dangnhap');
 
     }
@@ -39,7 +39,7 @@ class AuthController extends Controller
             }
             else{
                 Auth::login($user);
-                return view('user.trangchu_user');
+                return view('user.trangchu_user',Auth::user());
             }
         }else{
             return view('dangnhap');

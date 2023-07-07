@@ -40,7 +40,27 @@
                 <label class="btn btn-warning" for="btn-{{$ghees->dong}}-{{$ghees->cot}}" style="--row:{{$ghees->dong}};--col:{{$ghees->cot}}">{{$ghees->tenghe}}</label>
                 @endif
            @endforeach
+        </div>
+        <div class="title-ghe">
+    <div >
+        <p >Ghế: <span id="lst-ghe"></span></p>
     </div>
+    <div>
+        <p >Thành Tiền: <span name="total" id="thanh-tien"></span></p>
+    </div>
+    <span style="background:rgb(228, 240, 6)">Đã đặt</span> </p>
+    <div>
+
+
+
+
+
+
+    <button type="submit" name="redirect" class=" button2" value="">Thanh toán</button>
+
+</form>
+</div>
+    {{-- </div>
 
     <div >
         <p  >Ghế: <span id="lst-ghe"></span></p>
@@ -109,6 +129,6 @@
 
     </form>
 </div>
-</div>
+</div> --}}
 @endsection
 
