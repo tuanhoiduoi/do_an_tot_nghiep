@@ -50,4 +50,23 @@ class BillController extends Controller
         ]);
         return redirect()->route('bills.index');
     }
+
+    // public function gdich(Request $req){
+    //    $data = \DB::table('showtimes')
+    //    ->join('tickets','showtimes.id','=','tickets.show_id')
+    //    ->join('bills','bills.id','=','tickets.bill_id')
+    //    ->join('films','films.id','=','showtimes.films_id')
+    //    ->where('film_id','=' ,'tenphim')
+    //    ->select('*')->get();
+
+    //    dd($data);
+
+    //    return view();
+    // }
+
+
+
+
+
+
 }

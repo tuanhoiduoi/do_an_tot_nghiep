@@ -29,7 +29,13 @@ class ChairController extends Controller
         $cot = $room->cot;
         //$gia = $room->gia;
         //lay gia theo schieu
-        $gia=50000;
+          $schieu =\DB::table('showtimes')->where('id',$idSchieu)->select('tien')->get()[0];
+        //   dd($schieu->tien);
+
+         $gia=$schieu->tien;
+        //   $gia=50000;
+
+
         // dd($dong);
         //lay ghe tu id phong
 
@@ -71,4 +77,27 @@ class ChairController extends Controller
         return view('user.chonghe',['dong'=>$dong,'cot'=>$cot,'ghe'=>$ghe, 'gia'=>$gia]);
 
     }
+
+    // public function tke(Request $req){
+    //     $id = $req->id;
+    //     //  $sum = 0;
+    //     //lay all schieu co trong thang
+    //     $tks = \DB::table('showtimes')
+    //     ->whereMonth('thoigian','=','7')
+    //     ->whereYear('thoigian','=','2023')
+    //     ->select('*')->get();
+    //     // dd($tks);
+    //     //lay vs tu schieu tong so ve trong schieu do
+    //     foreach ($tks as $tk) {
+    //         $sl = \DB::table('tickets')
+    //         ->where('show_id',$tk->id)
+    //         ->whereNotNull("bill_id")
+    //         ->get();
+
+    //         // $sum += $sl*$tk->tien;
+    //          dd($sl);
+    //     }
+
+    //     //  return view('admin.doanhthu_index',['tongtien'=>$sum]);
+    // }
 }
