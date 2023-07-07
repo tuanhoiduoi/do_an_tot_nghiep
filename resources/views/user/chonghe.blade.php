@@ -24,6 +24,7 @@
     @endforeach --}}
     <form action="{{url('/vnpay_payment')}}" method="POST">
         @csrf
+        <input type="hidden" name="id_suat" value="{{$suat}}">
         <div class="ghe">
         <div id="chair" style="--rows: {{$dong}}; --cols: {{$cot}};" >
             @foreach ($ghe as $ghees)
@@ -40,7 +41,8 @@
         <p  >Ghế: <span id="lst-ghe"></span></p>
     </div>
     <div>
-        <p >Thành Tiền: <span name="total" id="thanh-tien"></span></p>
+        <p >Thành Tiền: <span id="thanh-tien"></span></p>
+        <input type="hidden" name="total" value="">
     </div>
     <button type="submit" name="redirect" class="btn btn-success check_out" value="">Thanh toán</button>
 </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Bill;
 use App\Models\Ticket;
 use Illuminate\Support\Carbon;
@@ -10,43 +11,60 @@ use Illuminate\Support\Carbon;
 class thanhtoanController extends Controller
 {
     //
+        public function returnUrl(Request $req){
+
+            // bill: chua thanh toan -> da thanh toan
+            $bills = Bill::where('id', $req->id)->update([
+                'trangthai' => "đã thanh toán",
+            ]);
+        }
 
         public function vnpay_payment(Request $req){
 
+            //lay ngay hien tai
             $ngay = Carbon::now('Asia/Ho_Chi_Minh');
-            $fomat = Carbon::parse($ngay)->format('Y-m-d H:i:s');
-            dd($fomat);
+            $fomat = Carbon::parse($ngay)->format('Y-m-d');
 
-            $total_tien =0;
-            dd($req->ghe); //id chair
-            $slGhe(count($req->ghe)); // so luong ghe
-            //luu hoa don
+
+            // dd($req->ghe[0]); //id chair
+
+            // so luong ghe
+            $slGhe = count($req->ghe);
+            // dd($slGhe);
+
             //kiem tra ma~ veri khong trung
             do {
                 $randomString = Str::random(8);
             } while (Bill::where('veri', $randomString)->exists());
 
-            //luu ve
-            for($i = 0; $i <= $slGhe;$i++){
+            // tao hoa don
+            $bill = Bill::create([
+                'kh_id'=> 1, // mot' truyen vao id khi dang nhap
+                'ngaylap'=>$fomat,
+                'veri'=> $randomString,
+                'trangthai' => 'chưa thanh toán',
+            ]);
 
-                $tick = Bill::create([
-                    'kh_id'=> 1, // mot' truyen vao id khi dang nhap
-                    'ngaylap'=>$ngay,
-                    'veri'=> $randomString,
-                    'trangthai' => 'chua thanh toan',
-                ]);
+            //lay id bill moi nhat
+            $latestId = Bill::latest()->first()->id;
+
+            //luu ve
+            for($i = 0; $i < $slGhe; $i++){
+                $dsGhe[] = $req->ghe[$i];
             }
 
-
+            $tickets = Ticket::whereIn('chair_id', $dsGhe)->update([
+                'bill_id'=> $latestId,
+            ]);
 
 
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = "http://localhost:8000/thanhtoan"; // thanh toan thanh` cong tra ve trang nay
+        $vnp_Returnurl = "http://localhost:8000/thanhtoan/". $latestId ; // thanh toan thanh` cong tra ve trang nay
         $vnp_TmnCode = "Z30NK7GB";//Mã website tại VNPAY
         $vnp_HashSecret = "DCHWIEYDMSGMXGEQHSXBCNHXEIYBRRMY"; //Chuỗi bí mật
 
         // $vnp_TxnRef = $_POST['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-        $vnp_TxnRef = '123456';
+        $vnp_TxnRef = $randomString;
 
         // $vnp_OrderInfo = $_POST['order_desc'];
         $vnp_OrderInfo = 'thong tin don hang';
@@ -54,8 +72,8 @@ class thanhtoanController extends Controller
         // $vnp_OrderType = $_POST['order_type'];
         $vnp_OrderType = 'billpayment';
 
-        // $vnp_Amount = $_POST['amount'] * 100;
-        $vnp_Amount = 20000 * 100;
+        $vnp_Amount = $_POST['total'] * 100; // total lay ben view
+        // $vnp_Amount = 20000 * 100;
 
         // $vnp_Locale = $_POST['language'];
         $vnp_Locale = 'vn';
@@ -145,12 +163,12 @@ class thanhtoanController extends Controller
         if (isset($vnp_HashSecret)) {
             $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+
         }
         $returnData = array('code' => '00'
             , 'message' => 'success'
             , 'data' => $vnp_Url);
             if (isset($_POST['redirect'])) {
-
 
                 header('Location: ' . $vnp_Url);
                 die();

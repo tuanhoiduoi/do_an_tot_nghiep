@@ -68,7 +68,7 @@ class ChairController extends Controller
         // dd($tick);
 
 
-        return view('user.chonghe',['dong'=>$dong,'cot'=>$cot,'ghe'=>$ghe, 'gia'=>$gia]);
+        return view('user.chonghe',['dong'=>$dong,'cot'=>$cot,'ghe'=>$ghe, 'gia'=>$gia,'suat'=>$idSchieu]);
 
     }
 }
