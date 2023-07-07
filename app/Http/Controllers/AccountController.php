@@ -23,12 +23,12 @@ class AccountController extends Controller
     public function create(){
         return view('admin.create_account_admin');
     }
-    public function store(Request $req){
+    public function store($hoten, $sdt,$pass){
         $req=User::create([
-            'hoten' => $req->hoten,
-            'sdt' => $req->sdt,
-            'password' => $req->password,
-            'is_admin' => $req->is_admin
+            'hoten' => $hoten,
+            'sdt' => $sdt,
+            'password' => $pass,
+            'is_admin' => false
         ]);
         return redirect()->route('accounts.index');
     }

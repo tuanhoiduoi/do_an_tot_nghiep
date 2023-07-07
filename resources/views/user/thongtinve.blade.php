@@ -18,46 +18,6 @@
 </head>
 
 <body>
-    <!-- header -->
-    {{-- <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="https://nentang.vn">Nền tảng</a>
-            <div class="navbar-collapse collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Trang chủ <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://nentang.vn">Quản trị</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Liên hệ</a>
-                    </li>
-                </ul>
-                <form class="form-inline mt-2 mt-md-0" method="get" action="search.html">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" aria-label="Search"
-                        name="keyword_tensanpham">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                </form>
-            </div> --}}
-            {{-- <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="cart.html">Giỏ hàng</a>
-                </li>
-                <li class="nav-item text-nowrap">
-                    <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
-                    <a class="nav-link" href="login.html">Đăng nhập</a>
-                </li>
-            </ul>
-        </div>
-    </nav> --}}
-    <!-- end header -->
 
     <main role="main">
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
@@ -66,13 +26,13 @@
                 action="#">
                 <input type="hidden" name="kh_tendangnhap" value="dnpcuong">
 
-                <div class="py-5 text-center">
+                {{-- <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
                     <h2>Thanh toán</h2>
                     <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Vé trước khi Thanh toán.</p>
-                </div>
+                </div> --}}
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-4 order-md-2 mb-4">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
                             <span class="text-muted">Vé của bạn</span>
@@ -115,10 +75,9 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <div class="col-md-8 order-md-1">
-                        <h4 class="mb-3">Thông tin vé</h4>
-
+                        <h4 class="mb-3">Lịch sử giao dịch</h4>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="kh_ten">Họ tên</label>

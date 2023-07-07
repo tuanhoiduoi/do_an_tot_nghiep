@@ -8,7 +8,7 @@ use App\Models\Room;
 use App\Models\Film;
 use App\Models\Ticket;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 
 class ShowtimeController extends Controller
 {
@@ -80,20 +80,26 @@ class ShowtimeController extends Controller
     }
     public function schieu(Request $req){
 
-
+        // dd(Auth::check());
+        if (!Auth::check()) {
+            return redirect('/');
+        }
         $id = $req->id;
+        $date = Carbon::now('Asia/Ho_Chi_Minh');
+        $fomat = Carbon::parse($date)->format('Y-m-d H:i:');
 
         $tmp = DB::table('showtimes')
         ->join('rooms','rooms.id','=','showtimes.room_id')
         ->join('cinemas','cinemas.id','=','rooms.cine_id')
         ->where ('film_id',$id)
 
-
         ->select('showtimes.id','showtimes.thoigian as thoigian','cinemas.tenrap as tenrap')
         ->orderBy('cinemas.tenrap','asc','thoigian','asc')
+
+
         // dieu kien thoi gian lon hon thoi gian hien tai
-        ->where ('thoigian','>',now())
-        ->get();
+        ->where ('thoigian','>',$fomat)
+         ->get();
         $suatchieu=[];
         foreach ($tmp as $suat) {
             $suatchieu[$suat->tenrap][]=$suat;
