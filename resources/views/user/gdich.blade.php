@@ -28,24 +28,16 @@
                           </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($lst_bill as $bills)
+                            @foreach ($data as $gd)
                                                 <tr>
-                                                    <td>{{$bills->id}}</td>
-                                                    <td>{{$bills->kh_id}}</td>
+                                                    <td>{{$gd->hoten}}</td>
+                                                    <td>{{$gd->kh_id}}</td>
                                                     <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($bills->ngaylap))->format('d-m-Y')}}</td>
-                                                    <td>{{$bills->veri}}</td>
-                                                    <td>{{$bills->trangthai}}</td>
-                                                    <td><a href="{{route('bills.edit',['bill' => $bills])}}" class="btn btn-primary">Sửa</a></td>
-                                                    <td>
-                                                        <form action="{{route('bills.destroy',['bill'=>$bills])}}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
-                                                        </form>
-                                                    </td>
+                                                    <td>{{$gd->veri}}</td>
+
 
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                         </tbody>
                       </table>
                     </div>
