@@ -78,26 +78,26 @@ class ChairController extends Controller
 
     }
 
-    // public function tke(Request $req){
-    //     $id = $req->id;
-    //     //  $sum = 0;
-    //     //lay all schieu co trong thang
-    //     $tks = \DB::table('showtimes')
-    //     ->whereMonth('thoigian','=','7')
-    //     ->whereYear('thoigian','=','2023')
-    //     ->select('*')->get();
-    //     // dd($tks);
-    //     //lay vs tu schieu tong so ve trong schieu do
-    //     foreach ($tks as $tk) {
-    //         $sl = \DB::table('tickets')
-    //         ->where('show_id',$tk->id)
-    //         ->whereNotNull("bill_id")
-    //         ->get();
-
-    //         // $sum += $sl*$tk->tien;
-    //          dd($sl);
-    //     }
-
-    //     //  return view('admin.doanhthu_index',['tongtien'=>$sum]);
-    // }
+    public function tke(Request $req){
+        $id = $req->id;
+        //  $sum = 0;
+        //lay all schieu co trong thang
+        $tks = \DB::table('showtimes')
+        ->whereMonth('thoigian','=','7')
+        ->whereYear('thoigian','=','2023')
+        ->select('*')->get();
+         //dd($tks);
+        //lay vs tu schieu tong so ve trong schieu do
+        foreach ($tks as $tk) {
+            $sl = \DB::table('tickets')
+            ->where('show_id',$tk->id)
+            ->whereNotNull("bill_id")
+            ->get();
+         $sum += $sl*$tk->tien;
+        }
+        //tien ,ve, hd.
+        //fiml,suatchieu,ve
+        //dd($sl);
+        //  return view('admin.doanhthu_index',['tongtien'=>$sum]);
+    }
 }
