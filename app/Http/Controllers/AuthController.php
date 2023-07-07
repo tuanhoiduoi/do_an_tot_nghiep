@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Http\Controllers\AccountController;
 
 class AuthController extends Controller
 {
     //
-    public function register(){
+    public function register(Request $request){
+
+            $name=$request->input('name');
+            $email=$request->input('email');
+            $password=$request->input('password');
+            $result = (new AccountController)->store($name,$email,$password);
+             return view('dangnhap');
 
     }
 

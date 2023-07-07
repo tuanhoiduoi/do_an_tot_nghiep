@@ -4,8 +4,8 @@
     <div class=" row">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="SCBH.html"><i class="fa fa-home"></i> Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="sanpham.html">Phim Đang Chiếu</a></li>
+            <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/phim">Phim Đang Chiếu</a></li>
             <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
           </ol>
         </nav>

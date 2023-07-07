@@ -31,7 +31,12 @@ Route::get('/', function () {
 
 Route::post('/',[AuthController::class, 'login'])->name('/');
 
+
 Route::post('logout',[AuthController::class, 'logout']);
+
+Route::post('/register', [AuthController::class, 'register'])->name('/register');
+Route::get('logout',[AuthController::class, 'logout']);
+
 
 //------------------------------------------------------------------------------------
 
@@ -53,10 +58,15 @@ Route::get('/log-out',[UserController::class, 'login']); // k xai
 Route::get('/1', function () {
     return view('user.suatchieu');
 });
-Route::get('/3', function () {
-    return view('user.trangchu_user');
+Route::get('/2', function () {
+    return view('user.gioithieu');
 });
-
+ Route::get('/3', function () {
+     return view('admin.doanhthu_index');
+});
+Route::get('/4', function () {
+    return view('user.gdich');
+});
 Route::get('/dangnhap', function () {
     return view('dangnhap');
 });
@@ -80,6 +90,7 @@ Route::resource('/chairs', ChairController::class);
 Route::get('/s', function () {
     return view('admin.create_chair');
 });
+
 // Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
 Route::get('/phim', [FilmController::class,'allfilm']);
@@ -88,4 +99,6 @@ Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
 Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
-Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
+// Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
+Route::get('/tke', [ChairController::class,'tke']);
+// Route::get('/gd', [BillController::class,'gdich']);

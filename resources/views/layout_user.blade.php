@@ -23,10 +23,26 @@
 					<a href=""><i  class="fa fa-clock"></i> Phục vụ: 8h-23h cả CN & ngày lễ</a>
 				</div>
 				<div class="col-6 text-right">
-					<a href=""><i  class="fas fa-user-alt"></i> Đăng nhập</a>
-					<a href=""><i  class="social fab fa-facebook-square"></i></a>
-					<a href=""><i  class="social fab fa-twitter"></i></a>
-					<a href=""><i  class="social fab fa-instagram"></i></a>
+
+                    <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                        <a href=""> Đăng nhập</a>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            <img src="/admin/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                          </a>
+
+                          <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                            <div class="message-body">
+                              <a href="{{url('logout')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                            </div>
+                            <div class="message-body2">
+                                <a href="/4" class="btn btn-outline-primary mx-3 mt-2 d-block">Lịch sử giao dịch</a>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
 
 				</div>
 			</div>
@@ -36,14 +52,15 @@
 				</div>
 				<div class="col-6 float-right   mt-4">
 					<a href="/3"><i class="fa fa-home"></i> Trang chủ</a>
-					<a href="#">Giới thiệu</a>
-					<div class="dropdown" style="display:inline-block">
+					<a href="/2">Giới thiệu</a>
+                    <a href="/phim">Phim</a>
+					{{-- <div class="dropdown" style="display:inline-block">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Phim</a>
 						<div class="dropdown-content text-center">
 							<a class="dropdown-item" href="/phim">Phim Đang Chiếu</a>
 							<a class="dropdown-item" href="/phim2">Phim Sắp Chiếu</a>
 						</div>
-					</div>
+					</div> --}}
 
 
 					</div>

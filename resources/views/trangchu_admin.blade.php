@@ -91,7 +91,16 @@
                   <span class="hide-menu">Quản lý ghế</span>
                 </a>
             </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Thống kê doanh thu</span>
+                </a>
+            </li>
           </ul>
+
         </nav>
         <!-- End Sidebar navigation -->
       </div>
