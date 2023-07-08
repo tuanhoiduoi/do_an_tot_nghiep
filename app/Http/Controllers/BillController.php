@@ -63,7 +63,11 @@ class BillController extends Controller
       ->join('chairs','tickets.chair_id','=','chairs.id')
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
+
     //->where('users.id',Auth::user()->id)
+
+    //  ->where('users.id',Auth::user()->id)
+
     // ->where('')
 
         ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')->get();
