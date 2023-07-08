@@ -62,7 +62,7 @@ class BillController extends Controller
       ->join('films','showtimes.film_id','=','films.id')
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
-     ->where('users.id',Auth::user()->id)
+    //  ->where('users.id',Auth::user()->id)
     // ->where('')
 
        ->select('users.*','showtimes.tien','bills.ngaylap','films.tenphim')->get();

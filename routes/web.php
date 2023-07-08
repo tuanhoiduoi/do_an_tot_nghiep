@@ -104,4 +104,4 @@ Route::get('/tke', [ChairController::class,'tke']);
  Route::get('/gd', [BillController::class,'gdich']);
 
 
- Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+ Route::get('/giaodich', [BillController::class,'gdich']);
