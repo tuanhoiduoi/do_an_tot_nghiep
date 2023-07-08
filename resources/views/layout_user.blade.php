@@ -38,7 +38,7 @@
                               <a href="{{url('logout')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                             </div>
                             <div class="message-body2">
-                                <a href="{{url('/giaodich')}}/{{Auth::user()->id}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Lịch sử giao dịch</a>
+                                <a href="{{url('/giaodich')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Lịch sử giao dịch</a>
                           </div>
                         </li>
                       </ul>

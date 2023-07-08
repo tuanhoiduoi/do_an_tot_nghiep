@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/dangnhap.css">
-    <title>Document</title>
+    <title>Cinema</title>
 </head>
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="{{route('/register')}}" method="POST">
                 @csrf
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
+                <h1>Tạo tài khoản</h1>
                 <input type="text" name="name" placeholder="Họ tên" />
                 <input type="text" name="sdt" placeholder="Số điện thoại" />
                 <input type="password" name="password" placeholder="Mật khẩu" />
-                <button type="submit">Sign Up</button>
+                <button type="submit">Đăng ký</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
