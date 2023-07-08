@@ -64,9 +64,9 @@ Route::get('/2', function () {
  Route::get('/3', function () {
      return view('admin.doanhthu_index');
 });
-Route::get('/4', function () {
-    return view('user.gdich');
-});
+// Route::get('/4', function () {
+//     return view('user.gdich');
+// });
 Route::get('/dangnhap', function () {
     return view('dangnhap');
 });
@@ -101,7 +101,7 @@ Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
 // Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
 Route::get('/tke', [ChairController::class,'tke']);
- Route::get('/gd', [BillController::class,'gdich']);
+// Route::get('/gd', [BillController::class,'gdich']);
 
 
- Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+ Route::get('/giaodich', [BillController::class,'gdich']);

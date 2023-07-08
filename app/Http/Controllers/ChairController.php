@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Chair;
+use Carbon\Carbon;
 
 class ChairController extends Controller
 {
@@ -79,25 +80,49 @@ class ChairController extends Controller
     }
 
     public function tke(Request $req){
-        $id = $req->id;
-        //  $sum = 0;
-        //lay all schieu co trong thang
-        $tks = \DB::table('showtimes')
-        ->whereMonth('thoigian','=','7')
-        ->whereYear('thoigian','=','2023')
+        // $id = $req->id;
+        //   $sum = 0;
+        // //lay all schieu co trong thang
+        // $tks = \DB::table('showtimes')
+        // ->whereMonth('thoigian','=','7')
+        // ->whereYear('thoigian','=','2023')
+        // ->select('*')->get();
+        //  //dd($tks);
+        // //lay vs tu schieu tong so ve trong schieu do
+        // foreach ($tks as $tk) {
+        //     $sl = \DB::table('tickets')
+        //     ->where('show_id',$tk->id)
+        //     ->whereNotNull("bill_id")
+        //     ->get();
+        //  $sum += $sl*$tk->tien;
+        // }
+        // // dd($sum);
+        // //tien ,ve, hd.
+        // //fiml,suatchieu,ve
+        // //dd($sl);
+
+            //Suatchieu,tickets,
+            //lay gia tien phu thuoc showtimes
+            //suatchieu co bao nhieu ve phu thuoc bang ve,lay bill_id lay ve ban dc
+
+        $date = Carbon::now('Asia/Ho_Chi_Minh');
+        $fomat = Carbon::parse($date)->format('Y');
+        $fomat1 = Carbon::parse($date)->format('m');
+        // $fomat2 = Carbon::parse($date)->format('d');
+         //dd($fomat2);
+        $tke = \DB::table('tickets')
+        ->join('showtimes','showtimes.id','=','tickets.show_id')
+        ->join('bills','bills.id','=','tickets.bill_id')
+        // ->whereNotNull('tickets.bill_id')
+        // ->whereDay('thoigian','>',$fomat2)
+        ->whereMonth('thoigian','=',$fomat1)
+        ->whereYear('thoigian','=',$fomat)
         ->select('*')->get();
-         //dd($tks);
-        //lay vs tu schieu tong so ve trong schieu do
-        foreach ($tks as $tk) {
-            $sl = \DB::table('tickets')
-            ->where('show_id',$tk->id)
-            ->whereNotNull("bill_id")
-            ->get();
-         $sum += $sl*$tk->tien;
-        }
-        //tien ,ve, hd.
-        //fiml,suatchieu,ve
-        //dd($sl);
-        //  return view('admin.doanhthu_index',['tongtien'=>$sum]);
+
+
+        //  dd($tke);
+
+
+      //return view('admin.doanhthu_index',['tongtien'=>$sum]);
     }
 }

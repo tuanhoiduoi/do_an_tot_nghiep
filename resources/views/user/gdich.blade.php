@@ -1,5 +1,6 @@
 @extends('layout_user')
 @section('content')
+<link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
  <h4 class="mb-3">Lịch sử giao dịch</h4>
 <table>
     <div class="row2">
@@ -10,30 +11,38 @@
                       <table class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
                           <tr>
-                            <th class="border-bottom-0">
+                            {{-- <th class="border-bottom-0">
                               <h6 class="fw-semibold mb-0">STT</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                              <h6 class="fw-semibold mb-0">Ngày</h6>
-                            </th>
+                            </th> --}}
+
                             <th class="border-bottom-0">
                               <h6 class="fw-semibold mb-0">Tên KH</h6>
                             </th>
+
                             <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Tên phim</h6>
                               </th>
                               <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Suất chiếu</h6>
+                              </th>
+                              <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Tiền </h6>
+                              </th>
+                              <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Ghế</h6>
                               </th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $gd)
                                                 <tr>
+                                                    {{-- <td>{{$gd->id}}</td> --}}
                                                     <td>{{$gd->hoten}}</td>
-                                                    <td>{{$gd->kh_id}}</td>
-                                                    <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($bills->ngaylap))->format('d-m-Y')}}</td>
-                                                    <td>{{$gd->veri}}</td>
+                                                    <td>{{$gd->tenphim}}</td>
+                                                    <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($gd->thoigian))->format('d-m-Y    H:i')}} phút</td>
+                                                    <td>{{$gd->tien}} VND</td>
+                                                    <td>{{$gd->tenghe}}</td>
+
 
 
                                                 </tr>
