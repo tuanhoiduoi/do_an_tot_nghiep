@@ -60,14 +60,21 @@ class BillController extends Controller
        ->join('bills','bills.id','=','tickets.bill_id')
       ->join('users','bills.kh_id','=','users.id')
       ->join('films','showtimes.film_id','=','films.id')
+      ->join('chairs','tickets.chair_id','=','chairs.id')
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
+
+    //->where('users.id',Auth::user()->id)
+
     //  ->where('users.id',Auth::user()->id)
+
     // ->where('')
 
-       ->select('users.*','showtimes.tien','bills.ngaylap','films.tenphim')->get();
+        ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')->get();
 
-       dd($data);
+
+
+        // dd($data);
 
        return view('user.gdich')->with('data',$data);
     }

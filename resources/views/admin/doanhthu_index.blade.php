@@ -2,7 +2,7 @@
 @section('content')
 
     <h4>Thông Kê doanh thu</h4>
-   </p><form action="{{route('/tke')}}" >
+   </p><form action="{{URL('/tke')}}" >
     Chọn tháng (trong khoảng từ 1 tới 12):
     <input type="number" name="thang" min="1" max="12">
     <button type="submit" >Xác nhận</button>
@@ -29,7 +29,7 @@
                         <h6 class="my-0">Apple Ipad 4 Wifi 16GB</h6>
                         <small class="text-muted">11800000.00 x 2</small>
                     </div> --}}
-                    <span class="text-muted">{{ $tongtien }}</span>
+                    <span class="text-muted">0VND</span>
                 </li>
                 {{-- <input type="hidden" name="sanphamgiohang[2][sp_ma]" value="4">
                 <input type="hidden" name="sanphamgiohang[2][gia]" value="14990000.00">

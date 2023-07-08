@@ -77,14 +77,14 @@ class FilmController extends Controller
         return view('user.phimdangchieu')->with('phim',$film);
     }
     public function ct_film($id ){
-        // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+
         $film = Film :: where ('id',$id)->get();
         return view('user.ctphim')->with('phim',$film);
     }
-    public function allfilm2(){
-        // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
-        $film = Film :: where('trangthai','0')-> orderBy('films.id','desc')->get();
+    // public function allfilm2(){
+    //     // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+    //     $film = Film :: where('trangthai','0')-> orderBy('films.id','desc')->get();
 
-        return view('user.phimsapchieu')->with('phim',$film);
-    }
+    //     return view('user.phimsapchieu')->with('phim',$film);
+    // }
 }
