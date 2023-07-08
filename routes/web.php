@@ -62,11 +62,14 @@ Route::get('/2', function () {
     return view('user.gioithieu');
 });
  Route::get('/3', function () {
-     return view('admin.doanhthu_index');
+     return view('user.trangchu_user');
 });
-// Route::get('/4', function () {
-//     return view('user.gdich');
-// });
+Route::get('/5', function () {
+    return view('admin.doanhthu_index');
+});
+Route::get('/4', function () {
+    return view('user.gdich');
+});
 Route::get('/dangnhap', function () {
     return view('dangnhap');
 });
@@ -87,6 +90,7 @@ Route::resource('/showtimes', ShowtimeController::class);
 Route::resource('/tickets', TicketController::class);
 Route::resource('/bills', BillController::class);
 Route::resource('/chairs', ChairController::class);
+Route::get('/tke', [ChairController::class,'tke']);
 Route::get('/s', function () {
     return view('admin.create_chair');
 });

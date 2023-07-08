@@ -14,7 +14,6 @@
     @yield('js')
 </head>
 <body>
-
 	<header class="container-fluid">
 			<div class="top row">
 				<div class="col-6">
@@ -25,7 +24,10 @@
 				<div class="col-6 text-right">
 
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                        {{-- <a href=""> Đăng nhập</a> --}}
+                        @guest
+
+                        <a href="/dangnhap"> Đăng nhập</a>
+                        @endguest
                         <li class="nav-item dropdown">
                           <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -39,6 +41,7 @@
                             <div class="message-body2">
                                 <a href="{{url('/giaodich')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Lịch sử giao dịch</a>
                           </div>
+
                         </li>
                       </ul>
 
