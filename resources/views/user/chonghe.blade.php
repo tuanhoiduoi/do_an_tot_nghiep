@@ -46,7 +46,8 @@
         <p >Ghế: <span id="lst-ghe"></span></p>
     </div>
     <div>
-        <p >Thành Tiền: <span name="total" id="thanh-tien"></span></p>
+        <p >Thành Tiền: <span id="thanh-tien"></span></p>
+        <input type="hidden" name="total">
     </div>
     <span style="background:rgb(228, 240, 6)">Đã đặt</span> </p>
     <div>
