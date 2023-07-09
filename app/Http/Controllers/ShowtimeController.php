@@ -89,11 +89,13 @@ class ShowtimeController extends Controller
     }
     public function schieu(Request $req){
 
+
         // dd(Auth::check());
         if (!Auth::check()) {
             return redirect('/');
         }
         $id = $req->id;
+        // dd($id);
         $date = Carbon::now('Asia/Ho_Chi_Minh');
         $fomat = Carbon::parse($date)->format('Y-m-d H:i:');
 

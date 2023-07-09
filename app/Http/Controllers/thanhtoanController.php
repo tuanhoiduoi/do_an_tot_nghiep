@@ -7,6 +7,10 @@ use Illuminate\Support\Str;
 use App\Models\Bill;
 use App\Models\Ticket;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\Film;
+use App\Models\Film;
+
 
 class thanhtoanController extends Controller
 {
@@ -17,6 +21,10 @@ class thanhtoanController extends Controller
             $bills = Bill::where('id', $req->id)->update([
                 'trangthai' => "đã thanh toán",
             ]);
+            $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+
+            return view('user.phimdangchieu')->with('phim',$film);
+
         }
 
         public function vnpay_payment(Request $req){
@@ -36,10 +44,11 @@ class thanhtoanController extends Controller
             do {
                 $randomString = Str::random(8);
             } while (Bill::where('veri', $randomString)->exists());
-
+            // $tt=Auth::user()->id;
+            // dd($tt);
             // tao hoa don
             $bill = Bill::create([
-                'kh_id'=> 1, // mot' truyen vao id khi dang nhap
+                'kh_id'=> Auth::user()->id, // mot' truyen vao id khi dang nhap
                 'ngaylap'=>$fomat,
                 'veri'=> $randomString,
                 'trangthai' => 'chưa thanh toán',
