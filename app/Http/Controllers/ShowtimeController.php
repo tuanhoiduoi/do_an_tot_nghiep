@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Showtime;
 use App\Models\Room;
+use App\Models\Cinema;
 use App\Models\Film;
 use App\Models\Ticket;
 use Carbon\Carbon;
@@ -48,10 +49,10 @@ class ShowtimeController extends Controller
     public function create(){
         $film = Film::all();
         $room = Room::all();
-        return view('admin.create_showtime',['lst_film'=>$film,'lst_room'=>$room]);
+        $cinema = Cinema::all();
+        return view('admin.create_showtime',['lst_film'=>$film,'lst_room'=>$room,'lst_cinema'=>$cinema]);
     }
     public function store(Request $req){
-        // so ve 25 chair bat dau tu 2
 
 
 

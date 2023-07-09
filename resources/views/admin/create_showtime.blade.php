@@ -28,13 +28,21 @@
             @endforeach
         </select>
     </div>
+    <div>
+        <label for="name">Rạp</label>
+        <select name="cine_id" onchange="getRoom()">
+            @foreach ($lst_cinema as $cinema)
+                <option value="{{$cinema->id}}">{{$cinema->tenrap}}</option>
+            @endforeach
+        </select>
+    </div>
 
     <div>
         <label for="name">Phòng</label>
-        <select name="room_id">
-            @foreach ($lst_room as $room)
+        <select name="room_id" id="roomSelect">
+            {{-- @foreach ($lst_room as $room)
                 <option value="{{$room->id}}">{{$room->sophong}}</option>
-            @endforeach
+            @endforeach --}}
         </select>
     </div>
 
@@ -59,5 +67,29 @@
 
     <button type="submit">Lưu</button>
 </form>
+<script>
+    function getRoom(){
+        var cineSelect = document.getElementsByName("cine_id")[0];
+        var roomSelect = document.getElementById("roomSelect");
+
+        // Xóa các tùy chọn phòng hiện có
+        while (roomSelect.firstChild) {
+            roomSelect.removeChild(roomSelect.firstChild);
+        }
+
+        // Lấy giá trị của rạp đã chọn
+        var selectedCineId = cineSelect.value;
+
+        // Thêm các tùy chọn phòng mới dựa trên rạp đã chọn
+        @foreach ($lst_room as $room)
+            if ({{$room->cine_id}} == selectedCineId) {
+                var option = document.createElement("option");
+                option.value = {{$room->id}};
+                option.text = {{$room->sophong}};
+                roomSelect.appendChild(option);
+            }
+        @endforeach
+    }
+</script>
 @endsection
 
