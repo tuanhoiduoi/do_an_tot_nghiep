@@ -53,7 +53,9 @@ class BillController extends Controller
 
     public function gdich(Request $req){
 
-        // dd(Auth::user()->id);
+        //dd($req->id);
+          //$idusers = $req->(Auth::user()->id);
+         //dd(Auth::user()->id);
 
        $data = \DB::table('tickets')
        ->join('showtimes','showtimes.id','=','tickets.show_id')
@@ -64,17 +66,14 @@ class BillController extends Controller
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
 
-    //->where('users.id',Auth::user()->id)
+        ->where('users.id',Auth::user()->id)
 
-    //  ->where('users.id',Auth::user()->id)
-
-    // ->where('')
 
         ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')->get();
 
-
-
-        // dd($data);
+        // dd($req->concac) ;
+         //dd($data);
+     //dd(Auth::user()->id);
 
        return view('user.gdich')->with('data',$data);
     }

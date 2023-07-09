@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
  <h4 class="mb-3">Lịch sử giao dịch</h4>
 <table>
+    {{-- <input type="hidden" name="concac" value="{{(Auth::user()->id)}}"> --}}
     <div class="row2">
               <div class="col-lg-12 d-flex align-items-stretch">
                 <div class="card w-100">
@@ -42,8 +43,6 @@
                                                     <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($gd->thoigian))->format('d-m-Y    H:i')}} phút</td>
                                                     <td>{{$gd->tien}} VND</td>
                                                     <td>{{$gd->tenghe}}</td>
-
-
 
                                                 </tr>
                                             @endforeach

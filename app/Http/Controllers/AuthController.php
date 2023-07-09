@@ -34,7 +34,9 @@ class AuthController extends Controller
         }elseif(\Hash::check($req->password, $user->password)){
             if($user->is_admin == 1){
                 Auth::login($user);
-                //Auth::user() là lấy thông tin người đang đăng nhập
+                // Auth::user()->$id;
+                  // là lấy thông tin người đang đăng nhập
+                  //DAY LA TRANG CHỦ ADMIN KO DC NHÉT LIEN QUAN TỚI USER
                 return view('trangchu_admin');
             }
             else{
