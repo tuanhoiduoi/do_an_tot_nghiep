@@ -1,6 +1,9 @@
 @extends('trangchu_admin')
 @section('content')
 
+
+
+
     <h4>Thông Kê doanh thu</h4>
    </p><form action="{{URL('/tke')}}" >
     Chọn tháng (trong khoảng từ 1 tới 12):
@@ -17,7 +20,7 @@
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted"></span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                <span class="badge badge-secondary badge-pill"></span>
             </h4>
             <ul class="list-group mb-3">
                 {{-- <input type="hidden" name="sanphamgiohang[1][sp_ma]" value="2">
@@ -29,7 +32,7 @@
                         <h6 class="my-0">Apple Ipad 4 Wifi 16GB</h6>
                         <small class="text-muted">11800000.00 x 2</small>
                     </div> --}}
-                    <span class="text-muted">0VND</span>
+                    <span class="text-muted">{{$tongtien}}VND</span>
                 </li>
                 {{-- <input type="hidden" name="sanphamgiohang[2][sp_ma]" value="4">
                 <input type="hidden" name="sanphamgiohang[2][gia]" value="14990000.00">

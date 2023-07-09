@@ -21,6 +21,9 @@ class FilmController extends Controller
         // dd($fil->hinh);
     }
     public function index(Film $fil){
+        // if (!Auth::check()) {
+        //     return redirect('/');
+        // }
         $lst_film = Film::all();
 
         $this->fixImg($fil);

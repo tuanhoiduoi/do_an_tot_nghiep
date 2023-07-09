@@ -80,6 +80,7 @@ class ChairController extends Controller
     }
 
     public function tke(Request $req){
+
         // $id = $req->id;
         //   $sum = 0;
         // //lay all schieu co trong thang
@@ -104,7 +105,7 @@ class ChairController extends Controller
             //Suatchieu,tickets,
             //lay gia tien phu thuoc showtimes
             //suatchieu co bao nhieu ve phu thuoc bang ve,lay bill_id lay ve ban dc
-
+            $sum=0;
         $date = Carbon::now('Asia/Ho_Chi_Minh');
         $fomat = Carbon::parse($date)->format('Y');
         $fomat1 = Carbon::parse($date)->format('m');
@@ -115,14 +116,19 @@ class ChairController extends Controller
         ->join('bills','bills.id','=','tickets.bill_id')
         // ->whereNotNull('tickets.bill_id')
         // ->whereDay('thoigian','>',$fomat2)
-        ->whereMonth('thoigian','=',$fomat1)
+        ->whereMonth('thoigian','=',$req->query("thang"))
         ->whereYear('thoigian','=',$fomat)
         ->select('*')->get();
+        foreach ($tke as $tk) {
+
+                //  $sl = \DB::table('tickets')
+                //  ->where('show_id',$tk->id)
+                // ->whereNotNull("bill_id")
+                // ->get();
+             $sum += $tk->tien;
+        }
 
 
-        //  dd($tke);
-
-
-      //return view('admin.doanhthu_index',['tongtien'=>$sum]);
+      return view('admin.doanhthu_index',['tongtien'=>$sum]);
     }
 }

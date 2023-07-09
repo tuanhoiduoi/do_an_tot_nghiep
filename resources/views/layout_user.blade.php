@@ -14,7 +14,6 @@
     @yield('js')
 </head>
 <body>
-
 	<header class="container-fluid">
 			<div class="top row">
 				<div class="col-6">
@@ -25,20 +24,27 @@
 				<div class="col-6 text-right">
 
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                        {{-- <a href=""> Đăng nhập</a> --}}
+                        @guest
+                        <a href="/dangnhap"> Đăng nhập</a>
+                        @endguest
                         <li class="nav-item dropdown">
                           <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                             aria-expanded="false">
 
                             <img src="/admin/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                           </a>
+                          @if (Auth::check())
                           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                             <div class="message-body">
-                              <a href="{{url('logout')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+
+                              <a href="{{url('logout')}}" class="btn btn-primary">Logout</a>
                             </div>
                             <div class="message-body2">
-                                <a href="{{url('/giaodich')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Lịch sử giao dịch</a>
+                                    {{-- <input type="hidden" name="concac" value="{{(Auth::user()->id)}}"> --}}
+                                <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-primary">Lịch sử giao dịch</a>
                           </div>
+
+                          @endif
                         </li>
                       </ul>
 
