@@ -41,7 +41,7 @@
                                 <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:200px">{{$film->noidung}}</td>
                                 <td>{{$film->thoiluong}}</td>
                                 <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100px">{{$film->daodien}}</td>
-                                <td>
+                                <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100px">
                                     @if($film->trangthai == 1)
                                         Hoạt động
                                     @else

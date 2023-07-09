@@ -61,7 +61,8 @@ class FilmController extends Controller
             'noidung' => $req->noidung,
             'thoiluong' => $req->thoiluong,
             'daodien' => $req->daodien,
-            'trangthai' => $req->trangthai
+            'trailer' => 'trailer.mp4',
+            'trangthai' => $req->trangthai,
         ]);
         return redirect()->route('films.index');
     }

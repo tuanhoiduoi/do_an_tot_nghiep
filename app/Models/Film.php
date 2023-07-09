@@ -15,6 +15,7 @@ class Film extends Model
         'noidung',
         'thoiluong',
         'daodien',
+        'trailer',
         'trangthai',
     ];
     protected $primarykey = 'id';
