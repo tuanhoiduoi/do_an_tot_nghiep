@@ -16,7 +16,7 @@
     @csrf
     <div>
         <label for="name">Số phòng</label><br>
-        <input disabled type="number" name="sophong" value="{{$sophong}}">
+        <input type="number" name="sophong" value="{{$sophong}}">
     </div>
 
     <div>
