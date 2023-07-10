@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('hinh');
             $table->string('tenphim');
-            $table->string('noidung');
+            $table->text('noidung');
             $table->integer('thoiluong');
             $table->string('daodien');
             $table->string('trailer');
