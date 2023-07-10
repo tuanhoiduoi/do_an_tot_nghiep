@@ -35,15 +35,14 @@
                           </a>
                           @if (Auth::check())
                           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-                            <div class="message-body">
 
-                              <a href="{{url('logout')}}" class="btn btn-primary">Logout</a>
-                            </div>
                             <div class="message-body2">
                                     {{-- <input type="hidden" name="concac" value="{{(Auth::user()->id)}}"> --}}
-                                <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-primary">Lịch sử giao dịch</a>
+                                <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-danger" style="width:170px; " >Lịch sử giao dịch</a>
                           </div>
-
+                          <div class="message-body"  style="padding-top:10px;">
+                            <a href="{{url('logout')}}" class="btn btn-primary" style="width:170px;">Logout</a>
+                          </div>
                           @endif
                         </li>
                       </ul>
