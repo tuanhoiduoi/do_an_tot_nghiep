@@ -6,7 +6,6 @@
 			</h2>
             <div class="col-sm-15"  >
                 @foreach ($phim as $fil)
-
                     <div class="item " class="col-sm-3" >
                             <div class="image">
                                 <a href="">
