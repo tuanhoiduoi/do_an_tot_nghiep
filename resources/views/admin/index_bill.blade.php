@@ -47,6 +47,7 @@
                                             @endforeach
                         </tbody>
                       </table>
+                      {{ $lst_bill->links('pagination::bootstrap-4') }}
                     </div>
                   </div>
                 </div>

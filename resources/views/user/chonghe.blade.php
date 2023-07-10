@@ -7,8 +7,12 @@
 <script src="{{asset('js/taoghe.js')}}"></script>
 <script src="{{asset('js/chonghe.js')}}"></script>
 @endsection
-
 @section('content')
+@if(session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="nen">
 <div class="image2" >
     <h2 class="title text-center">
@@ -28,7 +32,7 @@
     @endforeach --}}
     <form action="{{url('/vnpay_payment')}}" method="POST">
         @csrf
-        <input type="hidden" name="id_suat" value="{{$suat}}">
+        {{-- <input type="hidden" name="id_suat" value="{{$suat}}"> --}}
         <div class="ghe">
         <div id="chair" style="--rows: {{$dong}}; --cols: {{$cot}};" >
             @foreach ($ghe as $ghees)

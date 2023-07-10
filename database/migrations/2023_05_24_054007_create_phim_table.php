@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('hinh');
             $table->string('tenphim');
-            $table->text('noidung');
+            $table->string('noidung');
             $table->integer('thoiluong');
             $table->string('daodien');
             $table->string('trailer');
             $table->integer('trangthai');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

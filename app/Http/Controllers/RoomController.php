@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Cinema;
 use App\Models\Chair;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class RoomController extends Controller
 {
@@ -14,32 +16,52 @@ class RoomController extends Controller
 
         // $room = $cinema->rooms;
         // dd($room);
-        $room = Room::all();
+        $room = Room::paginate(5);
         return view('admin.index_room',['lst_room'=> $room]);
     }
     public function create(){
         $lst = Cinema::all();
-        return view('admin.create_room',['lst_cinema'=> $lst]);
+        do {
+            $randomString = Str::random(8);
+        } while (Room::where('sophong', $randomString)->exists());
+        return view('admin.create_room',['lst_cinema'=> $lst,'sophong'=>$randomString]);
     }
     public function store(Request $req){
-        $dong = $req->input('dong');
-        $cot = $req->input('cot');
-
-        $room = Room::create([
-            'sophong'=>$req->sophong,
-            'dong' => $dong,
-            'cot' => $cot,
-            'cine_id'=>$req->cine_id,
-            'trangthai' => $req->trangthai,
-        ]);
-
-        $latestId = Room::latest()->first()->id;
 
         $checkboxes = $req->input('ghe');
-        // $value = $checkboxes[0];
-        // $part = explode('-',$value);
-        // dd($part[0]);
-        for($i =0;$i< count($checkboxes);$i++){
+
+        if($checkboxes == null){
+            $message = 'Lỗi: Bắt buộc phải tạo ghế';
+            $lst = Cinema::all();
+            return view('admin.create_room',['message'=>$message,'lst_cinema'=>$lst]);
+        }
+
+        $validator = Validator::make($req->all(),[
+            'dong' => 'required|numeric',
+            'cot' => 'required|numeric',
+            'sophong' => 'required|numeric',
+        ]);
+
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống và số phòng, dòng, cột phải là số';
+            $lst = Cinema::all();
+            return view('admin.create_room',['message'=>$message,'lst_cinema'=>$lst]);
+        }else{
+            $dong = $req->input('dong');
+            $cot = $req->input('cot');
+
+
+            $room = Room::create([
+                'sophong'=>$req->sophong,
+                'dong' => $dong,
+                'cot' => $cot,
+                'cine_id'=>$req->cine_id,
+                'trangthai' => $req->trangthai,
+            ]);
+
+            $latestId = Room::latest()->first()->id;
+
+            for($i =0;$i< count($checkboxes);$i++){
                 $value = $checkboxes[$i];
                 $part = explode('-',$value);
                 $chair = Chair::create([
@@ -52,7 +74,11 @@ class RoomController extends Controller
             }
 
 
-        return redirect()->route('rooms.index');
+            return redirect()->route('rooms.index');
+        }
+
+
+
     }
     public function edit(Room $room){
         $lst = Cinema::all();

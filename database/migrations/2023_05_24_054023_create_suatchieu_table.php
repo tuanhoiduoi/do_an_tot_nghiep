@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('thoigian');
             $table->integer('tien');
             $table->integer('trangthai');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

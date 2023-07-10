@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('sdt')->unique()->min(10)->max(10);
             $table->string('password');
             $table->integer('is_admin')->default(0);
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

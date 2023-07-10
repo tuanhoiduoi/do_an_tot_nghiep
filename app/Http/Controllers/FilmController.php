@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class FilmController extends Controller
 {
@@ -24,7 +25,7 @@ class FilmController extends Controller
         // if (!Auth::check()) {
         //     return redirect('/');
         // }
-        $lst_film = Film::all();
+        $lst_film = Film::paginate(5);
 
         $this->fixImg($fil);
         return view('admin.index_film',['lst_film' => $lst_film]);
@@ -56,18 +57,34 @@ class FilmController extends Controller
         return view('admin.create_film');
     }
     public function store(Request $req){
-        $fileName = $req->hinh->getClientOriginalName();
-        $path = $fileName;
-        $req=Film::create([
-            'hinh' => $path,
-            'tenphim' => $req->tenphim,
-            'noidung' => $req->noidung,
-            'thoiluong' => $req->thoiluong,
-            'daodien' => $req->daodien,
-            'trailer' => 'trailer.mp4',
-            'trangthai' => $req->trangthai,
+
+        $validator = Validator::make($req->all(),[
+            'tenphim' => 'required',
+            'hinh' => 'required',
+            'noidung' => 'required',
+            'thoiluong' => 'required|numeric',
+            'daodien' => 'required',
         ]);
-        return redirect()->route('films.index');
+
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống hoặc có thể thời lượng(only number)';
+            return view('admin.create_film',['message'=>$message]);
+        }else{
+            $fileName = $req->hinh->getClientOriginalName();
+            $path = $fileName;
+            $req=Film::create([
+                'hinh' => $path,
+                'tenphim' => $req->tenphim,
+                'noidung' => $req->noidung,
+                'thoiluong' => $req->thoiluong,
+                'daodien' => $req->daodien,
+                'trailer' => 'trailer.mp4',
+                'trangthai' => $req->trangthai,
+            ]);
+            return redirect()->route('films.index');
+        }
+
+
     }
     public function destroy(Film $film){
         $film->fill(['trangthai'=> 0]);

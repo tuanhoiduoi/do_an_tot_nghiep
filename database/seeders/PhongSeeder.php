@@ -20,8 +20,6 @@ class PhongSeeder extends Seeder
                 'cine_id' => 1,
                 'trangthai' => 1,
             ],
-
-
         ]);
     }
 }
