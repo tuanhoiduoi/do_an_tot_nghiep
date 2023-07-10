@@ -60,6 +60,7 @@
                         @endforeach
                     </tbody>
                   </table>
+                  {{ $lst_showtime->links('pagination::bootstrap-4') }}
                 </div>
               </div>
             </div>

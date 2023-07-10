@@ -29,6 +29,11 @@ class thanhtoanController extends Controller
 
         public function vnpay_payment(Request $req){
 
+            if($req->ghe == null){
+                $message = 'Vui lòng chọn ghế trước khi thanh toán';
+                return redirect()->back()->with('message', $message);
+            }
+
             //lay ngay hien tai
             $ngay = Carbon::now('Asia/Ho_Chi_Minh');
             $fomat = Carbon::parse($ngay)->format('Y-m-d');

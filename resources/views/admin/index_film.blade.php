@@ -60,6 +60,7 @@
                         @endforeach
                     </tbody>
                   </table>
+                  {{ $lst_film->links('pagination::bootstrap-4') }}
                 </div>
               </div>
             </div>

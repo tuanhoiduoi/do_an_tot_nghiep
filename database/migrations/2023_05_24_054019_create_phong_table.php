@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('cot');
             $table->integer('trangthai');
             $table->foreignId('cine_id')->constrained('cinemas');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('ngaylap');
             $table->string('veri')->min(10)->max(10);
             $table->string('trangthai');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

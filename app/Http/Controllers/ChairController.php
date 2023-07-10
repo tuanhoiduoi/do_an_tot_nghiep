@@ -7,10 +7,11 @@ use App\Models\Ticket;
 use App\Models\Chair;
 use Carbon\Carbon;
 
+
 class ChairController extends Controller
 {
     public function index(){
-        $ghe = Chair::all();
+        $ghe = Chair::paginate(5);
         return view('admin.index_chair',['lst_ghe'=>$ghe]);
     }
 

@@ -7,11 +7,16 @@
 <script src="/js/taoghe.js"></script>
 @endsection
 @section('content')
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
     <form action="{{route('rooms.store')}}" method="POST" id="form-them">
     @csrf
     <div>
         <label for="name">Số phòng</label><br>
-        <input type="number" name="sophong">
+        <input disabled type="number" name="sophong" value="{{$sophong}}">
     </div>
 
     <div>

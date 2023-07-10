@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('tenrap');
             $table->string('diachi');
             $table->integer('trangthai');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

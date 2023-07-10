@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cinema;
+use Illuminate\Support\Facades\Validator;
 
 class CinemaController extends Controller
 {
@@ -27,12 +28,24 @@ class CinemaController extends Controller
         return view('admin.create_cinema');
     }
     public function store(Request $req){
-        $req=Cinema::create([
-            'tenrap' => $req->tenrap,
-            'diachi' => $req->diachi,
-            'trangthai' => $req->trangthai,
+
+        $validator = Validator::make($req->all(),[
+            'tenrap' => 'required',
+            'diachi' => 'required',
         ]);
-        return redirect()->route('cinemas.index');
+
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống';
+            return view('admin.create_cinema',['message'=>$message]);
+        }else{
+            $req=Cinema::create([
+                'tenrap' => $req->tenrap,
+                'diachi' => $req->diachi,
+                'trangthai' => $req->trangthai,
+            ]);
+            return redirect()->route('cinemas.index');
+        }
+
     }
     public function destroy(Cinema $cinema){
         $cinema->fill(['trangthai'=> 0]);

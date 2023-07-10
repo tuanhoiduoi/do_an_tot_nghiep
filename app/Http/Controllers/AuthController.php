@@ -15,8 +15,13 @@ class AuthController extends Controller
             $name=$request->input('name');
             $sdt=$request->input('sdt');
             $password=$request->input('password');
-            $result = (new AccountController)->store($name,$sdt,$password);
-             return view('dangnhap');
+            $req=User::create([
+                'hoten' => $name,
+                'sdt' =>$sdt,
+                'password' => $password,
+            ]);
+            // $result = (new AccountController)->store($request->all());
+            return view('dangnhap');
 
     }
 

@@ -10,6 +10,7 @@ use App\Models\Film;
 use App\Models\Ticket;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ShowtimeController extends Controller
 {
@@ -21,7 +22,7 @@ class ShowtimeController extends Controller
         ->join('rooms','rooms.id','=','showtimes.room_id')
         ->join('cinemas','rooms.cine_id','=','cinemas.id')
         ->select('showtimes.*','rooms.sophong','films.tenphim','cinemas.tenrap')
-        ->get();
+        ->paginate(5);
         // dd($lst);
         return view('admin.index_showtime',['lst_showtime'=>$lst]);
     }
@@ -54,38 +55,51 @@ class ShowtimeController extends Controller
     }
     public function store(Request $req){
 
-
-
-        //luu suat chieu
-        $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
-        $showTime = Showtime::create([
-            'film_id'=>$req->film_id,
-            'room_id'=>$req->room_id,
-            'thoigian'=>$fomat,
-            'trangthai' => $req->trangthai,
-            'tien' => $req->tien,
+        $validator = Validator::make($req->all(),[
+            'film_id' => 'required',
+            'cine_id' => 'required',
+            'room_id' => 'required',
+            'thoigian' => 'required|date|after:now',
+            'tien' => 'required|numeric',
         ]);
 
-
-        //tao ve theo so luong ghe sau khi them suat chieu
-        $numberChair = \DB::table('chairs')->where('room_id',$req->room_id)->count();
-
-        $latestId = Showtime::latest()->first()->id;
-
-        $layGhe = \DB::table('chairs')->where('room_id',$req->room_id)->select('*')->get();
-
-        // dd($layGhe[$i]->id);
-
-        for($i = 0; $i < $numberChair;$i++){
-            $tick = Ticket::create([
-                'show_id'=> $latestId,
-                'chair_id'=> $layGhe[$i]->id,
-                'bill_id'=> null,
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống hoặc có thể do giá(only number) và thời gian(lớn hơn hiện tại)';
+            $film = Film::all();
+            $room = Room::all();
+            $cinema = Cinema::all();
+            return view('admin.create_showtime',['message'=>$message,'lst_film'=>$film,'lst_room'=>$room,'lst_cinema'=>$cinema]);
+        }else{
+            //luu suat chieu
+            $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
+            $showTime = Showtime::create([
+                'film_id'=>$req->film_id,
+                'room_id'=>$req->room_id,
+                'thoigian'=>$fomat,
+                'trangthai' => $req->trangthai,
+                'tien' => $req->tien,
             ]);
+
+            //tao ve theo so luong ghe sau khi them suat chieu
+            $numberChair = \DB::table('chairs')->where('room_id',$req->room_id)->count();
+
+            $latestId = Showtime::latest()->first()->id;
+
+            $layGhe = \DB::table('chairs')->where('room_id',$req->room_id)->select('*')->get();
+
+            // dd($layGhe[$i]->id);
+
+            for($i = 0; $i < $numberChair;$i++){
+                $tick = Ticket::create([
+                    'show_id'=> $latestId,
+                    'chair_id'=> $layGhe[$i]->id,
+                    'bill_id'=> null,
+                ]);
+            }
+
+
+            return redirect()->route('showtimes.index');
         }
-
-
-        return redirect()->route('showtimes.index');
     }
     public function schieu(Request $req){
 

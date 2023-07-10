@@ -56,6 +56,7 @@
                                 @endforeach
                     </tbody>
                   </table>
+                  {{ $lst_room->links('pagination::bootstrap-4') }}
                 </div>
               </div>
             </div>

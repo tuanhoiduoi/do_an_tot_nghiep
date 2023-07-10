@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Bill;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class BillController extends Controller
 {
@@ -16,7 +17,7 @@ class BillController extends Controller
         // $mana = view('admin.index_bill')->with('bill',$bill);
         // return view('trangchu_admin')->with('admin.index_bill',$mana);
 
-         $bill = Bill::all();
+         $bill = Bill::paginate(5);
 
         return view('admin.index_bill',['lst_bill'=> $bill]);
     }
@@ -39,15 +40,31 @@ class BillController extends Controller
         return view('admin.create_bill',['lst_kh'=> $lst]);
     }
     public function store(Request $req){
-        do {
-            $randomString = Str::random(8);
-        } while (Bill::where('veri', $randomString)->exists());
-        $req = Bill::create([
-            'kh_id'=>$req->kh_id,
-            'ngaylap'=>$req->ngaylap,
-            'veri'=> $randomString,
-            'trangthai' => $req->trangthai,
+        $validator = Validator::make($req->all(),[
+            'trangthai' => 'required',
         ]);
+
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống';
+            $lst = User::all();
+            return view('admin.create_bill',['message'=>$message,'lst_kh'=>$lst]);
+        }else{
+            do {
+                $randomString = Str::random(8);
+            } while (Bill::where('veri', $randomString)->exists());
+            $req = Bill::create([
+                'kh_id'=>$req->kh_id,
+                'ngaylap'=>$req->ngaylap,
+                'veri'=> $randomString,
+                'trangthai' => $req->trangthai,
+            ]);
+            return redirect()->route('bills.index');
+        }
+
+    }
+
+    public function destroy(Bill $bill){
+        $bill->delete();
         return redirect()->route('bills.index');
     }
 

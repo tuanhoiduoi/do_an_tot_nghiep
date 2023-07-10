@@ -17,6 +17,11 @@
         font-size: 15px
     }
 </style>
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('bills.store')}}" method="POST">
     @csrf
 

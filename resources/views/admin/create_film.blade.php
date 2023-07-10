@@ -25,6 +25,11 @@
         width: 20%;
     }
 </style>
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('films.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 

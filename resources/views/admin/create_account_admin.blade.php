@@ -17,6 +17,13 @@
         font-size: 15px
     }
 </style>
+
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
+
 <form action="{{route('accounts.store')}}" method="POST">
     @csrf
     <div>
@@ -45,4 +52,5 @@
 
     <button type="submit">Lưu</button>
 </form>
+
 @endsection

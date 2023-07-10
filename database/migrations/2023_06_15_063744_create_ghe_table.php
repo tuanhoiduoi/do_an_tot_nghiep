@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('cot');
             $table->string('tenghe');
             $table->foreignId('room_id')->constrained('rooms');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
