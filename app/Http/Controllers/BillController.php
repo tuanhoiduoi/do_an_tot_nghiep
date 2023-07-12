@@ -86,8 +86,11 @@ class BillController extends Controller
         ->where('users.id',Auth::user()->id)
 
 
-        ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')->get();
-
+        ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')
+        ->orderBy('bills.id','desc')
+        ->get();
+// $count=count($data);
+// dd($count);
         // dd($req->concac) ;
          //dd($data);
      //dd(Auth::user()->id);

@@ -17,17 +17,29 @@ class thanhtoanController extends Controller
     //
         public function returnUrl(Request $req){
 
-            // bill: chua thanh toan -> da thanh toan
-            $bills = Bill::where('id', $req->id)->update([
-                'trangthai' => "đã thanh toán",
-            ]);
-            $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
 
-            return view('user.phimdangchieu')->with('phim',$film);
+            $maLoi =$req->vnp_ResponseCode;
+
+            // bill: chua thanh toan -> da thanh toan
+            if($maLoi == "00"){
+                $bills = Bill::where('id', $req->id)->update([
+                    'trangthai' => "đã thanh toán",
+                ]);
+                $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
+                return view('user.phimdangchieu')->with('phim',$film);
+            }
+            else{
+                $tick = Ticket::join('bills','bills.id','=','tickets.bill_id')->where('bills.id',$req->id)->update([
+                    'bill_id' => null,
+                ]);
+                $bill = Bill::where('id',$req->id)->delete();
+                return redirect()->back();
+            }
 
         }
 
         public function vnpay_payment(Request $req){
+
 
             if($req->ghe == null){
                 $message = 'Vui lòng chọn ghế trước khi thanh toán';
@@ -37,7 +49,6 @@ class thanhtoanController extends Controller
             //lay ngay hien tai
             $ngay = Carbon::now('Asia/Ho_Chi_Minh');
             $fomat = Carbon::parse($ngay)->format('Y-m-d');
-
 
             // dd($req->ghe[0]); //id chair
 
@@ -58,7 +69,6 @@ class thanhtoanController extends Controller
                 'veri'=> $randomString,
                 'trangthai' => 'chưa thanh toán',
             ]);
-
             //lay id bill moi nhat
             $latestId = Bill::latest()->first()->id;
 
@@ -70,6 +80,7 @@ class thanhtoanController extends Controller
             $tickets = Ticket::whereIn('chair_id', $dsGhe)->update([
                 'bill_id'=> $latestId,
             ]);
+
 
 
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
@@ -97,7 +108,7 @@ class thanhtoanController extends Controller
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
         //Add Params of 2.0.1 Version
-        // $vnp_ExpireDate = $_POST['txtexpire']; // tam thoi dong'
+        // $vnp_ExpireDate = $_POST['txtexpire'];
         //Billing
 
         // $vnp_Bill_Mobile = $_POST['txt_billing_mobile'];
@@ -120,21 +131,22 @@ class thanhtoanController extends Controller
         // $vnp_Inv_Company=$_POST['txt_inv_company'];
         // $vnp_Inv_Taxcode=$_POST['txt_inv_taxcode'];
         // $vnp_Inv_Type=$_POST['cbo_inv_type'];
-
+        $createDate = Carbon::parse($ngay)->format('YmdHis');
+        $expireDate = Carbon::parse($ngay->addMinutes(1))->format('YmdHis');
         $inputData = array(
             "vnp_Version" => "2.1.0",
             "vnp_TmnCode" => $vnp_TmnCode,
             "vnp_Amount" => $vnp_Amount,
             "vnp_Command" => "pay",
-            "vnp_CreateDate" => date('YmdHis'),
+            "vnp_CreateDate" => $createDate,
             "vnp_CurrCode" => "VND",
             "vnp_IpAddr" => $vnp_IpAddr,
             "vnp_Locale" => $vnp_Locale,
             "vnp_OrderInfo" => $vnp_OrderInfo,
             "vnp_OrderType" => $vnp_OrderType,
             "vnp_ReturnUrl" => $vnp_Returnurl,
-            "vnp_TxnRef" => $vnp_TxnRef
-            // "vnp_ExpireDate"=>$vnp_ExpireDate
+            "vnp_TxnRef" => $vnp_TxnRef,
+            "vnp_ExpireDate"=>$expireDate
             // "vnp_Bill_Mobile"=>$vnp_Bill_Mobile,
             // "vnp_Bill_Email"=>$vnp_Bill_Email,
             // "vnp_Bill_FirstName"=>$vnp_Bill_FirstName,

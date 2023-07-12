@@ -28,6 +28,10 @@ class AuthController extends Controller
     public function login(Request $req){
 
 
+        if(Auth::Check()){
+            return view('user.trangchu_user');
+        }
+
         if($req->sdt == null or $req->password == null){
             return view('dangnhap');
         }
@@ -46,6 +50,7 @@ class AuthController extends Controller
             }
             else{
                 Auth::login($user);
+                // return redirect()->url()->previous();
                 return view('user.trangchu_user',Auth::user());
             }
         }else{
@@ -57,7 +62,8 @@ class AuthController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return view('dangnhap');
+
+        return view('user.trangchu_user');
     }
 
 

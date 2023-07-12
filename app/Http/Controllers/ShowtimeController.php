@@ -8,6 +8,7 @@ use App\Models\Room;
 use App\Models\Cinema;
 use App\Models\Film;
 use App\Models\Ticket;
+use App\Models\Bill;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -106,12 +107,12 @@ class ShowtimeController extends Controller
 
         // dd(Auth::check());
         if (!Auth::check()) {
-            return redirect('/');
+            return redirect('/dangnhap');
         }
         $id = $req->id;
         // dd($id);
         $date = Carbon::now('Asia/Ho_Chi_Minh');
-        $fomat = Carbon::parse($date)->format('Y-m-d H:i:');
+        $fomat = Carbon::parse($date)->format('Y-m-d H:i:s');
 
         $tmp = DB::table('showtimes')
         ->join('rooms','rooms.id','=','showtimes.room_id')
@@ -123,7 +124,7 @@ class ShowtimeController extends Controller
 
 
         // dieu kien thoi gian lon hon thoi gian hien tai
-        ->where ('thoigian','>',$fomat)
+        ->where('thoigian','>',$fomat)
          ->get();
         $suatchieu=[];
         foreach ($tmp as $suat) {
@@ -150,5 +151,9 @@ class ShowtimeController extends Controller
 
     //     return view('user.phimsapchieu')->with('phim',$film2);
     // }
+    public function test(){
+
+        return('tested');
+    }
 
 }

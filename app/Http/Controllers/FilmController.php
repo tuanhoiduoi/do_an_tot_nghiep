@@ -93,7 +93,7 @@ class FilmController extends Controller
     }
     public function allfilm(){
         // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
-        $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
+        $film = Film :: where('trangthai','1')-> orderBy('films.id',)->get();
 
         return view('user.phimdangchieu')->with('phim',$film);
     }
