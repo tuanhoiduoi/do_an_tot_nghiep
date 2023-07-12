@@ -37,13 +37,12 @@
                         <tbody>
                             @foreach ($data as $gd)
                                                 <tr>
-                                                    {{-- <td>{{$gd->id}}</td> --}}
+                                                    {{-- <td>{{$dem}}</td> --}}
                                                     <td>{{$gd->hoten}}</td>
                                                     <td>{{$gd->tenphim}}</td>
-                                                    <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($gd->thoigian))->format('d-m-Y    H:i')}} phút</td>
+                                                     <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($gd->thoigian))->format('d-m-Y | H:i:s')}} phút</td>
                                                     <td>{{$gd->tien}} VND</td>
                                                     <td>{{$gd->tenghe}}</td>
-
                                                 </tr>
                                             @endforeach
                         </tbody>

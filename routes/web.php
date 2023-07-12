@@ -22,20 +22,16 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/test',[ShowtimeController::class, 'test']);
 
-
-Route::get('/', function () {
+Route::get('/dangnhap', function () {
     return view('dangnhap');
 });
 
 
 Route::post('/',[AuthController::class, 'login'])->name('/');
-
-
-Route::post('logout',[AuthController::class, 'logout']);
-
 Route::post('/register', [AuthController::class, 'register'])->name('/register');
-Route::get('logout',[AuthController::class, 'logout']);
+Route::get('/',[AuthController::class, 'logout']);
 
 
 //------------------------------------------------------------------------------------
@@ -54,7 +50,9 @@ Route::get('/log-out',[UserController::class, 'login']); // k xai
 
 
 
-
+// Route::get('/6', function () {
+//     return view('user.thongtinve');
+// });
 Route::get('/1', function () {
     return view('user.suatchieu');
 });
@@ -91,15 +89,18 @@ Route::resource('/tickets', TicketController::class);
 Route::resource('/bills', BillController::class);
 Route::resource('/chairs', ChairController::class);
 Route::get('/tke', [ChairController::class,'tke']);
-Route::get('/s', function () {
-    return view('admin.create_chair');
-});
+
 
 // Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
 Route::get('/phim', [FilmController::class,'allfilm']);
 Route::get('/phim2', [FilmController::class,'allfilm2']);
 Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
+
+// Route::get('/flights', function () {
+//     // Only authenticated users may access this route...
+// })->middleware('auth');
+
 Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);

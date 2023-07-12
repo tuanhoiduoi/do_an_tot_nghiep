@@ -27,13 +27,14 @@
                         @guest
                         <a href="/dangnhap"> Đăng nhập</a>
                         @endguest
+                        @if (Auth::check())
                         <li class="nav-item dropdown">
                           <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                             aria-expanded="false">
 
                             <img src="/admin/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                           </a>
-                          @if (Auth::check())
+
                           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
 
                             <div class="message-body2">
@@ -41,7 +42,7 @@
                                 <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-danger" style="width:170px; " >Lịch sử giao dịch</a>
                           </div>
                           <div class="message-body"  style="padding-top:10px;">
-                            <a href="{{url('logout')}}" class="btn btn-primary" style="width:170px;">Logout</a>
+                            <a href="{{route('/')}}" class="btn btn-primary" style="width:170px;">Logout</a>
                           </div>
                           @endif
                         </li>

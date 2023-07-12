@@ -14,7 +14,7 @@ class AccountController extends Controller
 
     public function index(){
         if(Auth::check()){
-            $lst_user = User::paginate(5);
+            $lst_user = User::paginate(5);// phantrang
             return view('admin.index_taikhoan',['lst_user' => $lst_user]);
         }else{
             return view('dangnhap');

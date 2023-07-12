@@ -3,7 +3,6 @@
  <link rel="stylesheet" href="/css/ghe.css">
 @endsection
 @section('js')
-<script src="{{asset('js/disabled.js')}}"></script>
 <script src="{{asset('js/taoghe.js')}}"></script>
 <script src="{{asset('js/chonghe.js')}}"></script>
 @endsection
@@ -53,12 +52,19 @@
         <p >Thành Tiền: <span id="thanh-tien"></span></p>
         <input type="hidden" name="total">
     </div>
-    <span style="background:rgb(228, 240, 6)">Đã đặt</span> </p>
+    {{-- <span style="background:rgb(228, 240, 6)">Đã đặt</span> </p> --}}
     <div>
-
-
-
-
+        <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+                <input id="httt-1" name="httt_ma" type="radio"  class="custom-control-input" required=""
+                    value="1">
+                <label class="custom-control-label" for="httt-1">Tiền mặt</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""
+                    value="2">
+                <label class="custom-control-label" for="httt-2">Chuyển khoản VN Pay</label>
+            </div>
 
 
     <button type="submit" name="redirect" class=" button2" value="">Thanh toán</button>
