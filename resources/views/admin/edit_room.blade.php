@@ -18,6 +18,11 @@
         width: 300px
     }
 </style>
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('rooms.update',['room'=>$room])}}" method="POST">
     @csrf
     @method('PUT')

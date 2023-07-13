@@ -1,22 +1,5 @@
 @extends('trangchu_admin')
 @section('content')
-<style>
-    form label{
-        margin-top: 3%
-    }
-    form div{
-        margin-left: 3%
-    }
-    form select{
-        margin-left: 3%
-    }
-    form button{
-        margin-left: 3%;
-        margin-top: 3%;
-        padding: 10px 40px;
-        font-size: 15px
-    }
-</style>
 @if (isset($message))
     <div class="alert alert-danger">
         {{ $message }}
@@ -25,52 +8,50 @@
 <form action="{{route('showtimes.store')}}" method="POST">
     @csrf
 
-    <div>
-        <label for="name">Phim</label>
-        <select name="film_id">
+    <div class="mb-3">
+        <label for="" class="form-label">Tên phim</label>
+        <select class="form-select" name="film_id">
             @foreach ($lst_film as $film)
                 <option value="{{$film->id}}">{{$film->tenphim}}</option>
             @endforeach
         </select>
     </div>
-    <div>
-        <label for="name">Rạp</label>
-        <select name="cine_id" onchange="getRoom()">
+
+    <div class="mb-3">
+        <label for="" class="form-label">Rạp</label>
+        <select class="form-select" name="cine_id" onchange="getRoom()">
             @foreach ($lst_cinema as $cinema)
                 <option value="{{$cinema->id}}">{{$cinema->tenrap}}</option>
             @endforeach
         </select>
     </div>
 
-    <div>
-        <label for="name">Phòng</label>
-        <select name="room_id" id="roomSelect">
+    <div class="mb-3">
+        <label for="" class="form-label">Phòng</label>
+        <select class="form-select" name="room_id" id="roomSelect">
             {{-- @foreach ($lst_room as $room)
                 <option value="{{$room->id}}">{{$room->sophong}}</option>
             @endforeach --}}
         </select>
     </div>
 
-    <div>
-        <label for="name">Thời gian</label><br>
-        <input type="datetime-local" name="thoigian">
+    <div class="mb-3">
+        <label for="" class="form-label">Thời gian</label>
+        <input class="form-control" type="datetime-local" name="thoigian">
     </div>
 
-    <div>
-        <label for="name">Giá</label><br>
-        <input type="text" name="tien">
+    <div class="mb-3">
+        <label for="" class="form-label">Giá</label>
+        <input class="form-control" type="text" name="tien">
     </div>
 
-    <div>
-        <label for="">Trạng Thái</label>
-        <select name="trangthai">
-            <option value="1">Hoạt động</option>
-            <option value="0">Không hoạt động</option>
-        </select>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="trangthai" value="1">
+        <label class="form-check-label">Hoạt động</label>
     </div>
 
 
-    <button type="submit">Lưu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
 <script>
     function getRoom(){

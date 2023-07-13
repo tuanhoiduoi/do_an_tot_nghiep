@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use Illuminate\Support\Facades\Storage;
@@ -25,49 +25,82 @@ class FilmController extends Controller
         // if (!Auth::check()) {
         //     return redirect('/');
         // }
-        $lst_film = Film::paginate(5);
+        if(Auth::user()->is_admin == 1)
+        {
+            $lst_film = Film::paginate(5);
 
-        $this->fixImg($fil);
-        return view('admin.index_film',['lst_film' => $lst_film]);
+            $this->fixImg($fil);
+            return view('admin.index_film',['lst_film' => $lst_film]);
+        }
+        else{
+            return redirect()->route('/');
+        }
+
     }
     public function edit(Film $film){
         $this->fixImg($film);
         return view('admin.edit_film',['film'=>$film]);
     }
     public function update(Request $req,Film $film){
-        //kiem tra co cap nhat hinh khong
-        $path = $film->hinh;
 
-        if($req->hasFile('hinh') && $req->hinh->isValid()){
-            $fileName = $req->hinh->getClientOriginalName();
-            $path = $fileName;
+
+        if($req->trangthai == null){
+            $trangthai=0;
+        }else{
+            $trangthai = $req->trangthai;
         }
-        $film->fill([
-            'tenphim'=>$req->tenphim,
-            'hinh'=>$path,
-            'noidung'=>$req->noidung,
-            'thoiluong'=>$req->thoiluong,
-            'daodien'=>$req->daodien,
-            'trangthai'=>$req->trangthai,
+
+        $validator = Validator::make($req->all(),[
+            'tenphim' => 'required',
+            'noidung' => 'required',
+            'thoiluong' => 'required|numeric',
+            'daodien' => 'required',
         ]);
-        $film->save();
-        return redirect()->route('films.index');
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống hoặc không hợp lệ';
+            $this->fixImg($film);
+            return view('admin.edit_film',['message'=>$message,'film'=>$film]);
+        }else{
+            //kiem tra co cap nhat hinh khong
+            $path = $film->hinh;
+
+            if($req->hasFile('hinh') && $req->hinh->isValid()){
+                $fileName = $req->hinh->getClientOriginalName();
+                $path = $fileName;
+            }
+            $film->fill([
+                'tenphim'=>$req->tenphim,
+                'hinh'=>$path,
+                'noidung'=>$req->noidung,
+                'thoiluong'=>$req->thoiluong,
+                'daodien'=>$req->daodien,
+                'trangthai'=>$trangthai,
+            ]);
+            $film->save();
+            return redirect()->route('films.index');
+        }
+
     }
     public function create(){
         return view('admin.create_film');
     }
     public function store(Request $req){
 
+
         $validator = Validator::make($req->all(),[
             'tenphim' => 'required',
-            'hinh' => 'required',
             'noidung' => 'required',
             'thoiluong' => 'required|numeric',
             'daodien' => 'required',
         ]);
 
+        if($req->trangthai == null){
+            $trangthai = 0;
+        }else{
+            $trangthai = $req->trangthai;
+        }
         if($validator->fails()){
-            $message = 'Lỗi: dữ liệu trống hoặc có thể thời lượng(only number)';
+            $message = 'Lỗi: dữ liệu trống hoặc hợp lệ';
             return view('admin.create_film',['message'=>$message]);
         }else{
             $fileName = $req->hinh->getClientOriginalName();
@@ -79,7 +112,7 @@ class FilmController extends Controller
                 'thoiluong' => $req->thoiluong,
                 'daodien' => $req->daodien,
                 'trailer' => 'trailer.mp4',
-                'trangthai' => $req->trangthai,
+                'trangthai' => $trangthai,
             ]);
             return redirect()->route('films.index');
         }

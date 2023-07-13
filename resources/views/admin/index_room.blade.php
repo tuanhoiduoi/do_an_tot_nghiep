@@ -44,14 +44,14 @@
                                                 Không hoạt động
                                             @endif
                                         </td>
-                                        <td><a href="{{route('rooms.edit',['room' => $room])}}" class="btn btn-primary">Sửa</a></td>
+                                        {{-- <td><a href="{{route('rooms.edit',['room' => $room])}}" class="btn btn-primary">Sửa</a></td>
                                         <td>
                                             <form action="{{route('rooms.destroy',['room'=>$room])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa người dùng này không?')">Xóa</button>
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                     </tbody>
