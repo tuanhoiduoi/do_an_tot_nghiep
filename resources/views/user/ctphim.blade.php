@@ -13,7 +13,7 @@
     <div class="row productbox">
         <div class="col-sm-9">
             @foreach ($phim as $film)
-            <div class="row">
+            <div class="row ">
                 <div class="col-sm-6">
 
                     <section class="box-image">

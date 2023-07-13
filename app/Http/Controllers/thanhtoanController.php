@@ -26,7 +26,8 @@ class thanhtoanController extends Controller
                     'trangthai' => "đã thanh toán",
                 ]);
                 $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
-                return view('user.phimdangchieu')->with('phim',$film);
+                return redirect()->route('/');
+                // return view('user.phimdangchieu')->with('phim',$film);
             }
             else{
                 $tick = Ticket::join('bills','bills.id','=','tickets.bill_id')->where('bills.id',$req->id)->update([

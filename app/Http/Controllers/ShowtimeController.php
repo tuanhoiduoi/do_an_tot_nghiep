@@ -175,7 +175,7 @@ class ShowtimeController extends Controller
         // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
         $film = Film::where("tenphim","like","%$dl%")->get();
         if(count($film) == 0) {
-            return "Không tìm thấy phim tương ứng với từ khóa tìm kiếm.";
+            return  view('user.thongbao');
         } else {
             return view('user.phimdangchieu')->with('phim',$film);
         }
