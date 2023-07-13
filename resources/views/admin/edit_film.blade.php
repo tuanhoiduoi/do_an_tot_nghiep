@@ -3,8 +3,8 @@
 <style>
     .mb-3 img{
         margin-bottom: 20px;
-        height: 250px;
-        width: 20%;
+        height: 180px;
+        width: 15%;
     }
 </style>
 

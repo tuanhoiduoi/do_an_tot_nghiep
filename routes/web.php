@@ -12,6 +12,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,9 @@ Route::get('/trangchu', function () {
 
 Route::get('/dangnhap', function () {
     if (!Auth::guard('web')->check()) {
+        if(!Session::get('sdt')){
+            return redirect()->route('/');
+        }
         return view('dangnhap');
     }
     return redirect()->route('/');
@@ -102,7 +106,8 @@ Route::get('/ctphim/{id}', [FilmController::class,'ct_film']);
 //     // Only authenticated users may access this route...
 // })->middleware('auth');
 
-Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
+Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu'])->name('back');
+
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
 // Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
@@ -110,4 +115,6 @@ Route::get('/tke', [ChairController::class,'tke']);
 // Route::get('/gd', [BillController::class,'gdich']);
 
 
- Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+
+

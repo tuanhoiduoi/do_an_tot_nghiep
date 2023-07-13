@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Validator;
-
 class AuthController extends Controller
 {
     //
@@ -38,6 +37,12 @@ class AuthController extends Controller
 
     public function login(Request $req){
 
+        if(session('redirect_url')){
+            $redirectUrl = session('redirect_url');
+            session()->forget('redirect_url');
+            return redirect($redirectUrl);
+        }
+
         $validator = Validator::make($req->all(),[
             'sdt' => ['required','numeric','regex:/^[0-9]{10}$/'],
             'password' => 'required',
@@ -56,6 +61,7 @@ class AuthController extends Controller
             return view('dangnhap');
         }elseif(\Hash::check($req->password, $user->password)){
                 Auth::login($user);
+                \Session::put('sdt',Auth::user()->sdt);
                 return view('user.trangchu_user');
             }
             else{
