@@ -14,41 +14,42 @@
 @endif
     <form action="{{route('rooms.store')}}" method="POST" id="form-them">
     @csrf
-    <div>
-        <label for="name">Số phòng</label><br>
-        <input type="number" name="sophong" value="{{$sophong}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Phòng</label>
+        <input type="text" class="form-control" name="sophong">
     </div>
-
     <div>
         <label for="name">Rạp</label>
-        <select name="cine_id">
+        <select class="form-select" name="cine_id">
             @foreach ($lst_cinema as $cinema)
                 <option value="{{$cinema->id}}">{{$cinema->tenrap}}</option>
             @endforeach
         </select>
     </div>
-
-    <div>
-        <label for="">Trạng Thái</label>
-        <select name="trangthai">
-            <option value="1">Hoạt động</option>
-            <option value="0">Không hoạt động</option>
-        </select>
+    <div class="mb-3 form-check"  style="margin-top: 20px;">
+        <input type="checkbox" class="form-check-input" name="trangthai" value="1">
+        <label class="form-check-label" for="">Hoạt động</label>
     </div>
 
-    Dong :<input type="text" name="dong" value="10">
-    Cot :<input type="text" name="cot" value="20">
-    <button type="button" name="nut" style="height: 50px;" onclick="taocheckbox()">Xác nhận</button>
+    <div class="mb-3">
+        <label for="" class="form-label">Dòng</label>
+        <input type="text" class="form-control" name="dong" value="10">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Cột</label>
+        <input type="text" class="form-control" name="cot" value="10">
+    </div>
+
+    <button type="button" style="margin-top: 20px;" class="btn btn-success" onclick="taocheckbox()">Tạo ghế</button>
+
+    <div id="chair"></div>
 
 
-            <div id="chair"></div>
 
 
 
 
-
-
-    <button type="submit">Lưu</button>
+    <button type="submit"  style="margin-top: 20px;" class="btn btn-primary">Lưu</button>
 </form>
 <script>
     /*

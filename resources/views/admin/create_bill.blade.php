@@ -1,22 +1,6 @@
 @extends('trangchu_admin')
 @section('content')
-<style>
-    form label{
-        margin-top: 3%
-    }
-    form div{
-        margin-left: 3%
-    }
-    form select{
-        margin-left: 3%
-    }
-    form button{
-        margin-left: 3%;
-        margin-top: 3%;
-        padding: 10px 40px;
-        font-size: 15px
-    }
-</style>
+
 @if (isset($message))
     <div class="alert alert-danger">
         {{ $message }}
@@ -24,28 +8,25 @@
 @endif
 <form action="{{route('bills.store')}}" method="POST">
     @csrf
-
-    <div>
-        <label for="name">Khách</label>
-        <select name="kh_id">
+    <div class="mb-3">
+        <label for="" class="form-label">Khách hàng</label>
+        <select class="form-select" name="kh_id">
             @foreach ($lst_kh as $kh)
                 <option value="{{$kh->id}}">{{$kh->hoten}}</option>
             @endforeach
         </select>
     </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Ngày lập</label>
+        <input type="date" class="form-control" name="ngaylap" id="ngaylap">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Trạng thái</label>
+        <input type="text" class="form-control" name="trangthai">
+      </div>
 
-    <div>
-        <label for="name">Ngày lập</label><br>
-        <input type="date" name="ngaylap" id="ngaylap">
-    </div>
-
-    <div>
-        <label for="name">Trạng thái</label><br>
-        <input type="text" name="trangthai">
-    </div>
-
-    <button type="submit">Lưu</button>
-</form>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+  </form>
 <script>
     // Lấy thời gian hiện tại và định dạng nó thành chuỗi phù hợp với trường ngày của bạn.
     const now = new Date();

@@ -1,46 +1,38 @@
 @extends('trangchu_admin')
 @section('content')
-<style>
-    form label{
-        margin-top: 3%
-    }
-    form div{
-        margin-left: 3%
-    }
-    form button{
-        margin-left: 3%;
-        margin-top: 3%;
-        padding: 10px 40px;
-        font-size: 15px
-    }
-    form textarea{
-        height: 80px;
-        width: 300px
-    }
-</style>
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('cinemas.update',['cinema'=>$cinema])}}" method="POST">
     @csrf
     @method('PUT')
 
-    <div>
-        <label for="name">Tên rạp</label><br>
-        <input type="text" name="tenrap" value="{{$cinema->tenrap}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Tên rạp</label>
+        <input type="text" class="form-control" name="tenrap" value="{{$cinema->tenrap}}">
     </div>
 
-    <div>
-        <label for="name">Địa chỉ</label><br>
-        <textarea name="diachi">{{$cinema->diachi}}</textarea>
+    <div class="mb-3">
+        <label for="" class="form-label">Địa chỉ</label>
+        <textarea class="form-control" name="diachi">{{$cinema->diachi}}</textarea>
     </div>
 
-    <div>
-        <label for="">Trạng Thái</label>
-        <select name="trangthai">
-            <option value="1">Hoạt động</option>
-            <option value="0">Không hoạt động</option>
-        </select>
-    </div>
-
-    <button type="submit">Lưu</button>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="trangthai" value="{{$cinema->trangthai}}" id="statusCheckbox" {{$cinema->trangthai == 1 ? 'checked' : ''}}>
+        <label class="form-check-label" for="">Hoạt động</label>
+      </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
+<script>
+    const checkbox = document.getElementById('statusCheckbox');
+
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        this.value = 1;
+      }
+    });
+  </script>
 @endsection
 

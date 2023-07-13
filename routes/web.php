@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\thanhtoanController;
 use App\Http\Controllers\UserController;
@@ -23,34 +23,43 @@ use App\Http\Controllers\ChartController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/chart', function () {
-    return view('admin.sample-chart');
-});
-Route::get('/test',[ShowtimeController::class, 'test']);
+
+
+Route::get('/trangchu', function () {
+    return view('user.trangchu_user');
+})->name('trangchu');
 
 Route::get('/dangnhap', function () {
-    return view('dangnhap');
-});
+    if (!Auth::guard('web')->check()) {
+        return view('dangnhap');
+    }
+    return redirect()->route('/');
+})->name('login');
 
-
-Route::post('/',[AuthController::class, 'login'])->name('/');
-Route::post('/register', [AuthController::class, 'register'])->name('/register');
-Route::get('/',[AuthController::class, 'logout']);
+Route::post('/',[AuthController::class, 'login'])->name('dangnhap');
+Route::post('/dangnhap', [AuthController::class, 'register'])->name('dangky');
+Route::get('/logout',[AuthController::class, 'logout'])->name('logout');// thac mac
 
 
 //------------------------------------------------------------------------------------
 
-
 // xu ly thanh toan
-
 Route::post('/vnpay_payment', [thanhtoanController::class, 'vnpay_payment']);
 Route::get('/thanhtoan/{id}', [thanhtoanController::class, 'returnUrl']);
 
-
 // ------------------------------------------------------------------------------------
+// bat buoc dang nhap neu /tren url
+Route::middleware('auth')->group(function () {
+    Route::resource('/accounts', AccountController::class);
+    Route::resource('/films', FilmController::class);
+    Route::resource('/cinemas', CinemaController::class);
+    Route::resource('/rooms', RoomController::class);
+    Route::resource('/showtimes', ShowtimeController::class);
+    Route::resource('/tickets', TicketController::class);
+    Route::resource('/bills', BillController::class);
+    Route::resource('/chairs', ChairController::class);
+});
 
-
-Route::get('/log-out',[UserController::class, 'login']); // k xai
 
 
 
@@ -72,26 +81,13 @@ Route::get('/5', function () {
 Route::get('/4', function () {
     return view('user.gdich');
 });
-Route::get('/dangnhap', function () {
-    return view('dangnhap');
-});
 
-Route::get('/trangchu', function () {
-    return view('trangchu_admin');
-});
 
 // Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
 
 
 
-Route::resource('/accounts', AccountController::class);
-Route::resource('/films', FilmController::class);
-Route::resource('/cinemas', CinemaController::class);
-Route::resource('/rooms', RoomController::class);
-Route::resource('/showtimes', ShowtimeController::class);
-Route::resource('/tickets', TicketController::class);
-Route::resource('/bills', BillController::class);
-Route::resource('/chairs', ChairController::class);
+
 Route::get('/tke', [ChairController::class,'tke']);
 
 
