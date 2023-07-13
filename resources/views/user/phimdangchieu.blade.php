@@ -10,7 +10,7 @@
         </nav>
     </div>
 		<section>
-			<h2 class="title text-center">
+			<h2 class="title text-center" >
 				{{-- <p>PHIM ĐANG CHIẾU</p> --}}
 			</h2>
             <div class="image-contraiter"  >
@@ -22,7 +22,7 @@
                                 </a>
                                 {{-- <div class="overlay">Mua Vé</div> --}}
                             </div>
-                            <div class="name">
+                            <div class="name" style="font-family: Times New Roman, Times, serif; ">
                                 <p>{{$fil->tenphim}}</p>
                             </div>
                             <div class="boxprice">

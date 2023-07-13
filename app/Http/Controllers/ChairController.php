@@ -139,4 +139,8 @@ class ChairController extends Controller
 
       return view('admin.doanhthu_index',['tongtien'=>$sum]);
     }
+
+
+
+
 }
