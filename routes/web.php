@@ -110,9 +110,9 @@ Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu']);
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
 // Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
-Route::get('/tke', [ChairController::class,'home']);
-// Route::get('/gd', [BillController::class,'gdich']);
 Route::get('/5', [ChairController::class,'tke']);
+// Route::get('/gd', [BillController::class,'gdich']);
+// Route::get('/5', [ChairController::class,'tke']);
 
  Route::get('/giaodich/{id}', [BillController::class,'gdich']);
 //  Route::get('/chart', 'ChartController@index');
