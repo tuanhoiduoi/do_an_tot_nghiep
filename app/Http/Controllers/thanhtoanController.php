@@ -25,8 +25,13 @@ class thanhtoanController extends Controller
                 $bills = Bill::where('id', $req->id)->update([
                     'trangthai' => "đã thanh toán",
                 ]);
+
                 // $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
                 return redirect()->back();
+
+                $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
+                return redirect()->route('/');
+
                 // return view('user.phimdangchieu')->with('phim',$film);
             }
             else{

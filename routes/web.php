@@ -13,6 +13,7 @@ use App\Http\Controllers\BillController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\AuthController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +24,15 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('user.trangchu_user');
-})->name('/');
+
 
 Route::get('/trangchu', function () {
     return view('user.trangchu_user');
 })->name('trangchu');
+
+Route::get('/', function () {
+    return view('user.trangchu_user');
+})->name('/');
 
 Route::get('/dangnhap', function () {
     if (!Auth::guard('web')->check()) {
@@ -111,10 +114,16 @@ Route::get('/suatchieu/{id}', [ShowtimeController::class,'schieu'])->name('back'
 Route::get('/timkiem', [ShowtimeController::class,'timkiem']);
 Route::get('/ghe/{id}', [ChairController::class,'show']);
 // Route::get('/timkiem2', [ShowtimeController::class,'timkiem2']);
-Route::get('/tke', [ChairController::class,'tke']);
+Route::get('/tke', [ChairController::class,'home']);
 // Route::get('/gd', [BillController::class,'gdich']);
+Route::get('/5', [ChairController::class,'tke']);
 
 
-Route::get('/giaodich/{id}', [BillController::class,'gdich']);
 
+
+
+ Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+//  Route::get('/chart', 'ChartController@index');
+//  Route::post('/days-order', [ ChairController::class, 'days_order']);
+// Route::get('/days-order', [ ChairController::class, 'days_order']);
 

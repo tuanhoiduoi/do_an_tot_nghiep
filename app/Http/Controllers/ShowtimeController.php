@@ -174,8 +174,13 @@ class ShowtimeController extends Controller
 
         // $film = Film :: where('trangthai','1')-> orderBy('films.id','desc')->get();
         $film = Film::where("tenphim","like","%$dl%")->get();
+        if(count($film) == 0) {
+            return  view('user.thongbao');
+        } else {
+            return view('user.phimdangchieu')->with('phim',$film);
+        }
 
-        return view('user.phimdangchieu')->with('phim',$film);
+
     }
     // public function timkiem2(Request $req ){
     //     $dl2 = $req->input('timkiem2');

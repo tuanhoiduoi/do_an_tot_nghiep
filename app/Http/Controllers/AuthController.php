@@ -61,8 +61,11 @@ class AuthController extends Controller
             return view('dangnhap');
         }elseif(\Hash::check($req->password, $user->password)){
                 Auth::login($user);
+
                 \Session::put('sdt',Auth::user()->sdt);
                 return view('user.trangchu_user');
+                return back();
+
             }
             else{
                 return back();

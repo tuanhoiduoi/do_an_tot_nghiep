@@ -97,6 +97,7 @@ class BillController extends Controller
       ->join('users','bills.kh_id','=','users.id')
       ->join('films','showtimes.film_id','=','films.id')
       ->join('chairs','tickets.chair_id','=','chairs.id')
+
     //    ->join('films','films.id','=','showtimes.films_id')
     //    ->where('film_id','=' ,'tenphim')
 
@@ -105,7 +106,7 @@ class BillController extends Controller
 
         ->select('users.*','showtimes.*','bills.ngaylap','films.tenphim','chairs.tenghe')
         ->orderBy('bills.id','desc')
-        ->get();
+        ->paginate(10);
 // $count=count($data);
 // dd($count);
         // dd($req->concac) ;
