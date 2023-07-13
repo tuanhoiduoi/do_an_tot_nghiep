@@ -136,11 +136,11 @@ class ShowtimeController extends Controller
             return redirect()->route('showtimes.index');
         }
     }
-    public function schieu(Request $req){
-
+    public function schieu(Request $req,$id){
 
         // dd(Auth::check());
-        if (!Auth::check()) {
+        if (!Auth::check()){
+            session(['redirect_url' => '/ctphim/' . $id]);
             return redirect('/dangnhap');
         }
         $id = $req->id;
