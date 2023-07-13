@@ -1,8 +1,8 @@
 @extends('trangchu_admin')
 @section('content')
-
-
-
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"
+integrity="sha512-mlz/Fs1VtBou2TrUkGzX4VoGvybkD9nkeXWJm3rle0DPHssYYx4j+8kIS15T78ttGfmOjH0lLaBXGcShaVkdkg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
     <h4>Thông Kê doanh thu</h4>
    </p><form action="{{URL('/tke')}}" >
@@ -23,9 +23,7 @@
                 <span class="badge badge-secondary badge-pill"></span>
             </h4>
             <ul class="list-group mb-3">
-                {{-- <input type="hidden" name="sanphamgiohang[1][sp_ma]" value="2">
-                <input type="hidden" name="sanphamgiohang[1][gia]" value="11800000.00">
-                <input type="hidden" name="sanphamgiohang[1][soluong]" value="2"> --}}
+
 
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     {{-- <div>
@@ -34,31 +32,12 @@
                     </div> --}}
                     <span class="text-muted">{{$tongtien}}VND</span>
                 </li>
-                {{-- <input type="hidden" name="sanphamgiohang[2][sp_ma]" value="4">
-                <input type="hidden" name="sanphamgiohang[2][gia]" value="14990000.00">
-                <input type="hidden" name="sanphamgiohang[2][soluong]" value="8">
 
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Apple iPhone 5 16GB White</h6>
-                        <small class="text-muted">14990000.00 x 8</small>
-                    </div>
-                    <span class="text-muted">119920000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Tổng thành tiền</span>
-                    <strong>143520000</strong>
-                </li> --}}
             </ul>
-
-
-            {{-- <div class="input-group">
-
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Xác nhận</button>
-                </div>
-            </div> --}}
+            >
 
         </div>
         {{-- @endforeach --}}
+
+
 @endsection()

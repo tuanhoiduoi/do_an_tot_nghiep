@@ -25,9 +25,17 @@ z-index: 1;}
 .dropdown:hover .dropdown-content {
   display: block;
 }
-.top2{width: 450px;
+.top1{
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+.top2{
+
+    width: 400px;
     background:#e47105;}
-.top2 div{}
+.top2 div{
+    /* padding-right: 50px; */
+}
 .top2 div a{
 padding: 20px;
 display: inline-block;
@@ -127,7 +135,7 @@ border-radius: 3px;
 .boxprice span.voucher b{}
 .title{border-bottom: 1px solid #1b1800;}
 .title a{
-background: #1b1800;
+background: #070707;
 color: #fff;
 padding: 10px 20px 10px 10px;
 text-decoration: none;
@@ -135,11 +143,15 @@ text-decoration: none;
 font: bold 40px/2em arial;
 }
 .image2{
-    padding: 10px 150px 10px 150px;
+
+    padding: 10px 510px 10px 170px;
     letter-spacing: 2px;
+    color: #f8f8f8;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 .title p{
-     background: #1b1800;
+     background: #5e5e5c;
     /* color: #fff;
 
     text-decoration: none; */
@@ -293,9 +305,9 @@ box-shadow: 0px 0px 10px 1px #dcdcdc;}
 }
 .ghe{
     padding-top: 60px;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 30px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 50px;
 }
 .button-ghe{
     padding-left: 30px;
@@ -303,19 +315,24 @@ box-shadow: 0px 0px 10px 1px #dcdcdc;}
 
 }
 .title-ghe{
-    padding-top: 40px;
+    padding-top: 60px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px
 
-    font-weight: bold;
-    font-size: 18px;
+}
+.mb-3{
+font-weight: bold;
 }
 /* .nen{
-    background-color: #c4c9c4;
+    background-color: #ddebdd;
 } */
 .title-ghe p{
     margin-right: 50px;
 }
 .button2{
-    background-color: LightSalmon;}
+    background-color: LightSalmon;
+    width: 390px;
+}
 .button5 {
     background-color: rgb(242, 242, 5);
     font-weight: bold;
@@ -8766,3 +8783,23 @@ body
   transition: 0.5s;
 
 }
+
+
+.footer__nav {
+    display: flex;
+      flex-flow: row wrap;
+  }
+
+  .footer__nav > * {
+    flex: 1 50%;
+    margin-right: 1.25em;
+  }
+
+  .nav__ul a {
+    color: #999;
+  }
+
+  .nav__ul--extra {
+    column-count: 2;
+    column-gap: 1.25em;
+  }

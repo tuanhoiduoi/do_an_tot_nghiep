@@ -12,6 +12,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,9 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/chart', function () {
+    return view('admin.sample-chart');
+});
 Route::get('/test',[ShowtimeController::class, 'test']);
 
 Route::get('/dangnhap', function () {
@@ -110,3 +114,6 @@ Route::get('/tke', [ChairController::class,'tke']);
 
 
  Route::get('/giaodich/{id}', [BillController::class,'gdich']);
+//  Route::get('/chart', 'ChartController@index');
+//  Route::post('/days-order', [ ChairController::class, 'days_order']);
+// Route::get('/days-order', [ ChairController::class, 'days_order']);

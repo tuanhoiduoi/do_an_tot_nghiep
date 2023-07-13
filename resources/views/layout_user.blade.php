@@ -80,49 +80,63 @@
 							</div>
 						</div>
 					 </form>
+
 				</div>
 			</nav>
 	</header>
 	<main>
         @yield('content')
 	</main>
-	<footer class="container-fluid text-white"style="background:#021c3a;">
-		<div class="text-center  pt-5 pb-5">
-			 <a href=""><img src="/images/logo01.png" height="100px"/></a><br>
-			 <strong>UY TÍN LÀ SỐ 1	</strong>
-			<hr color="white" width="80%" align="center" />
-		</div>
-		<div class="row " style="padding:0px 20px 10px 40px">
+	<footer class="container-fluid text-white"style="background:#222222;">
+
+		<div class="row "  style="font-family: Times New Roman, Times, serif; padding:0px 20px 10px 40px ">
 			   <div class="col-sm-3" style="padding:0px 10px 0px 0px">
-					<p><h3 >HỆ THỐNG RẠP</h3></p>
-					<p class="text-center">
-						<p>Chi nhánh 1:<a href=""> 718bis Kinh Dương Vương, Q.6, Tp. Hồ Chí Minh</a></p>
+					<p ><h4  style="font-family: Times New Roman, Times, serif;" >HỆ THỐNG RẠP</h4></p>
+
+                    <ul class="footer__nav" style="text-align: center">
+
+                        <ul class="nav__ul">
+
+                            <p>Chi nhánh 1:<a href=""> 718bis Kinh Dương Vương, Q.6, Tp. Hồ Chí Minh</a></p>
 						<p>Chi nhánh 2:<a href=""> 246 Nguyễn Hồng Đào, Q.Tân Bình, Tp. Hồ Chí Minh</a></p>
 						<p>Chi nhánh 3:<a href=""> 116 Nguyễn Du, Q.1, Tp. Hồ Chí Minh</a></p>
-					</p>
+
+                        </ul>
+
+                  </ul>
 			   </div>
-			   <div class="col-sm-3 mt-3">
-					<h3>Hotline</h3>
-					<p>
-						<i  class="fa fa-phone"></i><a href=""> 0793333353</a>
-					</p>
-					<p>
-						<i  class="fa fa-phone"></i><a href=""> 0701111101</a>
-					</p>
-					<p>
-						<i  class="fa fa-phone"></i><a href=""> 0228888828</a>
-					</p>
+			   <div class="col-sm-3 mt-3" style="text-align: center;">
+                <h4 class="nav__title" style="font-family: Times New Roman, Times, serif;">HOTLINE</h4>
+                <div class="footer__nav" style="text-align: center">
+
+                      <ul class="nav__ul" style="font-size: 18px">
+
+                          <a >0359204531 </a><br>
+
+                          <a >0348408761</a><br>
+
+                          <a >0159236478</a><br>
+                      </ul>
+
+                </div>
 				</div>
-			   <div class="col-sm-3  mt-3">
-					<a href="" class="text-white" ><h3 class="h5">Chính Sách Tuyển Dụng</h3></a>
-							<ul>
-								<li><a href="" >Về chúng tôi</a></li>
-								 <li><a href="">Quy chế hoạt động</a></li>
-								<li><a href="" >Thỏa thuận sử dụng</a></li>
-							</ul>
-			   </div>
-			   <div class="col-sm-3  mt-3">
-					<a href="" class="text-white"><h3 class="h5">Đăng ký thông tin</h3></a>
+			    <div class="col-sm-3 mt-3" style="text-align: center;">
+                    <h4 class="nav__title" style="font-family: Times New Roman, Times, serif;">CHÍNH SÁCH BẢO MẬT</h4>
+                    <div class="footer__nav" style="text-align: center">
+
+                          <ul class="nav__ul">
+
+                              <a >CHÍNH SÁCH BẢO MẬT</a><br>
+
+                              <a >QUY CHẾ HOẠT ĐỐNG</a><br>
+
+                              <a >THỎA MÃN SỬ DỤNG</a><br>
+                          </ul>
+
+                    </div>
+                    </div>
+			   <div class="col-sm-3  mt-3" >
+					<a href="" class="text-white"><h3 class="h5" style="font-family: Times New Roman, Times, serif;">Đăng ký thông tin</h3></a>
 					<p>
 						Hãy đăng ký để được tặng mã giảm giá hoặc thông tin khuyến mãi
 					</p>

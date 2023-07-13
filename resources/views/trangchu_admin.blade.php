@@ -12,6 +12,9 @@
   <title>Admin</title>
   <link rel="shortcut icon" type="image/png" href="/admin/assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
+  {{--  --}}
+  {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> --}}
+
   @yield('css')
 </head>
 
@@ -151,6 +154,42 @@
   <script src="/admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="/admin/assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="/admin/assets/js/dashboard.js"></script>
+  {{--  --}}
+    {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script type="text/javascript" >
+    $(document).ready(function(){
+        chart30daysorder();
+        var chart=new Morris.Area({
+        element: 'chart',
+        lineColors: ['#819C79','#FF6541'],
+        // pointFillColors: ['#ffffff'],
+        // pointStrokeColors: ['black'],
+        // fillOpacity: 0.6,
+        parseTime: false,
+        hideHover: 'auto',
+        xkey: 'thoigian',
+        ykeys: ['tongtien'],
+        // behaveLikeLine: true,
+        labels: ['Tổng Tiền']
+        });
+    function chart30daysorder(){
+        var _token=$('input[name="_token"]').val();
+        $.ajax({
+        url:" {{url('/days-order')}}",
+        method: "POST",
+        dataType: "JSON",
+        data: {_token:_token},
+        success:function(data)
+        {
+         chart.setData(data);
+        }
+        });}
+
+
+    })</script> --}}
+
   @yield('js')
 </body>
 </html>

@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="/phim">Phim Đang Chiếu</a></li>
+            <li class="breadcrumb-item"><a href="/phim">Phim </a></li>
             <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
           </ol>
         </nav>
@@ -22,7 +22,7 @@
                         </a>
                     </section>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" style="font-family: Times New Roman, Times, serif; ">
                     <section class="box-info">
                         <h1 class="name"><b>{{$film->tenphim}}</b></h1>
 
@@ -44,6 +44,7 @@
 
 
         </div>
-        <p><b>Nội dung: </b>{{$film->noidung}}</p>
+        <p  style="font-family: Times New Roman, Times, serif;padding-top:20px;padding-bottom:20px" >
+            <b>Nội dung: </b>{{$film->noidung}}</p>
         @endforeach
 @endsection
