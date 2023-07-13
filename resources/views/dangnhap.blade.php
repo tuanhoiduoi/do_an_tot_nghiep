@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/dangnhap.css">
+
     <title>Cinema</title>
 </head>
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="{{route('/register')}}" method="POST">
+            <form action="{{route('dangky')}}" method="POST">
                 @csrf
                 <h1>Tạo tài khoản</h1>
                 <input type="text" name="name" placeholder="Họ tên" />
@@ -20,7 +21,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="{{route('/')}}" method="POST">
+            <form action="{{route('dangnhap')}}" method="POST">
                 @csrf
                 <h1>Đăng nhập</h1>
                 <input type="text" name="sdt" placeholder="Số điện thoại" />

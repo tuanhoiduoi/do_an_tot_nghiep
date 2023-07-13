@@ -1,16 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\AccountController;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
     //
     public function register(Request $request){
+
+            $validator = Validator::make($request->all(),[
+                'sdt' => ['required','numeric','regex:/^[0-9]{10}$/'],
+                'password' => 'required',
+                'name' => 'required',
+            ]);
+
+
+            if($validator->fails()){
+                return back();
+            }
 
             $name=$request->input('name');
             $sdt=$request->input('sdt');
@@ -21,19 +32,22 @@ class AuthController extends Controller
                 'password' => $password,
             ]);
             // $result = (new AccountController)->store($request->all());
-            return view('dangnhap');
+            return back();
 
     }
 
     public function login(Request $req){
 
+        $validator = Validator::make($req->all(),[
+            'sdt' => ['required','numeric','regex:/^[0-9]{10}$/'],
+            'password' => 'required',
+        ]);
 
-        if(Auth::Check()){
-            return view('user.trangchu_user');
-        }
 
-        if($req->sdt == null or $req->password == null){
-            return view('dangnhap');
+        if($validator->fails()){
+            return back();
+            // $message = 'Lỗi: Số điện thoại hoặc mật khẩu không hợp lệ';
+            // return redirect()->back()->with('message', $message);
         }
 
         $user = User::where('sdt', $req->sdt,)->first();
@@ -41,29 +55,17 @@ class AuthController extends Controller
         if($user == null){
             return view('dangnhap');
         }elseif(\Hash::check($req->password, $user->password)){
-            if($user->is_admin == 1){
                 Auth::login($user);
-                // Auth::user()->$id;
-                  // là lấy thông tin người đang đăng nhập
-                  //DAY LA TRANG CHỦ ADMIN KO DC NHÉT LIEN QUAN TỚI USER
-                return view('trangchu_admin');
+                return view('user.trangchu_user');
             }
             else{
-                Auth::login($user);
-                // return redirect()->url()->previous();
-                return view('user.trangchu_user',Auth::user());
+                return back();
             }
-        }else{
-            return view('dangnhap');
-        }
-
-
 
     }
     public function logout(){
         Auth::logout();
-
-        return view('user.trangchu_user');
+        return redirect()->route('/');
     }
 
 

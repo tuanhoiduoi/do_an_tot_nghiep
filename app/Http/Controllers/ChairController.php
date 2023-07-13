@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Chair;
@@ -11,8 +11,15 @@ use Carbon\Carbon;
 class ChairController extends Controller
 {
     public function index(){
-        $ghe = Chair::paginate(5);
-        return view('admin.index_chair',['lst_ghe'=>$ghe]);
+        if(Auth::user()->is_admin == 1)
+        {
+            $ghe = Chair::paginate(5);
+            return view('admin.index_chair',['lst_ghe'=>$ghe]);
+        }
+        else{
+            return redirect()->route('/');
+        }
+
     }
 
     public function show(Request $req){

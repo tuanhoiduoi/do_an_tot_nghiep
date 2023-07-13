@@ -25,7 +25,7 @@
 
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                         @guest
-                        <a href="/dangnhap"> Đăng nhập</a>
+                        <a href="{{url('/dangnhap')}}"> Đăng nhập</a>
                         @endguest
                         @if (Auth::check())
                         <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
                                 <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-danger" style="width:170px; " >Lịch sử giao dịch</a>
                           </div>
                           <div class="message-body"  style="padding-top:10px;">
-                            <a href="{{route('/')}}" class="btn btn-primary" style="width:170px;">Logout</a>
+                            <a href="{{route('logout')}}" class="btn btn-primary" style="width:170px;">Logout</a>
                           </div>
                           @endif
                         </li>

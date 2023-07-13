@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Cinema;
@@ -16,15 +16,19 @@ class RoomController extends Controller
 
         // $room = $cinema->rooms;
         // dd($room);
-        $room = Room::paginate(5);
-        return view('admin.index_room',['lst_room'=> $room]);
+        if(Auth::user()->is_admin == 1)
+        {
+            $room = Room::paginate(5);
+            return view('admin.index_room',['lst_room'=> $room]);
+        }
+        else{
+            return redirect()->route('/');
+        }
+
     }
     public function create(){
         $lst = Cinema::all();
-        do {
-            $randomString = Str::random(8);
-        } while (Room::where('sophong', $randomString)->exists());
-        return view('admin.create_room',['lst_cinema'=> $lst,'sophong'=>$randomString]);
+        return view('admin.create_room',['lst_cinema'=> $lst]);
     }
     public function store(Request $req){
 
@@ -85,13 +89,6 @@ class RoomController extends Controller
         return view('admin.edit_room',['lst_cinema'=>$lst],['room'=>$room]);
     }
     public function update(Request $req,Room $room){
-        $room->fill([
-            'sophong'=>$req->sophong,
-            'cine_id'=>$req->cine_id,
-            'trangthai' => $req->trangthai,
-        ]);
-        $room->save();
-        return redirect()->route('rooms.index');
     }
     public function destroy(Room $room){
         $room->fill(['trangthai'=> 0]);

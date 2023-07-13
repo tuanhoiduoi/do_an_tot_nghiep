@@ -18,30 +18,58 @@ class ShowtimeController extends Controller
     //
     public function index(){
         // $lst = Showtime::all();
-
-        $lst = Showtime::join('films','films.id','=','showtimes.film_id')
+        if(Auth::user()->is_admin == 1)
+        {
+            $lst = Showtime::join('films','films.id','=','showtimes.film_id')
         ->join('rooms','rooms.id','=','showtimes.room_id')
         ->join('cinemas','rooms.cine_id','=','cinemas.id')
         ->select('showtimes.*','rooms.sophong','films.tenphim','cinemas.tenrap')
         ->paginate(5);
-        // dd($lst);
         return view('admin.index_showtime',['lst_showtime'=>$lst]);
+        }
+        else{
+            return redirect()->route('/');
+        }
+
     }
     public function edit(Showtime $showtime){
         $film = Film::all();
         $room = Room::all();
-        return view('admin.edit_showtime',['showtime'=>$showtime],['lst_film'=>$film,'lst_room'=>$room]);
+        $cinema = Cinema::all();
+        return view('admin.edit_showtime',['showtime'=>$showtime],['lst_film'=>$film,'lst_room'=>$room,'lst_cinema'=>$cinema]);
     }
     public function update(Request $req,Showtime $showtime){
-        $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
-        $showtime->fill([
-            'film_id'=>$req->film_id,
-            'room_id'=>$req->room_id,
-            'trangthai' => $req->trangthai,
-            'thoigian'=>$fomat,
+
+        if($req->trangthai == null){
+            $trangthai = 0;
+        }else{
+            $trangthai = $req->trangthai;
+        }
+        $validator = Validator::make($req->all(),[
+            'cine_id' => 'required',
+            'room_id' => 'required',
+            'thoigian' => 'required|date|after:now',
+            'tien' => 'required|numeric',
         ]);
-        $showtime->save();
-        return redirect()->route('showtimes.index');
+        if($validator->fails()){
+            $film = Film::all();
+            $room = Room::all();
+            $cinema = Cinema::all();
+            $message = 'Lỗi: dữ liệu trống hoặc có thể do giá(only number) và thời gian(lớn hơn hiện tại)';
+            return view('admin.create_showtime',['message'=>$message,'lst_film'=>$film,'lst_room'=>$room,'lst_cinema'=>$cinema]);
+        }else{
+            $fomat = Carbon::parse($req->thoigian)->format('Y-m-d H:i:s');
+            $showtime->fill([
+                'film_id'=>$req->film_id,
+                'room_id'=>$req->room_id,
+                'trangthai' => $trangthai,
+                'thoigian'=>$fomat,
+                'tien' => $req->tien,
+            ]);
+            $showtime->save();
+            return redirect()->route('showtimes.index');
+        }
+
     }
     public function destroy(Showtime $showtime){
         $showtime->fill(['trangthai'=> 0]);
@@ -55,6 +83,12 @@ class ShowtimeController extends Controller
         return view('admin.create_showtime',['lst_film'=>$film,'lst_room'=>$room,'lst_cinema'=>$cinema]);
     }
     public function store(Request $req){
+
+        if($req->trangthai == null){
+            $trangthai = 0;
+        }else{
+            $trangthai =$req->trangthai;
+        }
 
         $validator = Validator::make($req->all(),[
             'film_id' => 'required',
@@ -77,7 +111,7 @@ class ShowtimeController extends Controller
                 'film_id'=>$req->film_id,
                 'room_id'=>$req->room_id,
                 'thoigian'=>$fomat,
-                'trangthai' => $req->trangthai,
+                'trangthai' => $trangthai,
                 'tien' => $req->tien,
             ]);
 

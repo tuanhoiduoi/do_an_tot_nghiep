@@ -1,67 +1,61 @@
 @extends('trangchu_admin')
 @section('content')
 <style>
-    form label{
-        margin-top: 3%
-    }
-    form div{
-        margin-left: 3%
-    }
-    form select{
-        margin-left: 3%
-    }
-    form button{
-        margin-left: 3%;
-        margin-top: 3%;
-        padding: 10px 40px;
-        font-size: 15px
-    }
-    form textarea{
-        width: 50%;
-    }
-    form img{
+    .mb-3 img{
         margin-bottom: 20px;
         height: 250px;
         width: 20%;
     }
 </style>
+
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('films.update',['film'=>$film])}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
-    <div>
-        <label for="name">Tên</label><br>
-        <input type="text" name="tenphim" value="{{$film->tenphim}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Tên phim</label>
+        <input type="text" class="form-control" name="tenphim" value="{{$film->tenphim}}">
     </div>
 
-    <div>
-        <label for="name">Hình</label><br>
+    <div class="mb-3">
+        <label for="" class="form-label">Hình</label>
         <img src="{{$film->hinh}}">
-        <input type="file" accept="images/*" name="hinh">
+        <input type="file" class="form-control" accept="images/*" name="hinh">
     </div>
 
-    <div>
-        <label for="name">Nội dung</label><br>
-        <textarea name="noidung" value="{{$film->noidung}}">{{$film->noidung}}</textarea>
+    <div class="mb-3">
+        <label for="" class="form-label">Nội dung</label>
+        <textarea name="noidung" class="form-control" value="{{$film->noidung}}">{{$film->noidung}}</textarea>
     </div>
 
-    <div>
-        <label for="name">Thời lượng</label><br>
-        <input type="text" name="thoiluong" value="{{$film->thoiluong}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Thời lượng</label>
+        <input type="text" class="form-control" name="thoiluong" value="{{$film->thoiluong}}">
     </div>
 
-    <div>
-        <label for="name">Đạo diễn</label><br>
-        <input type="text" name="daodien" value="{{$film->daodien}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Đạo diễn</label>
+        <input type="text" class="form-control" name="daodien" value="{{$film->daodien}}">
     </div>
 
-    <div>
-        <label for="">Trạng Thái</label>
-        <select name="trangthai">
-            <option value="1">Hoạt động</option>
-            <option value="0">Không hoạt động</option>
-        </select>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="trangthai" value="{{$film->trangthai}}" id="statusCheckbox" {{ $film->trangthai == 1 ? 'checked' : '' }}>
+        <label class="form-check-label" for="">Hoạt động</label>
     </div>
-    <button type="submit">Lưu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
+<script>
+    const checkbox = document.getElementById('statusCheckbox');
+
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        this.value = 1;
+      }
+    });
+  </script>
 @endsection

@@ -1,30 +1,5 @@
 @extends('trangchu_admin')
 @section('content')
-<style>
-    form label{
-        margin-top: 3%
-    }
-    form div{
-        margin-left: 3%
-    }
-    form select{
-        margin-left: 3%
-    }
-    form button{
-        margin-left: 3%;
-        margin-top: 3%;
-        padding: 10px 40px;
-        font-size: 15px
-    }
-    form textarea{
-        width: 50%;
-    }
-    form img{
-        margin-bottom: 20px;
-        height: 250px;
-        width: 20%;
-    }
-</style>
 @if (isset($message))
     <div class="alert alert-danger">
         {{ $message }}
@@ -33,38 +8,30 @@
 <form action="{{route('films.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
-    <div>
-        <label for="name">Tên</label><br>
-        <input type="text" name="tenphim">
+    <div class="mb-3">
+        <label for="" class="form-label">Tên phim</label>
+        <input type="text" class="form-control" name="tenphim">
     </div>
-
-    <div>
-        <label for="name">Hình</label><br>
-        <input type="file" accept="images/*" name="hinh">
+    <div class="mb-3">
+        <label for="" class="form-label">Hình</label>
+        <input type="file" class="form-control" accept="images/*" name="hinh">
     </div>
-
-    <div>
-        <label for="name">Nội dung</label><br>
-        <textarea name="noidung"></textarea>
+    <div class="mb-3">
+        <label for="" class="form-label">Nội dung</label>
+        <textarea class="form-control" name="noidung"></textarea>
     </div>
-
-    <div>
-        <label for="name">Thời lượng</label><br>
-        <input type="text" name="thoiluong">
+    <div class="mb-3">
+        <label for="" class="form-label">Thời lượng</label>
+        <input type="text" class="form-control" name="thoiluong">
     </div>
-
-    <div>
-        <label for="name">Đạo diễn</label><br>
-        <input type="text" name="daodien">
+    <div class="mb-3">
+        <label for="" class="form-label">Đạo diễn</label>
+        <input type="text" class="form-control" name="daodien">
     </div>
-
-    <div>
-        <label for="">Trạng Thái</label>
-        <select name="trangthai">
-            <option value="1">Hoạt động</option>
-            <option value="0">Không hoạt động</option>
-        </select>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" name="trangthai" value="1" >
+        <label class="form-check-label" for="">Hoạt động</label>
     </div>
-    <button type="submit">Lưu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
 @endsection

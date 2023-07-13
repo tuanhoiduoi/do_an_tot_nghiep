@@ -18,35 +18,39 @@
         width: 300px
     }
 </style>
+@if (isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+@endif
 <form action="{{route('bills.update',['bill'=>$bill])}}" method="POST">
     @csrf
     @method('PUT')
 
-    <div>
-        <label for="name">Khách</label><br>
-        <select name="kh_id">
+    <div class="mb-3">
+        <label for="" class="form-label">Khách hàng</label>
+        <select class="form-select" name="kh_id">
             @foreach ($lst_kh as $kh)
                 <option value="{{$kh->id}}">{{$kh->hoten}}</option>
             @endforeach
         </select>
     </div>
 
-    <div>
-        <label for="name">Ngày lập</label><br>
-        <input type="date" name="ngaylap" value="{{$bill->ngaylap}}">
+    <div class="mb-3">
+          <label for="" class="form-label">Ngày lập</label>
+          <input type="date" class="form-control" name="ngaylap" value="{{$bill->ngaylap}}">
     </div>
 
-    <div>
-        <label for="name">Mã Veri</label><br>
-        <input type="text" name="veri" value="{{$bill->veri}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Mã veri</label>
+        <input type="text" class="form-control" name="veri" value="{{$bill->veri}}">
     </div>
 
-    <div>
-        <label for="name">Trạng thái</label><br>
-        <input type="text" name="trangthai" value="{{$bill->trangthai}}">
+    <div class="mb-3">
+        <label for="" class="form-label">Trạng thái</label>
+        <input type="text" class="form-control" name="trangthai" value="{{$bill->trangthai}}" >
     </div>
-
-    <button type="submit">Lưu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
 @endsection
 

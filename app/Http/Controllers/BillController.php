@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Bill;
 use App\Models\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
 class BillController extends Controller
@@ -16,22 +17,39 @@ class BillController extends Controller
 
         // $mana = view('admin.index_bill')->with('bill',$bill);
         // return view('trangchu_admin')->with('admin.index_bill',$mana);
+        if(Auth::user()->is_admin == 1)
+        {
+            $bill = Bill::paginate(5);
+            return view('admin.index_bill',['lst_bill'=> $bill]);
+        }
+        else{
+            return redirect()->route('/');
+        }
 
-         $bill = Bill::paginate(5);
-
-        return view('admin.index_bill',['lst_bill'=> $bill]);
     }
     public function edit(Bill $bill){
         $kh = User::all();
         return view('admin.edit_bill',['bill'=>$bill,'lst_kh'=>$kh]);
     }
     public function update(Request $req,Bill $bill){
-        $bill->fill([
-            'kh_id'=>$req->kh_id,
-            'ngaylap'=>$req->ngaylap,
-            'veri' => $req->veri,
-            'trangthai' => $req->trangthai,
+
+        $validator = Validator::make($req->all(),[
+            'veri' => 'required|min:8|max:8',
+            'trangthai' => 'required',
         ]);
+
+        if($validator->fails()){
+            $message = 'Lỗi: dữ liệu trống hoặc mã veri không đúng (veri phải có 8 ký tự)';
+            $kh = User::all();
+            return view('admin.edit_bill',['message'=>$message,'bill' => $bill,'lst_kh'=>$kh]);
+        }else{
+            $bill->fill([
+                'kh_id'=>$req->kh_id,
+                'ngaylap'=>$req->ngaylap,
+                'veri' => $req->veri,
+                'trangthai' => $req->trangthai,
+            ]);
+        }
         $bill->save();
         return redirect()->route('bills.index');
     }
@@ -40,15 +58,15 @@ class BillController extends Controller
         return view('admin.create_bill',['lst_kh'=> $lst]);
     }
     public function store(Request $req){
-        $validator = Validator::make($req->all(),[
-            'trangthai' => 'required',
-        ]);
 
-        if($validator->fails()){
-            $message = 'Lỗi: dữ liệu trống';
-            $lst = User::all();
-            return view('admin.create_bill',['message'=>$message,'lst_kh'=>$lst]);
+
+
+        if($req->trangthai == null){
+            $trangthai = 'chưa thanh toán';
         }else{
+            $trangthai = $req->trangthai;
+        }
+
             do {
                 $randomString = Str::random(8);
             } while (Bill::where('veri', $randomString)->exists());
@@ -56,10 +74,9 @@ class BillController extends Controller
                 'kh_id'=>$req->kh_id,
                 'ngaylap'=>$req->ngaylap,
                 'veri'=> $randomString,
-                'trangthai' => $req->trangthai,
+                'trangthai' => $trangthai,
             ]);
             return redirect()->route('bills.index');
-        }
 
     }
 
