@@ -51,14 +51,16 @@
                                                      <td>{{\Carbon\Carbon::createFromTimestamp(strtotime($gd->thoigian))->format('d-m-Y | H:i:s')}} phút</td>
                                                     <td>{{$gd->tien}} VND</td>
                                                     <td>{{$gd->tenghe}}</td>
+
                                                 </tr>
                                             @endforeach
                         </tbody>
-                      {{-- </table> --}}
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 </table>
+{{ $data->links('pagination::bootstrap-4')}}
 @endsection
