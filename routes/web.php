@@ -35,10 +35,10 @@ Route::get('/', function () {
 })->name('/');
 
 Route::get('/dangnhap', function () {
+    if(Session::get('sdt')){
+        return redirect()->route('/');
+    }
     if (!Auth::guard('web')->check()) {
-        if(!Session::get('sdt')){
-            return redirect()->route('/');
-        }
         return view('dangnhap');
     }
     return redirect()->route('/');
