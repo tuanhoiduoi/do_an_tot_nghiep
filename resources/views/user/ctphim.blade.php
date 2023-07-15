@@ -1,10 +1,11 @@
 @extends('layout_user')
+
 @section('content')
 <div class="container">
     <div class=" row">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/trangchu"><i class="fa fa-home"></i> Trang chủ</a></li>
             <li class="breadcrumb-item"><a href="/phim">Phim </a></li>
             <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
           </ol>
@@ -22,7 +23,7 @@
                         </a>
                     </section>
                 </div>
-                <div class="col-sm-6" style="font-family: Times New Roman, Times, serif; ">
+                <div class="col-sm-6" style="font-family: Tahoma, serif; ">
                     <section class="box-info">
                         <h1 class="name"><b>{{$film->tenphim}}</b></h1>
 
@@ -44,7 +45,7 @@
 
 
         </div>
-        <p  style="font-family: Times New Roman, Times, serif;padding-top:20px;padding-bottom:20px" >
+        <p  style="font-family: Times New Roman, Times, serif;padding-top:20px;padding-bottom:20px;font-size:18px" >
             <b>Nội dung: </b>{{$film->noidung}}</p>
         @endforeach
 @endsection

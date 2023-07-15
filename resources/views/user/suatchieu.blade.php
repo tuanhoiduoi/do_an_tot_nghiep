@@ -1,4 +1,17 @@
 @extends('layout_user')
+<style>
+    .button1{
+        background-color: white;  color: black;
+        border: 2px solid #000000;
+         -webkit-transition-duration: 0.4s;
+         transition-duration: 0.4s;
+
+    }
+    .button1:hover{
+        background-color: rgb(226, 126, 11);
+         color: rgb(7, 7, 7);
+    }
+</style>
 @section('content')
 <div class="container">
     <div class=" row">
@@ -24,7 +37,7 @@
     <div class="col-6 float-right   mt-4">
          <div class="dropdown" style="display:inline-block">
             @foreach ($lst as $suat)
-            <a href="/ghe/{{$suat->id}}"><button type="button" > {{\Carbon\Carbon::createFromTimestamp(strtotime($suat->thoigian))->format('d-m-Y H:i')}}</button></a>
+            <a href="/ghe/{{$suat->id}}"><button type="button"  class="button1" style="width:78%"> {{\Carbon\Carbon::createFromTimestamp(strtotime($suat->thoigian))->format('d-m-Y H:i')}}</button></a>
             @endforeach
         </div>
     </div>

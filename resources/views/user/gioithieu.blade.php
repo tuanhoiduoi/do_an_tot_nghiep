@@ -4,13 +4,13 @@
     <div class="row">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="/trangchu"><i class="fa fa-home"></i> Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page" ><a href="#"><span style="color:blue">Giới Thiệu</span></a></li>
                   </ol>
                 </nav>
             </div>
-<div id="layout-page">
-    <h1 class="head-title">Giới thiệu</h1>
+<div id="layout-page" >
+    <h1 class="head-title" style="font-family: Tahoma, serif;">Giới thiệu</h1>
 <div class="wrapper-page mt20">
     <h1 style="text-align:center; margin-bottom:11px"><span style="font-size:18pt">
     <span style="line-height:150%"><span style="font-family:&quot;Times New Roman&quot;,serif">

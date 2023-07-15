@@ -39,9 +39,9 @@
         </div>
     @endif
     <div class="nen">
-        <div class="image2">
-            <h2 class="title text-center">
-                <p>MÀN CHIẾU</p>
+        <div class="image2"  >
+            <h2 class="title text-center " >
+                <p >MÀN CHIẾU</p>
             </h2>
             {{-- <center>
         <img src="/images/smart-tv.png" height="400px" width="600px" />
@@ -87,7 +87,7 @@
                         <div class="title-ghe">
                             <div>
                                 <p><b>Thành Tiền: </b></p>
-                                <span style="color: rgb(11, 11, 10);text-align:center" id="thanh-tien"></span>
+                                <p style="  text-align: center; color: rgb(11, 11, 10);" id="thanh-tien"></p>
                                 <input type="hidden" name="total">
                                 <h2 class="title text-center-1">
                                 </h2>

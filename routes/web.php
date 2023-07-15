@@ -35,10 +35,10 @@ Route::get('/', function () {
 })->name('/');
 
 Route::get('/dangnhap', function () {
+    if(Session::get('sdt')){
+        return redirect()->route('/');
+    }
     if (!Auth::guard('web')->check()) {
-        if(!Session::get('sdt')){
-            return redirect()->route('/');
-        }
         return view('dangnhap');
     }
     return redirect()->route('/');
@@ -77,10 +77,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/1', function () {
     return view('user.suatchieu');
 });
-Route::get('/2', function () {
+Route::get('/gioithieu', function () {
     return view('user.gioithieu');
 });
- Route::get('/3', function () {
+ Route::get('/trangchu', function () {
      return view('user.trangchu_user');
 });
 Route::get('/5', function () {
@@ -97,7 +97,6 @@ Route::get('/4', function () {
 
 
 Route::get('/tke', [ChairController::class,'tke']);
-
 
 // Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);

@@ -22,21 +22,16 @@
 					<a href=""><i  class="fa fa-clock"></i> Phục vụ: 8h-23h cả CN & ngày lễ</a>
 				</div>
 				<div class="col-6 text-right">
-
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                        @guest
-                        <a href="{{url('/dangnhap')}}"> Đăng nhập</a>
-                        @endguest
-                        @if (Auth::check())
+
+                        @if (Session::get('sdt'))
                         <li class="nav-item dropdown">
                           <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                             aria-expanded="false">
 
                             <img src="/admin/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                           </a>
-
                           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-
                             <div class="message-body2">
                                     {{-- <input type="hidden" name="concac" value="{{(Auth::user()->id)}}"> --}}
                                 <a href="{{url('/giaodich')}}/{{(Auth::user()->id)}}" class="btn btn-danger" style="width:170px; " >Lịch sử giao dịch</a>
@@ -44,6 +39,8 @@
                           <div class="message-body"  style="padding-top:10px;">
                             <a href="{{route('logout')}}" class="btn btn-primary" style="width:170px;">Logout</a>
                           </div>
+                          @else
+                          <a href="{{url('/dangnhap')}}"> Đăng nhập</a>
                           @endif
                         </li>
                       </ul>
@@ -54,9 +51,9 @@
 				<div class="logo col-3">
 					<a href=""><img src="/images/logo1.jpg" width="150" height="50" alt=""/></a>
 				</div>
-				<div class="col-6 float-right   mt-4">
-					<a href="/3"><i class="fa fa-home"></i> Trang chủ</a>
-					<a href="/2">Giới thiệu</a>
+				<div class="col-6 float-right   mt-4" style="font-family: Tahoma, serif;"       >
+					<a href="/trangchu"><i class="fa fa-home"></i> Trang chủ</a>
+					<a href="/gioithieu">Giới thiệu</a>
                     <a href="/phim">Phim</a>
 					{{-- <div class="dropdown" style="display:inline-block">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Phim</a>
@@ -89,13 +86,13 @@
 	</main>
 	<footer class="container-fluid text-white"style="background:#222222;">
 
-		<div class="row "  style="font-family: Times New Roman, Times, serif; padding:0px 20px 10px 40px ">
+		<div class="row "  style="font-family: Courier New, monospace; padding:0px 20px 10px 40px ">
 			   <div class="col-sm-3" style="padding:0px 10px 0px 0px">
-					<p ><h4  style="font-family: Times New Roman, Times, serif;" >HỆ THỐNG RẠP</h4></p>
+					<p ><h4  style="font-family: Courier New, monospace" >HỆ THỐNG RẠP</h4></p>
 
                     <ul class="footer__nav" style="text-align: center">
 
-                        <ul class="nav__ul">
+                        <ul class="nav__ul" style="font-family: Courier New, monospace">
 
                             <p>Chi nhánh 1:<a href=""> 718bis Kinh Dương Vương, Q.6, Tp. Hồ Chí Minh</a></p>
 						<p>Chi nhánh 2:<a href=""> 246 Nguyễn Hồng Đào, Q.Tân Bình, Tp. Hồ Chí Minh</a></p>
@@ -106,10 +103,10 @@
                   </ul>
 			   </div>
 			   <div class="col-sm-3 mt-3" style="text-align: center;">
-                <h4 class="nav__title" style="font-family: Times New Roman, Times, serif;">HOTLINE</h4>
+                <h4 class="nav__title" style="font-family: Courier New, monospace;">HOTLINE</h4>
                 <div class="footer__nav" style="text-align: center">
 
-                      <ul class="nav__ul" style="font-size: 18px">
+                      <ul class="nav__ul" style="font-size: 18px; font-family: Courier New, monospace">
 
                           <a >0359204531 </a><br>
 
@@ -121,10 +118,10 @@
                 </div>
 				</div>
 			    <div class="col-sm-3 mt-3" style="text-align: center;">
-                    <h4 class="nav__title" style="font-family: Times New Roman, Times, serif;">CHÍNH SÁCH BẢO MẬT</h4>
+                    <h4 class="nav__title" style="font-family: Courier New, monospace;">CHÍNH SÁCH BẢO MẬT</h4>
                     <div class="footer__nav" style="text-align: center">
 
-                          <ul class="nav__ul">
+                          <ul class="nav__ul" style="font-family: Courier New, monospace">
 
                               <a >CHÍNH SÁCH BẢO MẬT</a><br>
 
@@ -136,8 +133,8 @@
                     </div>
                     </div>
 			   <div class="col-sm-3  mt-3" >
-					<a href="" class="text-white"><h3 class="h5" style="font-family: Times New Roman, Times, serif;">Đăng ký thông tin</h3></a>
-					<p>
+					<a href="" class="text-white"><h3 class="h5" style="font-family: Courier New, monospace;">Đăng ký thông tin</h3></a>
+					<p style="font-family: Courier New, monospace">
 						Hãy đăng ký để được tặng mã giảm giá hoặc thông tin khuyến mãi
 					</p>
 					<p>
@@ -153,7 +150,7 @@
 			   </div>
 		</div>
         {{-- để lại --}}
-		 <div class="main-footer-copyright text-center"style="border-top:1px solid #ddd">
+		 <div class="main-footer-copyright text-center"style="border-top:1px solid #ddd;font-family: Courier New, monospace">
 			<p>Tên Doanh Nghiệp: Cinema <br>
 			MST/ĐKKD/QĐTL: 41X8027709 - Cấp ngày 28/09/2016 <br>
 			Công Ty Cổ Phần Phim Thiên Ngân, Tầng 3, Toà Nhà Bitexco Nam Long, 63A Võ Văn Tần, P. Võ Thị Sáu, Quận 3, Tp. Hồ Chí Minh</p>
