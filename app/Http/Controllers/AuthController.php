@@ -37,11 +37,7 @@ class AuthController extends Controller
 
     public function login(Request $req){
 
-        if(session('redirect_url')){
-            $redirectUrl = session('redirect_url');
-            session()->forget('redirect_url');
-            return redirect($redirectUrl);
-        }
+
 
         $validator = Validator::make($req->all(),[
             'sdt' => ['required','numeric','regex:/^[0-9]{10}$/'],
@@ -63,9 +59,13 @@ class AuthController extends Controller
                 Auth::login($user);
 
                 \Session::put('sdt',Auth::user()->sdt);
-                return view('user.trangchu_user');
-                return back();
-
+                if(session('redirect_url')){
+                    $redirectUrl = session('redirect_url');
+                    session()->forget('redirect_url');
+                    return redirect($redirectUrl);
+                }else{
+                    return view('user.trangchu_user');
+                }
             }
             else{
                 return back();
@@ -74,6 +74,7 @@ class AuthController extends Controller
     }
     public function logout(){
         Auth::logout();
+        \Session::flush();
         return redirect()->route('/');
     }
 

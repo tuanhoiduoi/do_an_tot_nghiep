@@ -30,7 +30,7 @@ class thanhtoanController extends Controller
                 return redirect()->back();
 
                 $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
-                return redirect()->route('/');
+                // return redirect()->route('/');
 
                 // return view('user.phimdangchieu')->with('phim',$film);
             }
@@ -138,7 +138,7 @@ class thanhtoanController extends Controller
         // $vnp_Inv_Taxcode=$_POST['txt_inv_taxcode'];
         // $vnp_Inv_Type=$_POST['cbo_inv_type'];
         $createDate = Carbon::parse($ngay)->format('YmdHis');
-        $expireDate = Carbon::parse($ngay->addMinutes(1))->format('YmdHis');
+        $expireDate = Carbon::parse($ngay->addMinutes(5))->format('YmdHis');
         $inputData = array(
             "vnp_Version" => "2.1.0",
             "vnp_TmnCode" => $vnp_TmnCode,

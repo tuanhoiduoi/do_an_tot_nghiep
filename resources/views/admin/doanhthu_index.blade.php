@@ -1,15 +1,25 @@
 @extends('trangchu_admin');
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+
+    .row p{
+        font-family: "Merriweather", sans-serif;
+        font-weight: bold;
+    }
+    /* .row card-body p-3{
+width: 300%;
+    } */
+</style>
 @section('content');
 
 <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
+      <div class="card" style="background-color: rgb(251, 132, 14);">
+        <div class="card-body p-3" style="width:300px">
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ TÀI KHOẢN ĐÃ ĐĂNG KÝ:</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">TÀI KHOẢN ĐÃ ĐĂNG KÝ:</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{ $demusers }}
                 </h5>
@@ -27,32 +37,9 @@
         </div>
       </div>
     </div>
+
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SÓ PHÒNG:</p>
-                <h5 class="font-weight-bolder mb-0">
-            {{ $demroom}}
-                </h5>
-              </div>
-            </div>
-            <div class="col-4">
-                <div class="d-flex justify-content-end">
-                  <div
-                    class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                    <i class="ti ti-currency-dollar fs-6"></i>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-        <div class="card">
+        <div class="card" style="background-color: rgb(251, 132, 14);">
           <div class="card-body p-3">
             <div class="row">
               <div class="col-8">
@@ -77,7 +64,7 @@
       </div>
 
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
+      <div class="card" style="background-color: rgb(251, 132, 14);">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
@@ -101,7 +88,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6">
-        <div class="card">
+        <div class="card" style="background-color: rgb(251, 132, 14);">
           <div class="card-body p-3">
             <div class="row">
               <div class="col-8">
@@ -126,12 +113,12 @@
         </div>
       </div>
       <div class="col-xl-3 col-sm-6">
-        <div class="card">
-          <div class="card-body p-3">
+        <div class="card"style="background-color: rgb(251, 132, 14);"     >
+          <div class="card-body p-3" >
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SUAT CHIEU TREN WEB: </p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SUẤT CHIẾU TRÊN WEB: </p>
                   <h5 class="font-weight-bolder mb-0">
                       {{$demshowtime}}
 
@@ -151,8 +138,9 @@
         </div>
       </div>
       <div class="col-xl-3 col-sm-6">
-        <div class="card">
-          <div class="card-body p-3">
+        <div class="card" style="background-color: rgb(251, 132, 14);    width: 100%;
+        height: 77%;">
+          <div class="card-body p-3" >
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
@@ -171,18 +159,41 @@
                 </div>
               </div>
             </div>
-       </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card" style="background-color: rgb(251, 172, 14);     width: 100%;
+        height: 77%;">
+          <div class="card-body p-3" >
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ PHÒNG:</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {{ $demroom }}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4">
+                  <div class="d-flex justify-content-end">
+                    <div
+                      class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-currency-dollar fs-6"></i>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-
 
   <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card z-index-2">
-        <div class="card-body p-3">
+        <div class="card-body p-3" style="    background-color: rgb(12, 143, 155);">
 
-          <h6 class="ms-2 mt-4 mb-0"> Thống kê doanh thu </h6>
+          <h6 class="ms-2 mt-4 mb-0" style="color: black"><b><u>THỐNG KÊ DOANH THU:</u> </b></h6>
           <div class="container border-radius-lg">
             <div class="row">
 
@@ -205,10 +216,10 @@
                       </g>
                     </svg>
                   </div>
-                  <p class="text-xs  mb-0 font-weight-bold"> VÉ ĐÃ BÁN ĐƯỢC</p>
+                  <p class="text-xs  mb-0 font-weight-bold"style="color: black"><b><u>VÉ ĐÃ BÁN:</u> </b></p>
                 </div>
 
-                {{ ( $totalTicketnotnull)}} vÉ
+                <h6 class="font-weight-bolder" style="color: black"> {{ ( $totalTicketnotnull)}} vÉ</h6>
 
               </div>
 
@@ -230,9 +241,9 @@
                       </g>
                     </svg>
                   </div>
-                  <p class="text-xs mb-0 font-weight-bold">DOANH THU</p>
+                  <p class="text-xs mb-0 font-weight-bold"style="color: black"><b><u>DOANH THU:</u> </b></p>
                 </div>
-                <h6 class="font-weight-bolder">{{ number_format( $sum).' VNĐ' }}</h6>
+                <h6 class="font-weight-bolder" style="color: black">{{ number_format( $sum).' VNĐ' }}</h6>
               </div>
         </div>
       </div>
@@ -250,11 +261,24 @@
           data: {
             labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'],
             datasets: [{
-              label: 'Doanh Thu',
+              label: 'Doanh Thu 2023',
               data: [{{ $tongtien1 }}, {{ $tongtien2 }},{{ $tongtien3 }},
               {{ $tongtien4 }}, {{ $tongtien5 }},{{ $tongtien6 }} ,{{ $tongtien7 }},{{ $tongtien8 }},{{ $tongtien9 }},
               {{ $tongtien10 }},{{ $tongtien11 }},{{ $tongtien12 }}],
-              borderWidth: 1
+              backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+            //   borderWidth: 1
             }]
           },
           options: {
@@ -269,6 +293,7 @@
 
 
 @endsection
+
 
 
 

@@ -4,7 +4,7 @@
     <div class=" row">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/trangchu"><i class="fa fa-home"></i> Trang chủ</a></li>
             <li class="breadcrumb-item active" aria-current="page">Phim</li>
           </ol>
         </nav>
@@ -22,7 +22,7 @@
                                 </a>
                                 {{-- <div class="overlay">Mua Vé</div> --}}
                             </div>
-                            <div class="name" style="font-family: Times New Roman, Times, serif; ">
+                            <div class="name" style="font-family: Tahoma, serif; ">
                                 <p>{{$fil->tenphim}}</p>
                             </div>
                             <div class="boxprice">
