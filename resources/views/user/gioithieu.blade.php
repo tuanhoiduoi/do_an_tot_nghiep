@@ -1,5 +1,6 @@
 @extends('layout_user')
 @section('content')
+<title>CINEMA</title>
 <div class="container">
     <div class="row">
                 <nav aria-label="breadcrumb">
@@ -99,11 +100,11 @@ Cinema thu thập thông tin cá nhân nhằm phục vụ cho các mục đích 
                             <span style="color:#0a0a0a">
 <span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#212121">
     HỆ THỐNG WEBSITE CINEMA</span></span></span></span></b></span></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
-    Trụ sở chính: 20/24 Hồ Đắc Di, P. Tây Thạnh, Q. Tân Phú </span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
-    Chi nhánh 1: 1E Đường 3/2, P.11, Q.10 </span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
-    Chi nhánh 2: 195 Nguyễn Thái Học, P.Phạm Ngũ Lão Q.1</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
-    Chi nhánh 3: 721 Trường Chinh, P. Tây Thạnh Q. Tân Phú</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
-    Tổng Đài: 18001236</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">Website: </span></span></strong><em><span style="font-size:14.0pt"><span style="color:#212121">
+    </span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
+    Chi nhánh 1: Tầng 7 | Hùng Vương Plaza, 126 Hồng Bàng, Phường 12, Quận 5, TP. Hồ Chí Minh</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
+    Chi nhánh 2: Tầng B1 , TTTM Vincom Center Landmark 81, 772 Điện Biên Phủ, P.22, Q. Bình Thạnh, HCM</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
+    Chi nhánh 3: Tầng 5, Pearl Plaza, 561A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM</span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">
+    Tổng Đài: 1900 2224  (Lưu ý: Hotline hoạt động mỗi ngày từ 8h – 22h) </span></span></strong></span></span></p><p class="cdt4ke" style="margin-top: 15px; text-align: justify;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:14.0pt"><span style="color:#212121">Website: </span></span></strong><em><span style="font-size:14.0pt"><span style="color:#212121">
     cinema.com.vn</span></span></em></span></span></p></div><p>&nbsp;</p><div style="left: 52px; top: 3230.16px;">&nbsp;</div><div style="left: 52px; top: 3230.16px;">&nbsp;</div>
 
 

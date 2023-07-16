@@ -2,7 +2,7 @@
 <style>
     .button1{
         background-color: white;  color: black;
-        border: 2px solid #000000;
+        border: 2px solid #b0adad;
          -webkit-transition-duration: 0.4s;
          transition-duration: 0.4s;
 
@@ -17,7 +17,7 @@
     <div class=" row">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/3"><i class="fa fa-home"></i> Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/trangchu"><i class="fa fa-home"></i> Trang chủ</a></li>
             <li class="breadcrumb-item"><a href="/phim">Phim </a></li>
             <li class="breadcrumb-item active" aria-current="page">Lịch chiếu</li>
           </ol>
@@ -25,19 +25,19 @@
     </div>
 @foreach ($schieu as $tenrap=>$lst)
 <div class="top1">
-<div class="top2 row">
+<div class="top2 row" style="font-family: Tahoma, serif;">
     <div class="col-6" >
         <a> <b>{{$tenrap}}</b></a>
     </div>
 </div>
-<nav class="menu row" >
-    <div class="logo col-3">
+<nav class="menu row" style="font-family: Tahoma, serif; border-style: solid;">
+    <div class="logo col-3" >
         <h6>2D:Phụ Đề</h6>
     </div>
     <div class="col-6 float-right   mt-4">
          <div class="dropdown" style="display:inline-block">
             @foreach ($lst as $suat)
-            <a href="/ghe/{{$suat->id}}"><button type="button"  class="button1" style="width:78%"> {{\Carbon\Carbon::createFromTimestamp(strtotime($suat->thoigian))->format('d-m-Y H:i')}}</button></a>
+            <a href="/ghe/{{$suat->id}}"><button type="button"  class="btn btn-outline-dark " style="width:78%"> {{\Carbon\Carbon::createFromTimestamp(strtotime($suat->thoigian))->format('d-m-Y H:i')}}</button></a>
             @endforeach
         </div>
     </div>
