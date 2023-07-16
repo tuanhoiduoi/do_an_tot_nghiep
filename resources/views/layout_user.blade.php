@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-
+    <title>CINEMA</title>
 
 	<link href="/vendor/fontawesome/css/all.min.css" rel="stylesheet"/>
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -94,9 +94,9 @@
 
                         <ul class="nav__ul" style="font-family: Courier New, monospace">
 
-                            <p>Chi nhánh 1:<a href=""> 718bis Kinh Dương Vương, Q.6, Tp. Hồ Chí Minh</a></p>
-						<p>Chi nhánh 2:<a href=""> 246 Nguyễn Hồng Đào, Q.Tân Bình, Tp. Hồ Chí Minh</a></p>
-						<p>Chi nhánh 3:<a href=""> 116 Nguyễn Du, Q.1, Tp. Hồ Chí Minh</a></p>
+                        <a href="#" style="color:#f9f9f9"> Tầng 7 | Hùng Vương Plaza, 126 Hồng Bàng, Phường 12, Quận 5, TP. Hồ Chí Minh</a><br>
+						<a href="#"  style="color:#f9f9f9"> Tầng B1 , TTTM Vincom Center Landmark 81, 772 Điện Biên Phủ, P.22, Q. Bình Thạnh, HCM</a><br>
+						<a href="#"  style="color:#f9f9f9"> Tầng 5, Pearl Plaza, 561A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM</a><br>
 
                         </ul>
 
@@ -123,11 +123,11 @@
 
                           <ul class="nav__ul" style="font-family: Courier New, monospace">
 
-                              <a >CHÍNH SÁCH BẢO MẬT</a><br>
+                              <a href="/gioithieu" style="color:#f9f9f9">CHÍNH SÁCH BẢO MẬT</a><br>
 
-                              <a >QUY CHẾ HOẠT ĐỐNG</a><br>
+                              <a href="/gioithieu" style="color:#f9f9f9">QUY CHẾ HOẠT ĐỐNG</a><br>
 
-                              <a >THỎA MÃN SỬ DỤNG</a><br>
+                              <a href="/gioithieu" style="color:#f9f9f9" >THỎA MÃN SỬ DỤNG</a><br>
                           </ul>
 
                     </div>

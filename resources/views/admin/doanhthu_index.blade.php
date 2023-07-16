@@ -14,12 +14,12 @@ width: 300%;
 
 <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card" style="background-color: rgb(251, 132, 14);">
+      <div class="card" style="background-color: rgb(12, 143, 155); ">
         <div class="card-body p-3" style="width:300px">
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">TÀI KHOẢN ĐÃ ĐĂNG KÝ:</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TÀI KHOẢN ĐÃ ĐĂNG KÝ:</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{ $demusers }}
                 </h5>
@@ -39,12 +39,12 @@ width: 300%;
     </div>
 
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-        <div class="card" style="background-color: rgb(251, 132, 14);">
+        <div class="card" style="background-color: rgb(12, 143, 155); ">
           <div class="card-body p-3">
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ VÉ HIỆN TẠI:</p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TỔNG SỐ VÉ HIỆN TẠI:</p>
                   <h5 class="font-weight-bolder mb-0">
                     {{ $demticket }} Vé
                   </h5>
@@ -64,12 +64,12 @@ width: 300%;
       </div>
 
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card" style="background-color: rgb(251, 132, 14);">
+      <div class="card" style="background-color: rgb(12, 143, 155); ">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ VÉ CÒN TRỐNG:</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TỔNG SỐ VÉ CÒN TRỐNG:</p>
                 <h5 class="font-weight-bolder mb-0">
                     {{ $totalTicketnull }} Vé
                 </h5>
@@ -88,12 +88,12 @@ width: 300%;
       </div>
     </div>
     <div class="col-xl-3 col-sm-6">
-        <div class="card" style="background-color: rgb(251, 132, 14);">
+        <div class="card" style="background-color: rgb(12, 143, 155); ">
           <div class="card-body p-3">
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ PHIM HIỆN ĐANG CÓ TRÊN WEB: </p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TỔNG SỐ PHIM HIỆN ĐANG CÓ TRÊN WEB: </p>
                   <h5 class="font-weight-bolder mb-0">
                       {{$demfilm}}
 
@@ -113,12 +113,12 @@ width: 300%;
         </div>
       </div>
       <div class="col-xl-3 col-sm-6">
-        <div class="card"style="background-color: rgb(251, 132, 14);"     >
+        <div class="card"style="background-color: rgb(12, 143, 155); "     >
           <div class="card-body p-3" >
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SUẤT CHIẾU TRÊN WEB: </p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TỔNG SUẤT CHIẾU TRÊN WEB: </p>
                   <h5 class="font-weight-bolder mb-0">
                       {{$demshowtime}}
 
@@ -138,13 +138,13 @@ width: 300%;
         </div>
       </div>
       <div class="col-xl-3 col-sm-6">
-        <div class="card" style="background-color: rgb(251, 132, 14);    width: 100%;
+        <div class="card" style="background-color: rgb(12, 143, 155);    width: 100%;
         height: 77%;">
           <div class="card-body p-3" >
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">SỐ RẠP ĐANG CÓ: </p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">SỐ RẠP ĐANG CÓ: </p>
                   <h5 class="font-weight-bolder mb-0">
                       {{$demcinema}}
                   </h5>
@@ -163,13 +163,13 @@ width: 300%;
     </div>
 </div>
 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-        <div class="card" style="background-color: rgb(251, 172, 14);     width: 100%;
+        <div class="card" style="background-color: rgb(12, 143, 155);    width: 100%;
         height: 77%;">
           <div class="card-body p-3" >
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">TỔNG SỐ PHÒNG:</p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold" style="color: black">TỔNG SỐ PHÒNG:</p>
                   <h5 class="font-weight-bolder mb-0">
                     {{ $demroom }}
                   </h5>

@@ -41,7 +41,7 @@
     <div class="nen">
         <div class="image2"  >
             <h2 class="title text-center " >
-                <p >MÀN CHIẾU</p>
+                <p >MÀN HÌNH</p>
             </h2>
             {{-- <center>
         <img src="/images/smart-tv.png" height="400px" width="600px" />

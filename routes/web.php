@@ -80,15 +80,15 @@ Route::get('/1', function () {
 Route::get('/gioithieu', function () {
     return view('user.gioithieu');
 });
- Route::get('/trangchu', function () {
-     return view('user.trangchu_user');
-});
-Route::get('/5', function () {
-    return view('admin.doanhthu_index');
-});
-Route::get('/4', function () {
-    return view('user.gdich');
-});
+//  Route::get('/3', function () {
+//      return view('user.trangchu_user');
+// });
+// Route::get('/5', function () {
+//     return view('admin.doanhthu_index');
+// });
+// Route::get('/4', function () {
+//     return view('user.gdich');
+// });
 
 
 // Route::post('/momo_payment', [thanhtoanController::class,'momo_payment']);
