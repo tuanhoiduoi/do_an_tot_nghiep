@@ -93,6 +93,8 @@ class ChairController extends Controller
     }
 
     public function tke(Request $req){
+
+        if(Auth::user()->is_admin == 1){
         $totalUsers = User::all();
     $demusers = $totalUsers->count();
     // dd($demusers);
@@ -144,7 +146,8 @@ class ChairController extends Controller
         $th1 = \DB::table('tickets')
         ->join('showtimes','showtimes.id','=','tickets.show_id')
         ->join('bills','bills.id','=','tickets.bill_id')
-        ->whereMonth('thoigian','=',1)
+        ->whereMonth('ngaylap','=',1)
+        ->where('bills.trangthai','đã thanh toán')
         ->select('*')->get();
         foreach ($th1 as $t1) {
 
@@ -155,7 +158,8 @@ class ChairController extends Controller
         $th2 = \DB::table('tickets')
         ->join('showtimes','showtimes.id','=','tickets.show_id')
         ->join('bills','bills.id','=','tickets.bill_id')
-        ->whereMonth('thoigian','=',2)
+        ->whereMonth('ngaylap','=',2)
+        ->where('bills.trangthai','đã thanh toán')
         ->select('*')->get();
         foreach ($th2 as $t2) {
 
@@ -166,7 +170,8 @@ class ChairController extends Controller
          $th3 = \DB::table('tickets')
         ->join('showtimes','showtimes.id','=','tickets.show_id')
         ->join('bills','bills.id','=','tickets.bill_id')
-        ->whereMonth('thoigian','=',3)
+        ->whereMonth('ngaylap','=',3)
+        ->where('bills.trangthai','đã thanh toán')
         ->select('*')->get();
 
         foreach ($th3 as $t3) {
@@ -178,7 +183,8 @@ class ChairController extends Controller
         $th4 = \DB::table('tickets')
         ->join('showtimes','showtimes.id','=','tickets.show_id')
         ->join('bills','bills.id','=','tickets.bill_id')
-        ->whereMonth('thoigian','=',4)
+        ->whereMonth('ngaylap','=',4)
+        ->where('bills.trangthai','đã thanh toán')
         ->select('*')->get();
 
         foreach ($th4 as $t4) {
@@ -190,7 +196,8 @@ class ChairController extends Controller
         $th5 = \DB::table('tickets')
         ->join('showtimes','showtimes.id','=','tickets.show_id')
         ->join('bills','bills.id','=','tickets.bill_id')
-        ->whereMonth('thoigian','=',5)
+        ->whereMonth('ngaylap','=',5)
+        ->where('bills.trangthai','đã thanh toán')
         ->select('*')->get();
         foreach ($th5 as $t5) {
 
@@ -201,7 +208,8 @@ class ChairController extends Controller
            $th6 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',6)
+           ->whereMonth('ngaylap','=',6)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th6 as $t6) {
 
@@ -212,7 +220,8 @@ class ChairController extends Controller
            $th7 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',7)
+           ->whereMonth('ngaylap','=',7)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th7 as $t7) {
 
@@ -222,7 +231,8 @@ class ChairController extends Controller
            $th8 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',8)
+           ->whereMonth('ngaylap','=',8)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th8 as $t8) {
 
@@ -232,7 +242,8 @@ class ChairController extends Controller
            $th9 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',9)
+           ->whereMonth('ngaylap','=',9)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th9 as $t9) {
 
@@ -242,7 +253,8 @@ class ChairController extends Controller
            $th10 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',10)
+           ->whereMonth('ngaylap','=',10)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th10 as $t10) {
 
@@ -252,7 +264,8 @@ class ChairController extends Controller
            $th11 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',11)
+           ->whereMonth('ngaylap','=',11)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th11 as $t11) {
 
@@ -262,7 +275,8 @@ class ChairController extends Controller
            $th12 = \DB::table('tickets')
            ->join('showtimes','showtimes.id','=','tickets.show_id')
            ->join('bills','bills.id','=','tickets.bill_id')
-           ->whereMonth('thoigian','=',12)
+           ->whereMonth('ngaylap','=',12)
+           ->where('bills.trangthai','đã thanh toán')
            ->select('*')->get();
            foreach ($th12 as $t12) {
 
@@ -295,6 +309,8 @@ class ChairController extends Controller
             'totalTicketdeleted_at'=>$totalTicketdeleted_at,
     ]);
     }
+    return redirect()->back();
+}
 
 
 

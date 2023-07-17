@@ -193,7 +193,7 @@ width: 300%;
       <div class="card z-index-2">
         <div class="card-body p-3" style="    background-color: rgb(12, 143, 155);">
 
-          <h6 class="ms-2 mt-4 mb-0" style="color: black"><b><u>THỐNG KÊ DOANH THU:</u> </b></h6>
+          <h6 class="ms-2 mt-4 mb-0" style="color: black"><b><u>THỐNG KÊ DOANH THU THEO NĂM:</u> </b></h6>
           <div class="container border-radius-lg">
             <div class="row">
 
@@ -261,7 +261,7 @@ width: 300%;
           data: {
             labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'],
             datasets: [{
-              label: 'Doanh Thu 2023',
+              label: 'Doanh Thu Tháng',
               data: [{{ $tongtien1 }}, {{ $tongtien2 }},{{ $tongtien3 }},
               {{ $tongtien4 }}, {{ $tongtien5 }},{{ $tongtien6 }} ,{{ $tongtien7 }},{{ $tongtien8 }},{{ $tongtien9 }},
               {{ $tongtien10 }},{{ $tongtien11 }},{{ $tongtien12 }}],

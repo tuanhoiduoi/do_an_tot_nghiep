@@ -36,7 +36,7 @@
 
                         <p class="btnorder">
                             <a href="/suatchieu/{{$film->id}}"> <button type="button" class="btn btn-primary">Mua vé</button></a>
-                            <a href="/images/trailer.mp4"><button type="button" class="btn btn-warning">Trailer</button></a>
+                            <a href="/images/{{$film->trailer}}"><button type="button" class="btn btn-warning">Trailer</button></a>
                         </p>
 
                     </section>

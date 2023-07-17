@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/tickets', TicketController::class);
     Route::resource('/bills', BillController::class);
     Route::resource('/chairs', ChairController::class);
+    Route::get('/ad', [ChairController::class,'tke']);
 });
 
 
@@ -96,7 +97,7 @@ Route::get('/gioithieu', function () {
 
 
 
-Route::get('/tke', [ChairController::class,'tke']);
+
 
 // Route::post('/save-checkbox', [ChairController::class, 'save'])->name('save-checkbox');
 Route::get('/ss', [ChairController::class,'index']);
