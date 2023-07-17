@@ -63,6 +63,11 @@ class FilmController extends Controller
         }else{
             //kiem tra co cap nhat hinh khong
             $path = $film->hinh;
+            $video = $film->trailer;
+            if($req->hasFile('trailer') && $req->trailer->isValid()){
+                $fileName = $req->trailer->getClientOriginalName();
+                $video = $fileName;
+            }
 
             if($req->hasFile('hinh') && $req->hinh->isValid()){
                 $fileName = $req->hinh->getClientOriginalName();
@@ -71,6 +76,7 @@ class FilmController extends Controller
             $film->fill([
                 'tenphim'=>$req->tenphim,
                 'hinh'=>$path,
+                'trailer' => $video,
                 'noidung'=>$req->noidung,
                 'thoiluong'=>$req->thoiluong,
                 'daodien'=>$req->daodien,
@@ -86,12 +92,12 @@ class FilmController extends Controller
     }
     public function store(Request $req){
 
-
         $validator = Validator::make($req->all(),[
             'tenphim' => 'required',
             'noidung' => 'required',
             'thoiluong' => 'required|numeric',
             'daodien' => 'required',
+            'trailer' => 'required',
         ]);
 
         if($req->trangthai == null){
@@ -103,15 +109,14 @@ class FilmController extends Controller
             $message = 'Lỗi: dữ liệu trống hoặc hợp lệ';
             return view('admin.create_film',['message'=>$message]);
         }else{
-            $fileName = $req->hinh->getClientOriginalName();
-            $path = $fileName;
+
             $req=Film::create([
-                'hinh' => $path,
+                'hinh' => $req->hinh->getClientOriginalName(),
                 'tenphim' => $req->tenphim,
                 'noidung' => $req->noidung,
                 'thoiluong' => $req->thoiluong,
                 'daodien' => $req->daodien,
-                'trailer' => 'trailer.mp4',
+                'trailer' => $req->trailer->getClientOriginalName(),
                 'trangthai' => $trangthai,
             ]);
             return redirect()->route('films.index');

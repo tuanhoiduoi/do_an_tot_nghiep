@@ -33,7 +33,11 @@ class RoomController extends Controller
     public function store(Request $req){
 
         $checkboxes = $req->input('ghe');
-
+        if($req->trangthai == null){
+            $trangthai = 0;
+        }else{
+            $trangthai = $req->trangthai;
+        }
         if($checkboxes == null){
             $message = 'Lỗi: Bắt buộc phải tạo ghế';
             $lst = Cinema::all();
@@ -60,7 +64,7 @@ class RoomController extends Controller
                 'dong' => $dong,
                 'cot' => $cot,
                 'cine_id'=>$req->cine_id,
-                'trangthai' => $req->trangthai,
+                'trangthai' => $trangthai,
             ]);
 
             $latestId = Room::latest()->first()->id;

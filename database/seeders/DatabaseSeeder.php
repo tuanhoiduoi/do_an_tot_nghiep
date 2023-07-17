@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PhimSeeder::class,
             RapSeeder::class,
+            // PhongSeeder::class,
+            // SuatChieuSeeder::class,
+            // GheSeeder::class,
+            // VeSeeder::class,
         ]);
     }
 }

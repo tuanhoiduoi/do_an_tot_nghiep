@@ -16,12 +16,32 @@ class VeSeeder extends Seeder
             [
                 'show_id' => 1,
                 'chair_id' => 1,
-                'bill_id' => 1,
+                'bill_id' => null,
             ],
             [
-                'show_id' => 2,
-                'bill_id' =>null,
-                'chair_id' => 1,
+                'show_id' => 1,
+                'chair_id' => 2,
+                'bill_id' => null,
+            ],
+            [
+                'show_id' => 1,
+                'chair_id' => 3,
+                'bill_id' => null,
+            ],
+            [
+                'show_id' => 1,
+                'chair_id' => 4,
+                'bill_id' => null,
+            ],
+            [
+                'show_id' => 1,
+                'chair_id' => 5,
+                'bill_id' => null,
+            ],
+            [
+                'show_id' => 1,
+                'chair_id' => 6,
+                'bill_id' => null,
             ],
         ]);
     }
