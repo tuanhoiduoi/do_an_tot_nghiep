@@ -27,7 +27,10 @@
         <img src="{{$film->hinh}}">
         <input type="file" class="form-control" accept="images/*" name="hinh">
     </div>
-
+    <div class="mb-3">
+        <label for="" class="form-label">Trailer</label>
+        <input type="file" class="form-control" accept="video/*" name="trailer">
+    </div>
     <div class="mb-3">
         <label for="" class="form-label">Nội dung</label>
         <textarea name="noidung" class="form-control" value="{{$film->noidung}}">{{$film->noidung}}</textarea>

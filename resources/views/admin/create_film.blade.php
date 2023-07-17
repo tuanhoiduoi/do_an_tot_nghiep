@@ -17,6 +17,10 @@
         <input type="file" class="form-control" accept="images/*" name="hinh">
     </div>
     <div class="mb-3">
+        <label for="" class="form-label">Trailer</label>
+        <input type="file" class="form-control" accept="video/*" name="trailer">
+    </div>
+    <div class="mb-3">
         <label for="" class="form-label">Nội dung</label>
         <textarea class="form-control" name="noidung"></textarea>
     </div>
@@ -29,7 +33,7 @@
         <input type="text" class="form-control" name="daodien">
     </div>
     <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" name="trangthai" value="1" >
+        <input type="checkbox" class="form-check-input" name="trangthai" value="1">
         <label class="form-check-label" for="">Hoạt động</label>
     </div>
     <button type="submit" class="btn btn-primary">Lưu</button>
