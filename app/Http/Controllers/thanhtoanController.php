@@ -27,10 +27,10 @@ class thanhtoanController extends Controller
                 ]);
 
                 // $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
-                return redirect()->back();
+                // return redirect()->back();
 
                 $film = Film::where('trangthai','1')-> orderBy('films.id',)->get();
-                // return redirect()->route('/');
+                return redirect()->route('/');
 
                 // return view('user.phimdangchieu')->with('phim',$film);
             }
