@@ -27,7 +27,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="#" class="text-nowrap logo-img" >
+          <a href="/ad" class="text-nowrap logo-img" >
             <span style="font-size:25px;padding-left:50px">Home</span>
           </a>
         </div>
@@ -98,14 +98,7 @@
                   <span class="hide-menu">Quản lý ghế</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="/tke" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-layout-dashboard"></i>
-                  </span>
-                  <span class="hide-menu">Thống kê doanh thu</span>
-                </a>
-            </li>
+
           </ul>
 
         </nav>
